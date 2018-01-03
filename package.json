@@ -1,0 +1,48 @@
+{
+  "name": "react-ts-starter",
+  "version": "1.0.0",
+  "description": "React, React Router 4.0 and Webpack 3 with Material UI as CSS in JS library",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist/**/*",
+    "dev-build": "npm run clean && NODE_ENV=development webpack --progress --config ./webpack.config.js",
+    "build": "npm run clean && NODE_ENV=production webpack -p --progress --config ./webpack.config.js",
+    "dev": "node_modules/.bin/webpack-dev-server --color --progress --open"
+  },
+  "author": "Loala.js",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^4.14.0",
+    "material-ui": "^1.0.0-beta.26",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-tap-event-plugin": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.31",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-router-dom": "^4.2.3",
+    "@types/react-tap-event-plugin": "^0.0.30",
+    "css-loader": "^0.28.7",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.14.7",
+    "sass-loader": "^6.0.6",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.19.1",
+    "ts-loader": "^3.2.0",
+    "tslint": "^5.8.0",
+    "tslint-config-airbnb": "^5.4.2",
+    "tslint-react": "^3.3.3",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  }
+}

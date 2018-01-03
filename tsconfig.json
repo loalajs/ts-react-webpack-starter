@@ -1,0 +1,27 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": false,
+    "outDir": "./dist/client",
+    "rootDir": ".",
+    "pretty": true,
+    "baseUrl": ".",
+    "jsx": "react",
+    "lib": ["es2015", "dom"]
+  },
+  "include": [
+    "**/*.tsx",
+    "**/*.ts"
+  ]
+}

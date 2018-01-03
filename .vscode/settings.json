@@ -1,0 +1,56 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.sublime-workspace": true,
+    "tslint.json": true,
+    ".eslintrc.json": true,
+    "package-lock.json": true,
+    "yarn.lock": true
+  },
+  "editor.rulers": [150],
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[typescript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[css]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[scss]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[less]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[php]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+  }
+}
