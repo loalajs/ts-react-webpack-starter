@@ -27,6 +27,20 @@ const config = {
               loader: 'css-loader',
               options: {
                 sourceMap: true,
+                importLoaders: 3,
+              },
+            },
+            {
+              /** If a previous loader like
+               * e.g sass-loader is applied and it's sourceMap option is set,
+               * but the sourceMap option in postcss-loader is omitted,
+               * previous source maps will be discarded by postcss-loader entirely. */
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true,
+                config: {
+                  path: 'src/client/config/postcss.config.js',
+                },
               },
             },
             {

@@ -13,7 +13,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
     "strictNullChecks": false,
-    "outDir": "./dist/client",
+    "outDir": "../../dist/client",
     "rootDir": ".",
     "pretty": true,
     "baseUrl": ".",
