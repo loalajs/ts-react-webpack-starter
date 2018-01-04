@@ -3515,6 +3515,10 @@ normalize-scroll-left@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/normalize-scroll-left/-/normalize-scroll-left-0.1.2.tgz#6b79691ba79eb5fb107fa5edfbdc06b55caee2aa"
 
+normalize-scss@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/normalize-scss/-/normalize-scss-7.0.0.tgz#92eaac6554cc376336c06682a0d6a2099bbb0889"
+
 normalize-url@^1.4.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-1.9.1.tgz#2cc0d66b31ea23036458436e3620d85954c66c3c"
