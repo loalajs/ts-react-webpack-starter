@@ -11,28 +11,34 @@ const config = {
   entry: path.resolve(CLIENT_SRC_PATH, 'main.tsx'),
   output: {
     path: path.resolve(CLIENT_DIST_PATH),
-    filename: '[name]-[hash].js',
-    publicPath: '/',
+    filename: '[name]-bundle-[hash].js',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.json', '.css', '.scss'],
+    /** Must include .js, .jsx for react to resolve after ts-loader */
+    extensions: ['.ts', '.tsx', '.jsx', '.js', '.json', '.css', '.scss'],
   },
   module: {
     rules: [
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          use: [{
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+              },
             },
-          }, {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
+            {
+              loader: 'resolve-url-loader',
             },
-          }],
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
+          ],
           /**
            * Use style-loader in development
            * Usually, it's recommended to extract the style sheets into a dedicated file
@@ -64,7 +70,7 @@ const config = {
       template: path.join(CLIENT_SRC_PATH, 'index.html'),
     }),
     new ExtractTextPlugin({
-      filename: '[name]-[contenthash].css',
+      filename: '[name]-bundle-[contenthash].css',
       disable: IS_DEV,
     }),
   ],
