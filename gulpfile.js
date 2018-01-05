@@ -8,7 +8,17 @@ const gulp = require('gulp');
 /**
  * Build client source code task
  */
-const clientWebpack = webpack(require('./src/client/config/webpack.config'));
+const prodWebpack = webpack(require('./src/client/config/webpack.config.prod'));
+const devWebpack = webpack(require('./src/client/config/webpack.config.dev'));
+
+const { NODE_ENV } = process.env;
+let clientWebpack = {};
+
+if (NODE_ENV === 'production') {
+  clientWebpack = prodWebpack;
+} else {
+  clientWebpack = devWebpack;
+}
 
 gulp.task('build-client-src', (done) => {
   clientWebpack.run((err, stats) => {
@@ -34,7 +44,7 @@ gulp.task('build-client', ['build-client-src']);
  * Build client and watch for changes
  */
 gulp.task('build-client:watch', ['build-client'], () => {
-  gulp.watch('src/client/**/*.tsx', ['build-client']);
+  gulp.watch('src/client/**/*', ['build-client']);
 });
 
 /**
@@ -87,9 +97,9 @@ gulp.task('build-styles:watch', ['build-styles'], () => {
 /**
  * Default task
  */
-gulp.task('default', ['build-styles', 'build-server']);
+gulp.task('default', ['build-styles', 'build-server', 'build-client']);
 
 /**
  * Watch task
  */
-gulp.task('watch', ['build-styles:watch', 'build-server:watch']);
+gulp.task('watch', ['build-styles:watch', 'build-server:watch', 'build-client:watch']);
