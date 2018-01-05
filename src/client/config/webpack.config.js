@@ -120,10 +120,9 @@ const config = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: ENV.NODE_ENV,
-        PROTOCOL: ENV.PROTOCOL,
-        HOST: ENV.HOST,
-        PORT: ENV.PORT,
+        NODE_ENV: `'${ENV.NODE_ENV}'`,
+        PROTOCOL: `'${ENV.PROTOCOL}'`,
+        HOST: `'${ENV.HOST}'`,
       },
     }),
   ],
