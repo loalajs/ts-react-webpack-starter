@@ -27,4 +27,5 @@ typings/
 .env-dev
 .env-prod
 .env
+.env.example
 

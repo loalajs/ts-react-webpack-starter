@@ -1,0 +1,29 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "outDir": "../../dist/server",
+    "rootDir": ".",
+    "pretty": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "importHelpers": true,
+    "paths": {
+      "app/server/*": ["*"]
+    }
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}

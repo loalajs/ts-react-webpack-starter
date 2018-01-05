@@ -1,17 +1,27 @@
 const path = require('path');
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const CLIENT_SRC_PATH = path.join(__dirname, 'src', 'client');
-const CLIENT_DIST_PATH = path.join(__dirname, 'dist', 'client');
-const { NODE_ENV } = process.env;
-const IS_DEV = NODE_ENV === 'development';
+/** Paths are defined here  */
+const CLIENT_SRC_PATH = path.join(__dirname, '..');
+const CLIENT_DIST_PATH = path.join(__dirname, '..', '..', '..', 'dist', 'client');
+const POSTCSS_CONFIG_PATH = path.resolve(__dirname, 'postcss.config.js');
 
+/** Define env */
+const ENV = process.env;
+const { NODE_ENV } = ENV;
+const IS_DEV = NODE_ENV === 'development';
+const PROTOCOL = ENV.PROTOCOL || 'http';
+const HOST = ENV.HOST || '0.0.0.0';
+const PORT = ENV.PORT || 3001;
+
+/** Webpack config start here */
 const config = {
   entry: path.resolve(CLIENT_SRC_PATH, 'main.tsx'),
   output: {
-    path: path.resolve(CLIENT_DIST_PATH),
-    filename: '[name]-bundle-[hash].js',
+    path: CLIENT_DIST_PATH,
+    filename: '[name]-bundle-[hash:8].js',
   },
   resolve: {
     /** Must include .js, .jsx for react to resolve after ts-loader */
@@ -39,7 +49,7 @@ const config = {
               options: {
                 sourceMap: true,
                 config: {
-                  path: 'src/client/config/postcss.config.js',
+                  path: POSTCSS_CONFIG_PATH,
                 },
               },
             },
@@ -67,14 +77,35 @@ const config = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      /** Load Images */
+      {
+        test: /\.(jpg|jpeg|gif|png)$/,
+        exclude: /node_modules/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'static/media/[name].[hash:8].[ext]',
+        },
+      },
+      /** Load fonts */
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        exclude: /node_modules/,
+        loader: 'url-loader',
+        options: {
+          limit: 1024,
+          name: 'static/fonts/[name].[ext]',
+        },
+      },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
     ],
   },
   // Enable sourcemaps for debugging webpack's output.
-  devtool: IS_DEV ? 'eval-cheap-source-map' : 'source-map',
+  devtool: IS_DEV ? 'cheap-module-source-map' : 'source-map',
   devServer: {
-    host: '0.0.0.0',
-    port: 3001,
+    host: HOST,
+    port: PORT,
+    https: PROTOCOL === 'https',
     contentBase: CLIENT_DIST_PATH,
     stats: 'normal',
     historyApiFallback: true,
@@ -84,8 +115,16 @@ const config = {
       template: path.join(CLIENT_SRC_PATH, 'index.html'),
     }),
     new ExtractTextPlugin({
-      filename: '[name]-bundle-[contenthash].css',
+      filename: 'static/styles/[name]-bundle-[contenthash:8].css',
       disable: IS_DEV,
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: ENV.NODE_ENV,
+        PROTOCOL: ENV.PROTOCOL,
+        HOST: ENV.HOST,
+        PORT: ENV.PORT,
+      },
     }),
   ],
 };
