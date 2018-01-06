@@ -4,22 +4,22 @@ const baseConfig = require('./webpack.config.base');
 
 /** ENV */
 const {
-  PROTOCOL, HOST, PORT,
+  APP_PROTOCOL, APP_HOST, APP_PORT,
 } = require('./env');
 
 /** Paths */
 const {
-  CLIENT_DIST_PATH,
+  ROOT_DIST_PATH,
 } = require('./path');
 
 
 module.exports = merge(baseConfig, {
   devtool: 'cheap-module-source-map',
   devServer: {
-    host: HOST,
-    port: PORT,
-    https: PROTOCOL === 'https',
-    contentBase: CLIENT_DIST_PATH,
+    host: APP_HOST,
+    port: APP_PORT,
+    https: APP_PROTOCOL === 'https',
+    contentBase: ROOT_DIST_PATH,
     stats: 'normal',
     historyApiFallback: true,
   },

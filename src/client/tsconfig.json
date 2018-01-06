@@ -17,6 +17,11 @@
     "rootDir": ".",
     "pretty": true,
     "baseUrl": ".",
+    "paths": {
+      "*": [
+        "*"
+      ]
+    },
     "jsx": "react",
     "lib": ["es2015", "dom"]
   },

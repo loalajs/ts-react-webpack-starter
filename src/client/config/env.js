@@ -1,12 +1,12 @@
 const ENV = process.env;
 const NODE_ENV = ENV.NODE_ENV === 'production' ? 'production' : 'development';
-const PROTOCOL = ENV.PROTOCOL || 'http';
-const HOST = ENV.HOST || '0.0.0.0';
-const PORT = ENV.PORT || 3001;
+const APP_PROTOCOL = ENV.APP_PROTOCOL || 'http';
+const APP_HOST = ENV.APP_HOST || 'localhost';
+const APP_PORT = ENV.APP_PORT || 3001;
 
 module.exports = {
   NODE_ENV,
-  PROTOCOL,
-  HOST,
-  PORT,
+  APP_PROTOCOL,
+  APP_HOST,
+  APP_PORT,
 };

@@ -8,6 +8,7 @@ const baseConfig = require('./webpack.config.base');
  * Reference: https://stackoverflow.com/questions/35054082/webpack-how-to-build-production-code-and-how-to-use-it
  */
 module.exports = merge(baseConfig, {
+  devtool: 'source-map',
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.DefinePlugin({

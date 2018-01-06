@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve(CLIENT_PATH, 'index.html'));
 });
 app.listen(PORT, () => {
-    console.log(`Server running at host: ${HOST} on port: ${PORT}`);
+    console.log(`Server running at host: ${HOST} on port: ${PORT}; cwd: ${process.cwd()}`);
 });
 
 //# sourceMappingURL=start.js.map

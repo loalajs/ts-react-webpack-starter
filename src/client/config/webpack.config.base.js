@@ -5,26 +5,31 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /** ENV */
 const {
-  PROTOCOL, HOST, PORT,
+  APP_PROTOCOL, APP_HOST, APP_PORT,
 } = require('./env');
 
 /** Path */
 const {
-  CLIENT_SRC_PATH,
-  CLIENT_DIST_PATH,
+  ROOT_SRC_PATH,
+  ROOT_DIST_PATH,
   POSTCSS_CONFIG_PATH,
 } = require('./path');
 
 /** Webpack config start here */
 const config = {
-  entry: path.resolve(CLIENT_SRC_PATH, 'main.tsx'),
+  entry: path.resolve(ROOT_SRC_PATH, 'main.tsx'),
   output: {
-    path: CLIENT_DIST_PATH,
+    path: ROOT_DIST_PATH,
     filename: '[name]-bundle-[hash:8].js',
   },
   resolve: {
     /** Must include .js, .jsx for react to resolve after ts-loader */
     extensions: ['.ts', '.tsx', '.jsx', '.js', '.json', '.css', '.scss'],
+    alias: {},
+    modules: [
+      ROOT_SRC_PATH,
+      'node_modules',
+    ],
   },
   module: {
     rules: [
@@ -101,16 +106,16 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(CLIENT_SRC_PATH, 'index.html'),
+      template: path.join(ROOT_SRC_PATH, 'index.html'),
     }),
     new ExtractTextPlugin({
       filename: 'static/styles/[name]-bundle-[contenthash:8].css',
       disable: true,
     }),
     new webpack.DefinePlugin({
-      'process.env.PROTOCOL': JSON.stringify(PROTOCOL),
-      'process.env.HOST': JSON.stringify(HOST),
-      'process.env.PORT': JSON.stringify(PORT),
+      'process.env.APP_PROTOCOL': JSON.stringify(APP_PROTOCOL),
+      'process.env.APP_HOST': JSON.stringify(APP_HOST),
+      'process.env.APP_PORT': JSON.stringify(APP_PORT),
     }),
   ],
 };

@@ -18,5 +18,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running at host: ${HOST} on port: ${PORT}`);
+  console.log(`Server running at host: ${HOST} on port: ${PORT}; cwd: ${process.cwd()}`);
 });
