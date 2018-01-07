@@ -17812,8 +17812,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js??ref--0-2!../../node_modules/postcss-loader/lib/index.js??ref--0-3!../../node_modules/resolve-url-loader/index.js!../../node_modules/sass-loader/lib/loader.js??ref--0-5!./styles.scss", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js??ref--0-2!../../node_modules/postcss-loader/lib/index.js??ref--0-3!../../node_modules/resolve-url-loader/index.js!../../node_modules/sass-loader/lib/loader.js??ref--0-5!./styles.scss");
+		module.hot.accept("!!../../../node_modules/css-loader/index.js??ref--0-2!../../../node_modules/postcss-loader/lib/index.js??ref--0-3!../../../node_modules/resolve-url-loader/index.js!../../../node_modules/sass-loader/lib/loader.js??ref--0-5!./styles.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js??ref--0-2!../../../node_modules/postcss-loader/lib/index.js??ref--0-3!../../../node_modules/resolve-url-loader/index.js!../../../node_modules/sass-loader/lib/loader.js??ref--0-5!./styles.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -18387,4 +18387,4 @@ module.exports = function (css) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main-bundle-d4d49a6a.js.map
+//# sourceMappingURL=main-bundle-12243be6.js.map

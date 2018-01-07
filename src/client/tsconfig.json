@@ -14,9 +14,9 @@
     "alwaysStrict": true,
     "strictNullChecks": false,
     "outDir": "../../dist/client",
-    "rootDir": ".",
+    "rootDir": "./app",
     "pretty": true,
-    "baseUrl": ".",
+    "baseUrl": "./app",
     "paths": {
       "*": [
         "*"

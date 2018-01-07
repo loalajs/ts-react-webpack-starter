@@ -20,7 +20,7 @@
     "declaration": true,
     "importHelpers": true,
     "paths": {
-      "app/server/*": ["*"]
+      "*": ["*"]
     }
   },
   "include": [
