@@ -17,6 +17,8 @@ module.exports = merge(baseConfig, {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
+      minChunks: 3,
+      minSize: 1024,
     }),
   ],
 });
