@@ -8,7 +8,7 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/*.sublime-workspace": true,
-    "tslint.json": true,
+    "tslint.json": false,
     ".eslintrc.json": true,
     "package-lock.json": true,
     "yarn.lock": true
