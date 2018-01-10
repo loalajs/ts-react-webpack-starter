@@ -14,7 +14,7 @@ const {
 
 
 module.exports = merge(baseConfig, {
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   devServer: {
     host: APP_HOST,
     port: APP_PORT,

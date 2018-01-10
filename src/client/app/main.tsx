@@ -9,7 +9,7 @@ import Root from 'routers//Root';
 import 'es6-promise/auto';
 
 /** Base style that contains normalize-scss */
-import './styles';
+import './styles.critical';
 
 ReactDOM.render(
     <main>

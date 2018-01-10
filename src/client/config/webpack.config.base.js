@@ -1,18 +1,28 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { cssConfig, criticalCssFilename, externalCssFilename } = require('./cssLoader');
 
 /** ENV */
 const {
-  APP_PROTOCOL, APP_HOST, APP_PORT,
+  APP_PROTOCOL, APP_HOST, APP_PORT, NODE_ENV,
 } = require('./env');
+
+const IS_PROD = NODE_ENV === 'production';
+
+/** Css / Scss loader config for
+ * 1. Critical css (Above the fold)
+ * 2. Other css (Below the fold) */
+const criticalCSS = new ExtractTextPlugin(criticalCssFilename);
+const externalCSS = new ExtractTextPlugin(externalCssFilename);
 
 /** Path */
 const {
   ROOT_SRC_PATH,
   ROOT_DIST_PATH,
-  POSTCSS_CONFIG_PATH,
 } = require('./path');
 
 /** Webpack config start here */
@@ -34,57 +44,24 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true,
-                importLoaders: 3,
-              },
-            },
-            {
-              /** If a previous loader like
-               * e.g sass-loader is applied and it's sourceMap option is set,
-               * but the sourceMap option in postcss-loader is omitted,
-               * previous source maps will be discarded by postcss-loader entirely. */
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true,
-                config: {
-                  path: POSTCSS_CONFIG_PATH,
-                },
-              },
-            },
-            {
-              loader: 'resolve-url-loader',
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true,
-              },
-            },
-          ],
-          /**
-           * Use style-loader in development
-           * Usually, it's recommended to extract the style sheets into a dedicated file
-           * in production using the ExtractTextPlugin.
-           * This way your styles are not dependent on JavaScript:
-           */
-          fallback: 'style-loader',
-        }),
+        test: /\.critical\.s?css$/,
+        use: criticalCSS.extract(cssConfig),
+        exclude: /(node_modules|bower_components)/,
+      },
+      {
+        test: /\.s?css$/,
+        use: externalCSS.extract(cssConfig),
+        exclude: /(node_modules|bower_components)\/|\.critical\.scss$/,
       },
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: /(node_modules|bower_components)/,
       },
       /** Load Images */
       {
         test: /\.(jpg|jpeg|gif|png)$/,
-        exclude: /node_modules/,
+        exclude: /(node_modules|bower_components)/,
         loader: 'url-loader',
         options: {
           limit: 10000,
@@ -94,7 +71,7 @@ const config = {
       /** Load fonts */
       {
         test: /\.(woff|woff2|eot|ttf|svg)$/,
-        exclude: /node_modules/,
+        exclude: /(node_modules|bower_components)/,
         loader: 'url-loader',
         options: {
           limit: 1024,
@@ -107,15 +84,27 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(ROOT_SRC_PATH, 'index.html'),
+      minify: {
+        collapseWhitespace: IS_PROD,
+        collapseInlineTagWhitespace: IS_PROD,
+        removeComments: IS_PROD,
+        removeRedundantAttributes: IS_PROD,
+      },
+      inject: true,
     }),
-    new ExtractTextPlugin({
-      filename: 'static/styles/[name]-bundle-[contenthash:8].css',
-      disable: true,
+    criticalCSS,
+    externalCSS,
+    new StyleExtHtmlWebpackPlugin({
+      file: criticalCssFilename,
+      minify: IS_PROD,
     }),
     new webpack.DefinePlugin({
       'process.env.APP_PROTOCOL': JSON.stringify(APP_PROTOCOL),
       'process.env.APP_HOST': JSON.stringify(APP_HOST),
       'process.env.APP_PORT': JSON.stringify(APP_PORT),
+    }),
+    new BundleAnalyzerPlugin({
+      generateStatsFile: true,
     }),
   ],
 };
