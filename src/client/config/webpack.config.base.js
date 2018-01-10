@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { cssConfig, criticalCssFilename, externalCssFilename } = require('./cssLoader');
@@ -43,6 +45,7 @@ const config = {
   },
   module: {
     rules: [
+      /** Detect .critical.css/.scss for inline critical css */
       {
         test: /\.critical\.s?css$/,
         use: criticalCSS.extract(cssConfig),
@@ -81,6 +84,11 @@ const config = {
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
     ],
   },
+  /** Some plugins could've been placed in prod config.
+   * However, to reduce the potential difference between
+   * dev and prod, i believe it is better to have more sync plugins
+   * so it is less likely to have surprice when building the prod.
+   */
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(ROOT_SRC_PATH, 'index.html'),
@@ -92,8 +100,18 @@ const config = {
       },
       inject: true,
     }),
+    /** ScriptExtHtmlWebpackPlugin must be after HtmlWebpackPlugin  */
+    new ScriptExtHtmlWebpackPlugin({
+      sync: /critical/,
+      defaultAttribute: 'defer',
+    }),
     criticalCSS,
     externalCSS,
+    /** Inline critical css file with name .critical.css / .scss
+     * Warning: If there is no .critical.css / .scss
+     * It will yeild error as StyleExtHtmlWebpackPlugin is not able to
+     * find it from ExtractTextPlugin
+     */
     new StyleExtHtmlWebpackPlugin({
       file: criticalCssFilename,
       minify: IS_PROD,
@@ -102,6 +120,12 @@ const config = {
       'process.env.APP_PROTOCOL': JSON.stringify(APP_PROTOCOL),
       'process.env.APP_HOST': JSON.stringify(APP_HOST),
       'process.env.APP_PORT': JSON.stringify(APP_PORT),
+    }),
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      as: 'script',
+      include: 'all',
+      fileBlacklist: [/\.(css|map)$/, /base?.+/]
     }),
     new BundleAnalyzerPlugin({
       generateStatsFile: true,

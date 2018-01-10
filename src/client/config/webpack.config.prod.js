@@ -1,4 +1,6 @@
 const webpack = require('webpack');
+/** CompressionPlugin require server config */
+// const CompressionPlugin = require('compression-webpack-plugin');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.config.base');
 
@@ -36,5 +38,14 @@ module.exports = merge(baseConfig, {
       minSize: 1024,
     }),
     new webpack.HashedModuleIdsPlugin(),
+    /** CompressionPlugin requires server config
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+    */
   ],
 });

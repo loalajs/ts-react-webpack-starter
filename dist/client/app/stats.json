@@ -3,7 +3,7 @@
   "warnings": [],
   "version": "3.10.0",
   "hash": "94954f3127e420d9adb0",
-  "time": 16062,
+  "time": 17022,
   "publicPath": "",
   "assetsByChunkName": {
     "main": [
@@ -45,7 +45,7 @@
     },
     {
       "name": "index.html",
-      "size": 2756,
+      "size": 2893,
       "chunks": [],
       "chunkNames": [],
       "emitted": true
@@ -1005,15 +1005,6 @@
               "loc": "7:0-26"
             },
             {
-              "moduleId": "onEH",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/MemoryRouter.js",
-              "module": "./node_modules/react-router/es/MemoryRouter.js",
-              "moduleName": "./node_modules/react-router/es/MemoryRouter.js",
-              "type": "harmony import",
-              "userRequest": "react",
-              "loc": "8:0-26"
-            },
-            {
               "moduleId": "p5BY",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Prompt.js",
               "module": "./node_modules/react-router/es/Prompt.js",
@@ -1023,22 +1014,13 @@
               "loc": "7:0-26"
             },
             {
-              "moduleId": "s4hp",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-              "module": "./node_modules/react-router/es/Route.js",
-              "moduleName": "./node_modules/react-router/es/Route.js",
+              "moduleId": "onEH",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/MemoryRouter.js",
+              "module": "./node_modules/react-router/es/MemoryRouter.js",
+              "moduleName": "./node_modules/react-router/es/MemoryRouter.js",
               "type": "harmony import",
               "userRequest": "react",
-              "loc": "11:0-26"
-            },
-            {
-              "moduleId": "twkG",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-              "module": "./node_modules/react-router/es/Router.js",
-              "moduleName": "./node_modules/react-router/es/Router.js",
-              "type": "harmony import",
-              "userRequest": "react",
-              "loc": "11:0-26"
+              "loc": "8:0-26"
             },
             {
               "moduleId": "1S3F",
@@ -1050,13 +1032,22 @@
               "loc": "7:0-26"
             },
             {
-              "moduleId": "bXVx",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
-              "module": "./node_modules/react-router/es/Switch.js",
-              "moduleName": "./node_modules/react-router/es/Switch.js",
+              "moduleId": "twkG",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+              "module": "./node_modules/react-router/es/Router.js",
+              "moduleName": "./node_modules/react-router/es/Router.js",
               "type": "harmony import",
               "userRequest": "react",
-              "loc": "7:0-26"
+              "loc": "11:0-26"
+            },
+            {
+              "moduleId": "s4hp",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+              "module": "./node_modules/react-router/es/Route.js",
+              "moduleName": "./node_modules/react-router/es/Route.js",
+              "type": "harmony import",
+              "userRequest": "react",
+              "loc": "11:0-26"
             },
             {
               "moduleId": "t1d2",
@@ -1066,6 +1057,15 @@
               "type": "harmony import",
               "userRequest": "react",
               "loc": "13:0-26"
+            },
+            {
+              "moduleId": "bXVx",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
+              "module": "./node_modules/react-router/es/Switch.js",
+              "moduleName": "./node_modules/react-router/es/Switch.js",
+              "type": "harmony import",
+              "userRequest": "react",
+              "loc": "7:0-26"
             },
             {
               "moduleId": "vC7t",
@@ -1160,10 +1160,10 @@
               "loc": "7:0-30"
             },
             {
-              "moduleId": "s4hp",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-              "module": "./node_modules/react-router/es/Route.js",
-              "moduleName": "./node_modules/react-router/es/Route.js",
+              "moduleId": "1S3F",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
+              "module": "./node_modules/react-router/es/Redirect.js",
+              "moduleName": "./node_modules/react-router/es/Redirect.js",
               "type": "harmony import",
               "userRequest": "warning",
               "loc": "9:0-30"
@@ -1178,19 +1178,10 @@
               "loc": "9:0-30"
             },
             {
-              "moduleId": "1S3F",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
-              "module": "./node_modules/react-router/es/Redirect.js",
-              "moduleName": "./node_modules/react-router/es/Redirect.js",
-              "type": "harmony import",
-              "userRequest": "warning",
-              "loc": "9:0-30"
-            },
-            {
-              "moduleId": "bXVx",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
-              "module": "./node_modules/react-router/es/Switch.js",
-              "moduleName": "./node_modules/react-router/es/Switch.js",
+              "moduleId": "s4hp",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+              "module": "./node_modules/react-router/es/Route.js",
+              "moduleName": "./node_modules/react-router/es/Route.js",
               "type": "harmony import",
               "userRequest": "warning",
               "loc": "9:0-30"
@@ -1205,6 +1196,15 @@
               "loc": "11:0-30"
             },
             {
+              "moduleId": "bXVx",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
+              "module": "./node_modules/react-router/es/Switch.js",
+              "moduleName": "./node_modules/react-router/es/Switch.js",
+              "type": "harmony import",
+              "userRequest": "warning",
+              "loc": "9:0-30"
+            },
+            {
               "moduleId": "HSnN",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createMemoryHistory.js",
               "module": "./node_modules/history/createMemoryHistory.js",
@@ -1214,15 +1214,6 @@
               "loc": "9:15-33"
             },
             {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-              "type": "harmony import",
-              "userRequest": "warning",
-              "loc": "5:0-30"
-            },
-            {
               "moduleId": "k5k7",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
               "module": "./node_modules/history/es/createHashHistory.js",
@@ -1230,6 +1221,15 @@
               "type": "harmony import",
               "userRequest": "warning",
               "loc": "3:0-30"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "warning",
+              "loc": "5:0-30"
             },
             {
               "moduleId": "o1/Q",
@@ -1328,15 +1328,6 @@
               "loc": "8:0-68"
             },
             {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-              "type": "harmony import",
-              "userRequest": "./LocationUtils",
-              "loc": "7:0-49"
-            },
-            {
               "moduleId": "k5k7",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
               "module": "./node_modules/history/es/createHashHistory.js",
@@ -1344,6 +1335,15 @@
               "type": "harmony import",
               "userRequest": "./LocationUtils",
               "loc": "5:0-68"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "./LocationUtils",
+              "loc": "7:0-49"
             },
             {
               "moduleId": "o1/Q",
@@ -1382,22 +1382,13 @@
             1
           ],
           "assets": [],
-          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "issuerId": "xuWB",
-          "issuerName": "./node_modules/history/es/createBrowserHistory.js",
+          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
+          "issuerId": "k5k7",
+          "issuerName": "./node_modules/history/es/createHashHistory.js",
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "reasons": [
-            {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-              "type": "harmony import",
-              "userRequest": "./createTransitionManager",
-              "loc": "9:0-64"
-            },
             {
               "moduleId": "k5k7",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
@@ -1406,6 +1397,15 @@
               "type": "harmony import",
               "userRequest": "./createTransitionManager",
               "loc": "7:0-64"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "./createTransitionManager",
+              "loc": "9:0-64"
             },
             {
               "moduleId": "o1/Q",
@@ -1607,15 +1607,6 @@
               "loc": "8:0-35"
             },
             {
-              "moduleId": "onEH",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/MemoryRouter.js",
-              "module": "./node_modules/react-router/es/MemoryRouter.js",
-              "moduleName": "./node_modules/react-router/es/MemoryRouter.js",
-              "type": "harmony import",
-              "userRequest": "prop-types",
-              "loc": "9:0-35"
-            },
-            {
               "moduleId": "p5BY",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Prompt.js",
               "module": "./node_modules/react-router/es/Prompt.js",
@@ -1625,22 +1616,13 @@
               "loc": "8:0-35"
             },
             {
-              "moduleId": "s4hp",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-              "module": "./node_modules/react-router/es/Route.js",
-              "moduleName": "./node_modules/react-router/es/Route.js",
+              "moduleId": "onEH",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/MemoryRouter.js",
+              "module": "./node_modules/react-router/es/MemoryRouter.js",
+              "moduleName": "./node_modules/react-router/es/MemoryRouter.js",
               "type": "harmony import",
               "userRequest": "prop-types",
-              "loc": "12:0-35"
-            },
-            {
-              "moduleId": "twkG",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-              "module": "./node_modules/react-router/es/Router.js",
-              "moduleName": "./node_modules/react-router/es/Router.js",
-              "type": "harmony import",
-              "userRequest": "prop-types",
-              "loc": "12:0-35"
+              "loc": "9:0-35"
             },
             {
               "moduleId": "1S3F",
@@ -1652,13 +1634,22 @@
               "loc": "8:0-35"
             },
             {
-              "moduleId": "bXVx",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
-              "module": "./node_modules/react-router/es/Switch.js",
-              "moduleName": "./node_modules/react-router/es/Switch.js",
+              "moduleId": "twkG",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+              "module": "./node_modules/react-router/es/Router.js",
+              "moduleName": "./node_modules/react-router/es/Router.js",
               "type": "harmony import",
               "userRequest": "prop-types",
-              "loc": "8:0-35"
+              "loc": "12:0-35"
+            },
+            {
+              "moduleId": "s4hp",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+              "module": "./node_modules/react-router/es/Route.js",
+              "moduleName": "./node_modules/react-router/es/Route.js",
+              "type": "harmony import",
+              "userRequest": "prop-types",
+              "loc": "12:0-35"
             },
             {
               "moduleId": "t1d2",
@@ -1668,6 +1659,15 @@
               "type": "harmony import",
               "userRequest": "prop-types",
               "loc": "14:0-35"
+            },
+            {
+              "moduleId": "bXVx",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
+              "module": "./node_modules/react-router/es/Switch.js",
+              "moduleName": "./node_modules/react-router/es/Switch.js",
+              "type": "harmony import",
+              "userRequest": "prop-types",
+              "loc": "8:0-35"
             },
             {
               "moduleId": "vC7t",
@@ -2354,10 +2354,10 @@
               "loc": "9:0-34"
             },
             {
-              "moduleId": "s4hp",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-              "module": "./node_modules/react-router/es/Route.js",
-              "moduleName": "./node_modules/react-router/es/Route.js",
+              "moduleId": "1S3F",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
+              "module": "./node_modules/react-router/es/Redirect.js",
+              "moduleName": "./node_modules/react-router/es/Redirect.js",
               "type": "harmony import",
               "userRequest": "invariant",
               "loc": "10:0-34"
@@ -2372,19 +2372,10 @@
               "loc": "10:0-34"
             },
             {
-              "moduleId": "1S3F",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
-              "module": "./node_modules/react-router/es/Redirect.js",
-              "moduleName": "./node_modules/react-router/es/Redirect.js",
-              "type": "harmony import",
-              "userRequest": "invariant",
-              "loc": "10:0-34"
-            },
-            {
-              "moduleId": "bXVx",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
-              "module": "./node_modules/react-router/es/Switch.js",
-              "moduleName": "./node_modules/react-router/es/Switch.js",
+              "moduleId": "s4hp",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+              "module": "./node_modules/react-router/es/Route.js",
+              "moduleName": "./node_modules/react-router/es/Route.js",
               "type": "harmony import",
               "userRequest": "invariant",
               "loc": "10:0-34"
@@ -2399,13 +2390,13 @@
               "loc": "12:0-34"
             },
             {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleId": "bXVx",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
+              "module": "./node_modules/react-router/es/Switch.js",
+              "moduleName": "./node_modules/react-router/es/Switch.js",
               "type": "harmony import",
               "userRequest": "invariant",
-              "loc": "6:0-34"
+              "loc": "10:0-34"
             },
             {
               "moduleId": "k5k7",
@@ -2415,6 +2406,15 @@
               "type": "harmony import",
               "userRequest": "invariant",
               "loc": "4:0-34"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "invariant",
+              "loc": "6:0-34"
             }
           ],
           "usedExports": true,
@@ -2755,22 +2755,13 @@
             1
           ],
           "assets": [],
-          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "issuerId": "xuWB",
-          "issuerName": "./node_modules/history/es/createBrowserHistory.js",
+          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
+          "issuerId": "k5k7",
+          "issuerName": "./node_modules/history/es/createHashHistory.js",
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "reasons": [
-            {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-              "type": "harmony import",
-              "userRequest": "./DOMUtils",
-              "loc": "10:0-169"
-            },
             {
               "moduleId": "k5k7",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
@@ -2779,6 +2770,15 @@
               "type": "harmony import",
               "userRequest": "./DOMUtils",
               "loc": "8:0-129"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "./DOMUtils",
+              "loc": "10:0-169"
             }
           ],
           "usedExports": [
@@ -3035,15 +3035,6 @@
               "loc": "9:0-52"
             },
             {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-              "type": "harmony import",
-              "userRequest": "./PathUtils",
-              "loc": "8:0-106"
-            },
-            {
               "moduleId": "k5k7",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
               "module": "./node_modules/history/es/createHashHistory.js",
@@ -3051,6 +3042,15 @@
               "type": "harmony import",
               "userRequest": "./PathUtils",
               "loc": "6:0-125"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "./PathUtils",
+              "loc": "8:0-106"
             },
             {
               "moduleId": "o1/Q",
@@ -4931,15 +4931,6 @@
           "loc": "7:0-26"
         },
         {
-          "moduleId": "onEH",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/MemoryRouter.js",
-          "module": "./node_modules/react-router/es/MemoryRouter.js",
-          "moduleName": "./node_modules/react-router/es/MemoryRouter.js",
-          "type": "harmony import",
-          "userRequest": "react",
-          "loc": "8:0-26"
-        },
-        {
           "moduleId": "p5BY",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Prompt.js",
           "module": "./node_modules/react-router/es/Prompt.js",
@@ -4949,22 +4940,13 @@
           "loc": "7:0-26"
         },
         {
-          "moduleId": "s4hp",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-          "module": "./node_modules/react-router/es/Route.js",
-          "moduleName": "./node_modules/react-router/es/Route.js",
+          "moduleId": "onEH",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/MemoryRouter.js",
+          "module": "./node_modules/react-router/es/MemoryRouter.js",
+          "moduleName": "./node_modules/react-router/es/MemoryRouter.js",
           "type": "harmony import",
           "userRequest": "react",
-          "loc": "11:0-26"
-        },
-        {
-          "moduleId": "twkG",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-          "module": "./node_modules/react-router/es/Router.js",
-          "moduleName": "./node_modules/react-router/es/Router.js",
-          "type": "harmony import",
-          "userRequest": "react",
-          "loc": "11:0-26"
+          "loc": "8:0-26"
         },
         {
           "moduleId": "1S3F",
@@ -4976,13 +4958,22 @@
           "loc": "7:0-26"
         },
         {
-          "moduleId": "bXVx",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
-          "module": "./node_modules/react-router/es/Switch.js",
-          "moduleName": "./node_modules/react-router/es/Switch.js",
+          "moduleId": "twkG",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+          "module": "./node_modules/react-router/es/Router.js",
+          "moduleName": "./node_modules/react-router/es/Router.js",
           "type": "harmony import",
           "userRequest": "react",
-          "loc": "7:0-26"
+          "loc": "11:0-26"
+        },
+        {
+          "moduleId": "s4hp",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+          "module": "./node_modules/react-router/es/Route.js",
+          "moduleName": "./node_modules/react-router/es/Route.js",
+          "type": "harmony import",
+          "userRequest": "react",
+          "loc": "11:0-26"
         },
         {
           "moduleId": "t1d2",
@@ -4992,6 +4983,15 @@
           "type": "harmony import",
           "userRequest": "react",
           "loc": "13:0-26"
+        },
+        {
+          "moduleId": "bXVx",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
+          "module": "./node_modules/react-router/es/Switch.js",
+          "moduleName": "./node_modules/react-router/es/Switch.js",
+          "type": "harmony import",
+          "userRequest": "react",
+          "loc": "7:0-26"
         },
         {
           "moduleId": "vC7t",
@@ -5086,10 +5086,10 @@
           "loc": "7:0-30"
         },
         {
-          "moduleId": "s4hp",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-          "module": "./node_modules/react-router/es/Route.js",
-          "moduleName": "./node_modules/react-router/es/Route.js",
+          "moduleId": "1S3F",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
+          "module": "./node_modules/react-router/es/Redirect.js",
+          "moduleName": "./node_modules/react-router/es/Redirect.js",
           "type": "harmony import",
           "userRequest": "warning",
           "loc": "9:0-30"
@@ -5104,19 +5104,10 @@
           "loc": "9:0-30"
         },
         {
-          "moduleId": "1S3F",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
-          "module": "./node_modules/react-router/es/Redirect.js",
-          "moduleName": "./node_modules/react-router/es/Redirect.js",
-          "type": "harmony import",
-          "userRequest": "warning",
-          "loc": "9:0-30"
-        },
-        {
-          "moduleId": "bXVx",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
-          "module": "./node_modules/react-router/es/Switch.js",
-          "moduleName": "./node_modules/react-router/es/Switch.js",
+          "moduleId": "s4hp",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+          "module": "./node_modules/react-router/es/Route.js",
+          "moduleName": "./node_modules/react-router/es/Route.js",
           "type": "harmony import",
           "userRequest": "warning",
           "loc": "9:0-30"
@@ -5131,6 +5122,15 @@
           "loc": "11:0-30"
         },
         {
+          "moduleId": "bXVx",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
+          "module": "./node_modules/react-router/es/Switch.js",
+          "moduleName": "./node_modules/react-router/es/Switch.js",
+          "type": "harmony import",
+          "userRequest": "warning",
+          "loc": "9:0-30"
+        },
+        {
           "moduleId": "HSnN",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createMemoryHistory.js",
           "module": "./node_modules/history/createMemoryHistory.js",
@@ -5140,15 +5140,6 @@
           "loc": "9:15-33"
         },
         {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-          "type": "harmony import",
-          "userRequest": "warning",
-          "loc": "5:0-30"
-        },
-        {
           "moduleId": "k5k7",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
           "module": "./node_modules/history/es/createHashHistory.js",
@@ -5156,6 +5147,15 @@
           "type": "harmony import",
           "userRequest": "warning",
           "loc": "3:0-30"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "warning",
+          "loc": "5:0-30"
         },
         {
           "moduleId": "o1/Q",
@@ -5254,15 +5254,6 @@
           "loc": "8:0-68"
         },
         {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-          "type": "harmony import",
-          "userRequest": "./LocationUtils",
-          "loc": "7:0-49"
-        },
-        {
           "moduleId": "k5k7",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
           "module": "./node_modules/history/es/createHashHistory.js",
@@ -5270,6 +5261,15 @@
           "type": "harmony import",
           "userRequest": "./LocationUtils",
           "loc": "5:0-68"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "./LocationUtils",
+          "loc": "7:0-49"
         },
         {
           "moduleId": "o1/Q",
@@ -5308,22 +5308,13 @@
         1
       ],
       "assets": [],
-      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-      "issuerId": "xuWB",
-      "issuerName": "./node_modules/history/es/createBrowserHistory.js",
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
+      "issuerId": "k5k7",
+      "issuerName": "./node_modules/history/es/createHashHistory.js",
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "reasons": [
-        {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-          "type": "harmony import",
-          "userRequest": "./createTransitionManager",
-          "loc": "9:0-64"
-        },
         {
           "moduleId": "k5k7",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
@@ -5332,6 +5323,15 @@
           "type": "harmony import",
           "userRequest": "./createTransitionManager",
           "loc": "7:0-64"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "./createTransitionManager",
+          "loc": "9:0-64"
         },
         {
           "moduleId": "o1/Q",
@@ -5533,15 +5533,6 @@
           "loc": "8:0-35"
         },
         {
-          "moduleId": "onEH",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/MemoryRouter.js",
-          "module": "./node_modules/react-router/es/MemoryRouter.js",
-          "moduleName": "./node_modules/react-router/es/MemoryRouter.js",
-          "type": "harmony import",
-          "userRequest": "prop-types",
-          "loc": "9:0-35"
-        },
-        {
           "moduleId": "p5BY",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Prompt.js",
           "module": "./node_modules/react-router/es/Prompt.js",
@@ -5551,22 +5542,13 @@
           "loc": "8:0-35"
         },
         {
-          "moduleId": "s4hp",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-          "module": "./node_modules/react-router/es/Route.js",
-          "moduleName": "./node_modules/react-router/es/Route.js",
+          "moduleId": "onEH",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/MemoryRouter.js",
+          "module": "./node_modules/react-router/es/MemoryRouter.js",
+          "moduleName": "./node_modules/react-router/es/MemoryRouter.js",
           "type": "harmony import",
           "userRequest": "prop-types",
-          "loc": "12:0-35"
-        },
-        {
-          "moduleId": "twkG",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-          "module": "./node_modules/react-router/es/Router.js",
-          "moduleName": "./node_modules/react-router/es/Router.js",
-          "type": "harmony import",
-          "userRequest": "prop-types",
-          "loc": "12:0-35"
+          "loc": "9:0-35"
         },
         {
           "moduleId": "1S3F",
@@ -5578,13 +5560,22 @@
           "loc": "8:0-35"
         },
         {
-          "moduleId": "bXVx",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
-          "module": "./node_modules/react-router/es/Switch.js",
-          "moduleName": "./node_modules/react-router/es/Switch.js",
+          "moduleId": "twkG",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+          "module": "./node_modules/react-router/es/Router.js",
+          "moduleName": "./node_modules/react-router/es/Router.js",
           "type": "harmony import",
           "userRequest": "prop-types",
-          "loc": "8:0-35"
+          "loc": "12:0-35"
+        },
+        {
+          "moduleId": "s4hp",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+          "module": "./node_modules/react-router/es/Route.js",
+          "moduleName": "./node_modules/react-router/es/Route.js",
+          "type": "harmony import",
+          "userRequest": "prop-types",
+          "loc": "12:0-35"
         },
         {
           "moduleId": "t1d2",
@@ -5594,6 +5585,15 @@
           "type": "harmony import",
           "userRequest": "prop-types",
           "loc": "14:0-35"
+        },
+        {
+          "moduleId": "bXVx",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
+          "module": "./node_modules/react-router/es/Switch.js",
+          "moduleName": "./node_modules/react-router/es/Switch.js",
+          "type": "harmony import",
+          "userRequest": "prop-types",
+          "loc": "8:0-35"
         },
         {
           "moduleId": "vC7t",
@@ -6231,10 +6231,10 @@
           "loc": "9:0-34"
         },
         {
-          "moduleId": "s4hp",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-          "module": "./node_modules/react-router/es/Route.js",
-          "moduleName": "./node_modules/react-router/es/Route.js",
+          "moduleId": "1S3F",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
+          "module": "./node_modules/react-router/es/Redirect.js",
+          "moduleName": "./node_modules/react-router/es/Redirect.js",
           "type": "harmony import",
           "userRequest": "invariant",
           "loc": "10:0-34"
@@ -6249,19 +6249,10 @@
           "loc": "10:0-34"
         },
         {
-          "moduleId": "1S3F",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
-          "module": "./node_modules/react-router/es/Redirect.js",
-          "moduleName": "./node_modules/react-router/es/Redirect.js",
-          "type": "harmony import",
-          "userRequest": "invariant",
-          "loc": "10:0-34"
-        },
-        {
-          "moduleId": "bXVx",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
-          "module": "./node_modules/react-router/es/Switch.js",
-          "moduleName": "./node_modules/react-router/es/Switch.js",
+          "moduleId": "s4hp",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+          "module": "./node_modules/react-router/es/Route.js",
+          "moduleName": "./node_modules/react-router/es/Route.js",
           "type": "harmony import",
           "userRequest": "invariant",
           "loc": "10:0-34"
@@ -6276,13 +6267,13 @@
           "loc": "12:0-34"
         },
         {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleId": "bXVx",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
+          "module": "./node_modules/react-router/es/Switch.js",
+          "moduleName": "./node_modules/react-router/es/Switch.js",
           "type": "harmony import",
           "userRequest": "invariant",
-          "loc": "6:0-34"
+          "loc": "10:0-34"
         },
         {
           "moduleId": "k5k7",
@@ -6292,6 +6283,15 @@
           "type": "harmony import",
           "userRequest": "invariant",
           "loc": "4:0-34"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "invariant",
+          "loc": "6:0-34"
         }
       ],
       "usedExports": true,
@@ -6670,22 +6670,13 @@
         1
       ],
       "assets": [],
-      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-      "issuerId": "xuWB",
-      "issuerName": "./node_modules/history/es/createBrowserHistory.js",
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
+      "issuerId": "k5k7",
+      "issuerName": "./node_modules/history/es/createHashHistory.js",
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "reasons": [
-        {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-          "type": "harmony import",
-          "userRequest": "./DOMUtils",
-          "loc": "10:0-169"
-        },
         {
           "moduleId": "k5k7",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
@@ -6694,6 +6685,15 @@
           "type": "harmony import",
           "userRequest": "./DOMUtils",
           "loc": "8:0-129"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "./DOMUtils",
+          "loc": "10:0-169"
         }
       ],
       "usedExports": [
@@ -7012,15 +7012,6 @@
           "loc": "9:0-52"
         },
         {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-          "type": "harmony import",
-          "userRequest": "./PathUtils",
-          "loc": "8:0-106"
-        },
-        {
           "moduleId": "k5k7",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
           "module": "./node_modules/history/es/createHashHistory.js",
@@ -7028,6 +7019,15 @@
           "type": "harmony import",
           "userRequest": "./PathUtils",
           "loc": "6:0-125"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "./PathUtils",
+          "loc": "8:0-106"
         },
         {
           "moduleId": "o1/Q",
