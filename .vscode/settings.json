@@ -8,10 +8,11 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/*.sublime-workspace": true,
-    "tslint.json": false,
+    "tslint.json": true,
     ".eslintrc.json": true,
     "package-lock.json": true,
-    "yarn.lock": true
+    "yarn.lock": true,
+    ".gitignore": true
   },
   "editor.rulers": [150],
   "files.eol": "\n",

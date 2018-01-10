@@ -1,35 +1,20 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import reactLoadable from 'react-loadable';
-import Loading from './components/Loading';
-import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
-import Home from './components/Home';
+import Root from 'routers//Root';
 
-
-
-/** Define the below-the-fold modules */
-const AsyncAbout = reactLoadable({
-  loader: () => import('./components/About'),
-  loading: Loading,
-});
+/** Polyfills
+ * es6-promise polyfill provide Promise usage for IE browser
+ * Reference: https://github.com/stefanpenner/es6-promise#auto-polyfill
+ */
+import 'es6-promise/auto';
 
 /** Base style that contains normalize-scss */
 import './styles';
 
 ReactDOM.render(
-    <Router>
-      <main>
-        <ul>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/">Home</Link></li>
-        </ul>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={AsyncAbout} />
-          <Redirect to="/" />
-        </Switch>
-      </main>
-    </Router>
+    <main>
+      <Root />
+    </main>
     ,
     document.getElementById('app'),
 );
