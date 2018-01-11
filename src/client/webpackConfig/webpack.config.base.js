@@ -125,7 +125,7 @@ const config = {
       rel: 'preload',
       as: 'script',
       include: 'all',
-      fileBlacklist: [/\.(css|map)$/, /base?.+/]
+      fileBlacklist: [/\.(css|map)$/, /base?.+/],
     }),
     new BundleAnalyzerPlugin({
       generateStatsFile: true,

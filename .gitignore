@@ -29,3 +29,5 @@ typings/
 .env
 .env.example
 
+# Dist
+dist

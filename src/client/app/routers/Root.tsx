@@ -21,7 +21,7 @@ const Root = () => (
       </ul>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/about" component={AsyncAbout} />
+        <Route exact path="/about" component={AsyncAbout} />
         <Redirect to="/" />
       </Switch>
     </main>

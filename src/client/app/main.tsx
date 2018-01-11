@@ -1,12 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Root from 'routers//Root';
+import { importPromisePolyfill } from 'config//polyfills';
 
-/** Polyfills
- * es6-promise polyfill provide Promise usage for IE browser
- * Reference: https://github.com/stefanpenner/es6-promise#auto-polyfill
- */
-import 'es6-promise/auto';
+/** Conditionally add polyfills */
+importPromisePolyfill();
 
 /** Base style that contains normalize-scss */
 import './styles.critical';

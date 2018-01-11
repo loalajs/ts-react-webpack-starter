@@ -8,8 +8,8 @@ const gulp = require('gulp');
 /**
  * Build client source code task
  */
-const prodWebpack = webpack(require('./src/client/config/webpack.config.prod'));
-const devWebpack = webpack(require('./src/client/config/webpack.config.dev'));
+const prodWebpack = webpack(require('./src/client/webpackConfig/webpack.config.prod'));
+const devWebpack = webpack(require('./src/client/webpackConfig/webpack.config.dev'));
 
 const { NODE_ENV } = process.env;
 let clientWebpack = {};
