@@ -32,13 +32,9 @@ module.exports = merge(baseConfig, {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common',
-      minChunks: 3,
-      minSize: 1024,
-    }),
     new webpack.HashedModuleIdsPlugin(),
     /** CompressionPlugin requires server config
+     * Config with Apache or Ngnix Server
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',

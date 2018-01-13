@@ -44,7 +44,7 @@ gulp.task('build-client', ['build-client-src']);
  * Build client and watch for changes
  */
 gulp.task('build-client:watch', ['build-client'], () => {
-  gulp.watch('src/client/**/*', ['build-client']);
+  gulp.watch('src/client/app/**/*', ['build-client']);
 });
 
 /**

@@ -1,4 +1,4 @@
-const externalCssFilename = 'static/styles/[name]-bundle-[contenthash:8].css';
+const externalCssFilename = 'static/styles/[name].bundle-[contenthash:8].css';
 const criticalCssFilename = 'critical.css';
 
 const { POSTCSS_CONFIG_PATH } = require('./path');

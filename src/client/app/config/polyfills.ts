@@ -7,7 +7,10 @@ function importPromisePolyfill() {
     return;
   }
   // tslint:disable-next-line:space-in-parens
-  import(/* webpackChunkName: "es6-promise-polyfill" */'es6-promise');
+  import(
+    /* webpackChunkName: "polyfill-es6-promise" */
+    /* webpackMode: "lazy" */
+    'es6-promise');
 }
 
 export {

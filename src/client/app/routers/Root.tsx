@@ -7,7 +7,10 @@ import Loading from 'components/Loading';
 /** Define the below-the-fold modules */
 const AsyncAbout = reactLoadable({
   // tslint:disable-next-line:space-in-parens
-  loader: () => import(/* webpackChunkName: "about" */'components/About'),
+  loader: () => import(
+    /* webpackChunkName: "route-about" */
+    /* webpackMode: "lazy" */
+    'components/About'),
   loading: Loading,
 });
 

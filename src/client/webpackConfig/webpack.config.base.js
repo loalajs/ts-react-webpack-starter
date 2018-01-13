@@ -32,7 +32,9 @@ const config = {
   entry: path.resolve(ROOT_SRC_PATH, 'main.tsx'),
   output: {
     path: ROOT_DIST_PATH,
-    filename: '[name]-bundle-[hash:8].js',
+    filename: '[name].bundle-[hash:8].js',
+    /** chuckFilename is for code splitting chunk that is lazy loading */
+    chunkFilename: '[name].chunk-[hash:8].js',
   },
   resolve: {
     /** Must include .js, .jsx for react to resolve after ts-loader */
@@ -68,7 +70,7 @@ const config = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]',
+          name: 'static/media/[name]-[hash:8].[ext]',
         },
       },
       /** Load fonts */
@@ -116,6 +118,17 @@ const config = {
       file: criticalCssFilename,
       minify: IS_PROD,
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: 2,
+      filename: '[name].bundle-[hash:8].js',
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common',
+      minChunks: 2,
+      minSize: 1024,
+      filename: '[name].bundle-[hash:8].js',
+    }),
     new webpack.DefinePlugin({
       'process.env.APP_PROTOCOL': JSON.stringify(APP_PROTOCOL),
       'process.env.APP_HOST': JSON.stringify(APP_HOST),
@@ -123,9 +136,22 @@ const config = {
     }),
     new PreloadWebpackPlugin({
       rel: 'preload',
+      /** Preload the array of the named chunks */
+      include: ['main'],
+      as(entry) {
+        if (/\.css$/.test(entry)) return 'style';
+        if (/\.woff$/.test(entry)) return 'font';
+        if (/\.png$/.test(entry)) return 'image';
+        return 'script';
+      },
+      fileBlacklist: [/\.map/, /critical\.css/],
+    }),
+    new PreloadWebpackPlugin({
+      rel: 'prefetch',
+      /** Preload the array of the named chunks */
+      include: ['route-about'],
       as: 'script',
-      include: 'all',
-      fileBlacklist: [/\.(css|map)$/, /base?.+/],
+      fileBlacklist: [/\.map/, /critical\.css/],
     }),
     new BundleAnalyzerPlugin({
       generateStatsFile: true,
