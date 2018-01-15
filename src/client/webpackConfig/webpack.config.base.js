@@ -6,6 +6,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const { cssConfig, criticalCssFilename, externalCssFilename } = require('./cssLoader');
 
 /** ENV */
@@ -23,15 +24,15 @@ const externalCSS = new ExtractTextPlugin(externalCssFilename);
 
 /** Path */
 const {
-  ROOT_SRC_PATH,
-  ROOT_DIST_PATH,
+  SRC,
+  DIST,
 } = require('./path');
 
 /** Webpack config start here */
 const config = {
-  entry: path.resolve(ROOT_SRC_PATH, 'main.tsx'),
+  entry: path.resolve(SRC, 'main.tsx'),
   output: {
-    path: ROOT_DIST_PATH,
+    path: DIST,
     filename: '[name].bundle-[hash:8].js',
     /** chuckFilename is for code splitting chunk that is lazy loading */
     chunkFilename: '[name].chunk-[hash:8].js',
@@ -41,7 +42,7 @@ const config = {
     extensions: ['.ts', '.tsx', '.jsx', '.js', '.json', '.css', '.scss'],
     alias: {},
     modules: [
-      ROOT_SRC_PATH,
+      SRC,
       'node_modules',
     ],
   },
@@ -93,7 +94,7 @@ const config = {
    */
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(ROOT_SRC_PATH, 'index.html'),
+      template: path.join(SRC, 'index.html'),
       minify: {
         collapseWhitespace: IS_PROD,
         collapseInlineTagWhitespace: IS_PROD,
@@ -136,7 +137,15 @@ const config = {
     }),
     new PreloadWebpackPlugin({
       rel: 'preload',
-      /** Preload the array of the named chunks */
+      /** Preload the array of the named chunks
+       * Chunks that are critical for first paint
+       * should be preloaded. Examples can be:
+       * 1. Fonts
+       * 2. Hero img
+       * 3. Other resources that are critically needed
+       * Notice: if everything is high priority then nothing is
+       * Notice: This plugin requires further customisation
+       */
       include: ['main'],
       as(entry) {
         if (/\.css$/.test(entry)) return 'style';
@@ -146,6 +155,11 @@ const config = {
       },
       fileBlacklist: [/\.map/, /critical\.css/],
     }),
+    /** Prefetch chunk for navigation purpose
+     * as they deserved lower priority than preload chunk
+     * Notice: Add other route chunk later for better performance
+     * Notice: Only fetch / load what people may need to save user's network data
+     */
     new PreloadWebpackPlugin({
       rel: 'prefetch',
       /** Preload the array of the named chunks */
@@ -153,8 +167,35 @@ const config = {
       as: 'script',
       fileBlacklist: [/\.map/, /critical\.css/],
     }),
+    /**
+     * Moment.js is an extremely popular library that bundles large locale files
+     * by default due to how Webpack interprets its code. This is a practical
+     * solution that requires the user to opt into importing specific locales.
+     * https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
+     * You can remove this if you do not use moment
+     */
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new BundleAnalyzerPlugin({
       generateStatsFile: true,
+    }),
+    /** WorkboxPlugin inspects the contents of dist and generates service worker code
+     * for caching the output. Since Workbox revisions each file based on its contents,
+     * Workbox should always be the last plugin you call. */
+    new WorkboxPlugin({
+      globDirectory: DIST,
+      globPatterns: ['**/*.{html,js,css}'],
+      swDest: path.join(DIST, 'sw.js'),
+      swSrc: path.join(SRC, 'sw.js'),
+      /** Runtime cache:
+       * 1. Replace api url in urlPattern
+       * 2. Check https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/ for caching strategies.
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('https://www.pais.com/api'),
+          handler: 'staleWhileRevalidate',
+        },
+      ],
+      */
     }),
   ],
 };

@@ -2,21 +2,21 @@
   "errors": [],
   "warnings": [],
   "version": "3.10.0",
-  "hash": "35e0645572fcf7aeb695",
-  "time": 16027,
+  "hash": "2b60dc77cb91bcd6ab81",
+  "time": 20020,
   "publicPath": "",
   "assetsByChunkName": {
-    "polyfill-es6-promise": "polyfill-es6-promise.chunk-35e06455.js",
-    "route-about": "route-about.chunk-35e06455.js",
+    "polyfill-es6-promise": "polyfill-es6-promise.chunk-2b60dc77.js",
+    "route-about": "route-about.chunk-2b60dc77.js",
     "main": [
-      "main.bundle-35e06455.js",
+      "main.bundle-2b60dc77.js",
       "critical.css.map"
     ],
-    "vendor": "vendor.bundle-35e06455.js"
+    "vendor": "vendor.bundle-2b60dc77.js"
   },
   "assets": [
     {
-      "name": "polyfill-es6-promise.chunk-35e06455.js",
+      "name": "polyfill-es6-promise.chunk-2b60dc77.js",
       "size": 8356,
       "chunks": [
         0
@@ -27,7 +27,7 @@
       "emitted": true
     },
     {
-      "name": "route-about.chunk-35e06455.js",
+      "name": "route-about.chunk-2b60dc77.js",
       "size": 196,
       "chunks": [
         1
@@ -38,8 +38,8 @@
       "emitted": true
     },
     {
-      "name": "main.bundle-35e06455.js",
-      "size": 155032,
+      "name": "main.bundle-2b60dc77.js",
+      "size": 155368,
       "chunks": [
         2
       ],
@@ -49,7 +49,7 @@
       "emitted": true
     },
     {
-      "name": "vendor.bundle-35e06455.js",
+      "name": "vendor.bundle-2b60dc77.js",
       "size": 1430,
       "chunks": [
         3
@@ -86,8 +86,8 @@
         2
       ],
       "assets": [
-        "vendor.bundle-35e06455.js",
-        "main.bundle-35e06455.js",
+        "vendor.bundle-2b60dc77.js",
+        "main.bundle-2b60dc77.js",
         "critical.css.map"
       ]
     }
@@ -104,7 +104,7 @@
         "polyfill-es6-promise"
       ],
       "files": [
-        "polyfill-es6-promise.chunk-35e06455.js"
+        "polyfill-es6-promise.chunk-2b60dc77.js"
       ],
       "hash": "bb61d5ca16f3f15de690",
       "parents": [
@@ -287,7 +287,7 @@
         "route-about"
       ],
       "files": [
-        "route-about.chunk-35e06455.js"
+        "route-about.chunk-2b60dc77.js"
       ],
       "hash": "da5b0bc461b59cab7bc8",
       "parents": [
@@ -354,15 +354,15 @@
       "initial": true,
       "entry": false,
       "extraAsync": false,
-      "size": 258385,
+      "size": 259189,
       "names": [
         "main"
       ],
       "files": [
-        "main.bundle-35e06455.js",
+        "main.bundle-2b60dc77.js",
         "critical.css.map"
       ],
-      "hash": "c251e8abdec164b8b6ac",
+      "hash": "950ab603d46128e8a4f7",
       "parents": [
         3
       ],
@@ -653,8 +653,8 @@
           "id": "7A8H",
           "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/extract-text-webpack-plugin/dist/loader.js??ref--0-0!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/style-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/css-loader/index.js??ref--0-2!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/postcss-loader/lib/index.js??ref--0-3!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/resolve-url-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/sass-loader/lib/loader.js??ref--0-5!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/styles.critical.scss",
           "name": "./src/client/app/styles.critical.scss",
-          "index": 75,
-          "index2": 78,
+          "index": 76,
+          "index2": 79,
           "size": 41,
           "cacheable": true,
           "built": true,
@@ -678,7 +678,7 @@
               "moduleName": "./src/client/app/main.tsx",
               "type": "harmony import",
               "userRequest": "./styles.critical",
-              "loc": "8:0-27"
+              "loc": "9:0-27"
             }
           ],
           "usedExports": false,
@@ -895,6 +895,49 @@
           "source": "var isarray = require('isarray')\n\n/**\n * Expose `pathToRegexp`.\n */\nmodule.exports = pathToRegexp\nmodule.exports.parse = parse\nmodule.exports.compile = compile\nmodule.exports.tokensToFunction = tokensToFunction\nmodule.exports.tokensToRegExp = tokensToRegExp\n\n/**\n * The main path matching regexp utility.\n *\n * @type {RegExp}\n */\nvar PATH_REGEXP = new RegExp([\n  // Match escaped characters that would otherwise appear in future matches.\n  // This allows the user to escape special characters that won't transform.\n  '(\\\\\\\\.)',\n  // Match Express-style parameters and un-named parameters with a prefix\n  // and optional suffixes. Matches appear as:\n  //\n  // \"/:test(\\\\d+)?\" => [\"/\", \"test\", \"\\d+\", undefined, \"?\", undefined]\n  // \"/route(\\\\d+)\"  => [undefined, undefined, undefined, \"\\d+\", undefined, undefined]\n  // \"/*\"            => [\"/\", undefined, undefined, undefined, undefined, \"*\"]\n  '([\\\\/.])?(?:(?:\\\\:(\\\\w+)(?:\\\\(((?:\\\\\\\\.|[^\\\\\\\\()])+)\\\\))?|\\\\(((?:\\\\\\\\.|[^\\\\\\\\()])+)\\\\))([+*?])?|(\\\\*))'\n].join('|'), 'g')\n\n/**\n * Parse a string for the raw tokens.\n *\n * @param  {string}  str\n * @param  {Object=} options\n * @return {!Array}\n */\nfunction parse (str, options) {\n  var tokens = []\n  var key = 0\n  var index = 0\n  var path = ''\n  var defaultDelimiter = options && options.delimiter || '/'\n  var res\n\n  while ((res = PATH_REGEXP.exec(str)) != null) {\n    var m = res[0]\n    var escaped = res[1]\n    var offset = res.index\n    path += str.slice(index, offset)\n    index = offset + m.length\n\n    // Ignore already escaped sequences.\n    if (escaped) {\n      path += escaped[1]\n      continue\n    }\n\n    var next = str[index]\n    var prefix = res[2]\n    var name = res[3]\n    var capture = res[4]\n    var group = res[5]\n    var modifier = res[6]\n    var asterisk = res[7]\n\n    // Push the current path onto the tokens.\n    if (path) {\n      tokens.push(path)\n      path = ''\n    }\n\n    var partial = prefix != null && next != null && next !== prefix\n    var repeat = modifier === '+' || modifier === '*'\n    var optional = modifier === '?' || modifier === '*'\n    var delimiter = res[2] || defaultDelimiter\n    var pattern = capture || group\n\n    tokens.push({\n      name: name || key++,\n      prefix: prefix || '',\n      delimiter: delimiter,\n      optional: optional,\n      repeat: repeat,\n      partial: partial,\n      asterisk: !!asterisk,\n      pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')\n    })\n  }\n\n  // Match any characters still remaining.\n  if (index < str.length) {\n    path += str.substr(index)\n  }\n\n  // If the path exists, push it onto the end.\n  if (path) {\n    tokens.push(path)\n  }\n\n  return tokens\n}\n\n/**\n * Compile a string to a template function for the path.\n *\n * @param  {string}             str\n * @param  {Object=}            options\n * @return {!function(Object=, Object=)}\n */\nfunction compile (str, options) {\n  return tokensToFunction(parse(str, options))\n}\n\n/**\n * Prettier encoding of URI path segments.\n *\n * @param  {string}\n * @return {string}\n */\nfunction encodeURIComponentPretty (str) {\n  return encodeURI(str).replace(/[\\/?#]/g, function (c) {\n    return '%' + c.charCodeAt(0).toString(16).toUpperCase()\n  })\n}\n\n/**\n * Encode the asterisk parameter. Similar to `pretty`, but allows slashes.\n *\n * @param  {string}\n * @return {string}\n */\nfunction encodeAsterisk (str) {\n  return encodeURI(str).replace(/[?#]/g, function (c) {\n    return '%' + c.charCodeAt(0).toString(16).toUpperCase()\n  })\n}\n\n/**\n * Expose a method for transforming tokens into the path function.\n */\nfunction tokensToFunction (tokens) {\n  // Compile all the tokens into regexps.\n  var matches = new Array(tokens.length)\n\n  // Compile all the patterns before compilation.\n  for (var i = 0; i < tokens.length; i++) {\n    if (typeof tokens[i] === 'object') {\n      matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$')\n    }\n  }\n\n  return function (obj, opts) {\n    var path = ''\n    var data = obj || {}\n    var options = opts || {}\n    var encode = options.pretty ? encodeURIComponentPretty : encodeURIComponent\n\n    for (var i = 0; i < tokens.length; i++) {\n      var token = tokens[i]\n\n      if (typeof token === 'string') {\n        path += token\n\n        continue\n      }\n\n      var value = data[token.name]\n      var segment\n\n      if (value == null) {\n        if (token.optional) {\n          // Prepend partial segment prefixes.\n          if (token.partial) {\n            path += token.prefix\n          }\n\n          continue\n        } else {\n          throw new TypeError('Expected \"' + token.name + '\" to be defined')\n        }\n      }\n\n      if (isarray(value)) {\n        if (!token.repeat) {\n          throw new TypeError('Expected \"' + token.name + '\" to not repeat, but received `' + JSON.stringify(value) + '`')\n        }\n\n        if (value.length === 0) {\n          if (token.optional) {\n            continue\n          } else {\n            throw new TypeError('Expected \"' + token.name + '\" to not be empty')\n          }\n        }\n\n        for (var j = 0; j < value.length; j++) {\n          segment = encode(value[j])\n\n          if (!matches[i].test(segment)) {\n            throw new TypeError('Expected all \"' + token.name + '\" to match \"' + token.pattern + '\", but received `' + JSON.stringify(segment) + '`')\n          }\n\n          path += (j === 0 ? token.prefix : token.delimiter) + segment\n        }\n\n        continue\n      }\n\n      segment = token.asterisk ? encodeAsterisk(value) : encode(value)\n\n      if (!matches[i].test(segment)) {\n        throw new TypeError('Expected \"' + token.name + '\" to match \"' + token.pattern + '\", but received \"' + segment + '\"')\n      }\n\n      path += token.prefix + segment\n    }\n\n    return path\n  }\n}\n\n/**\n * Escape a regular expression string.\n *\n * @param  {string} str\n * @return {string}\n */\nfunction escapeString (str) {\n  return str.replace(/([.+*?=^!:${}()[\\]|\\/\\\\])/g, '\\\\$1')\n}\n\n/**\n * Escape the capturing group by escaping special characters and meaning.\n *\n * @param  {string} group\n * @return {string}\n */\nfunction escapeGroup (group) {\n  return group.replace(/([=!:$\\/()])/g, '\\\\$1')\n}\n\n/**\n * Attach the keys as a property of the regexp.\n *\n * @param  {!RegExp} re\n * @param  {Array}   keys\n * @return {!RegExp}\n */\nfunction attachKeys (re, keys) {\n  re.keys = keys\n  return re\n}\n\n/**\n * Get the flags for a regexp from the options.\n *\n * @param  {Object} options\n * @return {string}\n */\nfunction flags (options) {\n  return options.sensitive ? '' : 'i'\n}\n\n/**\n * Pull out keys from a regexp.\n *\n * @param  {!RegExp} path\n * @param  {!Array}  keys\n * @return {!RegExp}\n */\nfunction regexpToRegexp (path, keys) {\n  // Use a negative lookahead to match only capturing groups.\n  var groups = path.source.match(/\\((?!\\?)/g)\n\n  if (groups) {\n    for (var i = 0; i < groups.length; i++) {\n      keys.push({\n        name: i,\n        prefix: null,\n        delimiter: null,\n        optional: false,\n        repeat: false,\n        partial: false,\n        asterisk: false,\n        pattern: null\n      })\n    }\n  }\n\n  return attachKeys(path, keys)\n}\n\n/**\n * Transform an array into a regexp.\n *\n * @param  {!Array}  path\n * @param  {Array}   keys\n * @param  {!Object} options\n * @return {!RegExp}\n */\nfunction arrayToRegexp (path, keys, options) {\n  var parts = []\n\n  for (var i = 0; i < path.length; i++) {\n    parts.push(pathToRegexp(path[i], keys, options).source)\n  }\n\n  var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options))\n\n  return attachKeys(regexp, keys)\n}\n\n/**\n * Create a path regexp from string input.\n *\n * @param  {string}  path\n * @param  {!Array}  keys\n * @param  {!Object} options\n * @return {!RegExp}\n */\nfunction stringToRegexp (path, keys, options) {\n  return tokensToRegExp(parse(path, options), keys, options)\n}\n\n/**\n * Expose a function for taking tokens and returning a RegExp.\n *\n * @param  {!Array}          tokens\n * @param  {(Array|Object)=} keys\n * @param  {Object=}         options\n * @return {!RegExp}\n */\nfunction tokensToRegExp (tokens, keys, options) {\n  if (!isarray(keys)) {\n    options = /** @type {!Object} */ (keys || options)\n    keys = []\n  }\n\n  options = options || {}\n\n  var strict = options.strict\n  var end = options.end !== false\n  var route = ''\n\n  // Iterate over the tokens and create our regexp string.\n  for (var i = 0; i < tokens.length; i++) {\n    var token = tokens[i]\n\n    if (typeof token === 'string') {\n      route += escapeString(token)\n    } else {\n      var prefix = escapeString(token.prefix)\n      var capture = '(?:' + token.pattern + ')'\n\n      keys.push(token)\n\n      if (token.repeat) {\n        capture += '(?:' + prefix + capture + ')*'\n      }\n\n      if (token.optional) {\n        if (!token.partial) {\n          capture = '(?:' + prefix + '(' + capture + '))?'\n        } else {\n          capture = prefix + '(' + capture + ')?'\n        }\n      } else {\n        capture = prefix + '(' + capture + ')'\n      }\n\n      route += capture\n    }\n  }\n\n  var delimiter = escapeString(options.delimiter || '/')\n  var endsWithDelimiter = route.slice(-delimiter.length) === delimiter\n\n  // In non-strict mode we allow a slash at the end of match. If the path to\n  // match already ends with a slash, we remove it for consistency. The slash\n  // is valid at the end of a path match, not in the middle. This is important\n  // in non-ending mode, where \"/test/\" shouldn't match \"/test//route\".\n  if (!strict) {\n    route = (endsWithDelimiter ? route.slice(0, -delimiter.length) : route) + '(?:' + delimiter + '(?=$))?'\n  }\n\n  if (end) {\n    route += '$'\n  } else {\n    // In non-ending mode, we need the capturing groups to match as much as\n    // possible by using a positive lookahead to the end or next path segment.\n    route += strict && endsWithDelimiter ? '' : '(?=' + delimiter + '|$)'\n  }\n\n  return attachKeys(new RegExp('^' + route, flags(options)), keys)\n}\n\n/**\n * Normalize the given path string, returning a regular expression.\n *\n * An empty array can be passed in for the keys, which will hold the\n * placeholder key descriptions. For example, using `/user/:id`, `keys` will\n * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.\n *\n * @param  {(string|RegExp|Array)} path\n * @param  {(Array|Object)=}       keys\n * @param  {Object=}               options\n * @return {!RegExp}\n */\nfunction pathToRegexp (path, keys, options) {\n  if (!isarray(keys)) {\n    options = /** @type {!Object} */ (keys || options)\n    keys = []\n  }\n\n  options = options || {}\n\n  if (path instanceof RegExp) {\n    return regexpToRegexp(path, /** @type {!Array} */ (keys))\n  }\n\n  if (isarray(path)) {\n    return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)\n  }\n\n  return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)\n}\n"
         },
         {
+          "id": "DUUi",
+          "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/config/swRegister.ts",
+          "name": "./src/client/app/config/swRegister.ts",
+          "index": 75,
+          "index2": 74,
+          "size": 722,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            2
+          ],
+          "assets": [],
+          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/main.tsx",
+          "issuerId": "PAzG",
+          "issuerName": "./src/client/app/main.tsx",
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": "PAzG",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/main.tsx",
+              "module": "./src/client/app/main.tsx",
+              "moduleName": "./src/client/app/main.tsx",
+              "type": "harmony import",
+              "userRequest": "config//swRegister",
+              "loc": "5:0-48"
+            }
+          ],
+          "usedExports": [
+            "swRegister"
+          ],
+          "providedExports": [
+            "swRegister",
+            "unregister"
+          ],
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "/** Register Service Worker */\nfunction swRegister() {\n    if ('serviceWorker' in navigator) {\n        window.addEventListener('load', function () {\n            navigator.serviceWorker.register('/sw.js').then(function (registration) {\n                console.log('SW registered: ', registration);\n            }).catch(function (registrationError) {\n                console.log('SW registration failed: ', registrationError);\n            });\n        });\n    }\n}\n/** Unregisted Service Worker */\nfunction unregister() {\n    if ('serviceWorker' in navigator) {\n        navigator.serviceWorker.ready.then(function (registration) {\n            registration.unregister();\n        });\n    }\n}\nexport { swRegister, unregister, };\n"
+        },
+        {
           "id": "Een0",
           "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/matchPath.js",
           "name": "./node_modules/react-router/es/matchPath.js",
@@ -1102,19 +1145,19 @@
               "loc": "1:0-31"
             },
             {
-              "moduleId": "6oJa",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/components/Loading.tsx",
-              "module": "./src/client/app/components/Loading.tsx",
-              "moduleName": "./src/client/app/components/Loading.tsx",
+              "moduleId": "pwty",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/components/Home.tsx",
+              "module": "./src/client/app/components/Home.tsx",
+              "moduleName": "./src/client/app/components/Home.tsx",
               "type": "harmony import",
               "userRequest": "react",
               "loc": "1:0-31"
             },
             {
-              "moduleId": "pwty",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/components/Home.tsx",
-              "module": "./src/client/app/components/Home.tsx",
-              "moduleName": "./src/client/app/components/Home.tsx",
+              "moduleId": "6oJa",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/components/Loading.tsx",
+              "module": "./src/client/app/components/Loading.tsx",
+              "moduleName": "./src/client/app/components/Loading.tsx",
               "type": "harmony import",
               "userRequest": "react",
               "loc": "1:0-31"
@@ -1147,19 +1190,19 @@
               "loc": "13:20-36"
             },
             {
-              "moduleId": "8QhD",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-              "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
-              "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+              "moduleId": "nT98",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
+              "module": "./node_modules/react-router-dom/es/HashRouter.js",
+              "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
               "type": "harmony import",
               "userRequest": "react",
               "loc": "8:0-26"
             },
             {
-              "moduleId": "nT98",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
-              "module": "./node_modules/react-router-dom/es/HashRouter.js",
-              "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
+              "moduleId": "8QhD",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
+              "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
+              "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
               "type": "harmony import",
               "userRequest": "react",
               "loc": "8:0-26"
@@ -1192,22 +1235,13 @@
               "loc": "7:0-26"
             },
             {
-              "moduleId": "s4hp",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-              "module": "./node_modules/react-router/es/Route.js",
-              "moduleName": "./node_modules/react-router/es/Route.js",
+              "moduleId": "1S3F",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
+              "module": "./node_modules/react-router/es/Redirect.js",
+              "moduleName": "./node_modules/react-router/es/Redirect.js",
               "type": "harmony import",
               "userRequest": "react",
-              "loc": "11:0-26"
-            },
-            {
-              "moduleId": "twkG",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-              "module": "./node_modules/react-router/es/Router.js",
-              "moduleName": "./node_modules/react-router/es/Router.js",
-              "type": "harmony import",
-              "userRequest": "react",
-              "loc": "11:0-26"
+              "loc": "7:0-26"
             },
             {
               "moduleId": "onEH",
@@ -1219,13 +1253,13 @@
               "loc": "8:0-26"
             },
             {
-              "moduleId": "1S3F",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
-              "module": "./node_modules/react-router/es/Redirect.js",
-              "moduleName": "./node_modules/react-router/es/Redirect.js",
+              "moduleId": "s4hp",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+              "module": "./node_modules/react-router/es/Route.js",
+              "moduleName": "./node_modules/react-router/es/Route.js",
               "type": "harmony import",
               "userRequest": "react",
-              "loc": "7:0-26"
+              "loc": "11:0-26"
             },
             {
               "moduleId": "t1d2",
@@ -1235,6 +1269,15 @@
               "type": "harmony import",
               "userRequest": "react",
               "loc": "13:0-26"
+            },
+            {
+              "moduleId": "twkG",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+              "module": "./node_modules/react-router/es/Router.js",
+              "moduleName": "./node_modules/react-router/es/Router.js",
+              "type": "harmony import",
+              "userRequest": "react",
+              "loc": "11:0-26"
             },
             {
               "moduleId": "bXVx",
@@ -1276,22 +1319,13 @@
             2
           ],
           "assets": [],
-          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-          "issuerId": "8QhD",
-          "issuerName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
+          "issuerId": "nT98",
+          "issuerName": "./node_modules/react-router-dom/es/HashRouter.js",
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "reasons": [
-            {
-              "moduleId": "8QhD",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-              "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
-              "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
-              "type": "harmony import",
-              "userRequest": "warning",
-              "loc": "7:0-30"
-            },
             {
               "moduleId": "nT98",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
@@ -1302,13 +1336,13 @@
               "loc": "7:0-30"
             },
             {
-              "moduleId": "kjbi",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-              "module": "./node_modules/history/createHashHistory.js",
-              "moduleName": "./node_modules/history/createHashHistory.js",
-              "type": "cjs require",
+              "moduleId": "8QhD",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
+              "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
+              "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+              "type": "harmony import",
               "userRequest": "warning",
-              "loc": "7:15-33"
+              "loc": "7:0-30"
             },
             {
               "moduleId": "ciQf",
@@ -1320,6 +1354,15 @@
               "loc": "9:15-33"
             },
             {
+              "moduleId": "kjbi",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+              "module": "./node_modules/history/createHashHistory.js",
+              "moduleName": "./node_modules/history/createHashHistory.js",
+              "type": "cjs require",
+              "userRequest": "warning",
+              "loc": "7:15-33"
+            },
+            {
               "moduleId": "tqq1",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createTransitionManager.js",
               "module": "./node_modules/history/createTransitionManager.js",
@@ -1329,19 +1372,10 @@
               "loc": "5:15-33"
             },
             {
-              "moduleId": "s4hp",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-              "module": "./node_modules/react-router/es/Route.js",
-              "moduleName": "./node_modules/react-router/es/Route.js",
-              "type": "harmony import",
-              "userRequest": "warning",
-              "loc": "9:0-30"
-            },
-            {
-              "moduleId": "twkG",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-              "module": "./node_modules/react-router/es/Router.js",
-              "moduleName": "./node_modules/react-router/es/Router.js",
+              "moduleId": "1S3F",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
+              "module": "./node_modules/react-router/es/Redirect.js",
+              "moduleName": "./node_modules/react-router/es/Redirect.js",
               "type": "harmony import",
               "userRequest": "warning",
               "loc": "9:0-30"
@@ -1356,10 +1390,10 @@
               "loc": "7:0-30"
             },
             {
-              "moduleId": "1S3F",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
-              "module": "./node_modules/react-router/es/Redirect.js",
-              "moduleName": "./node_modules/react-router/es/Redirect.js",
+              "moduleId": "s4hp",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+              "module": "./node_modules/react-router/es/Route.js",
+              "moduleName": "./node_modules/react-router/es/Route.js",
               "type": "harmony import",
               "userRequest": "warning",
               "loc": "9:0-30"
@@ -1372,6 +1406,15 @@
               "type": "harmony import",
               "userRequest": "warning",
               "loc": "11:0-30"
+            },
+            {
+              "moduleId": "twkG",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+              "module": "./node_modules/react-router/es/Router.js",
+              "moduleName": "./node_modules/react-router/es/Router.js",
+              "type": "harmony import",
+              "userRequest": "warning",
+              "loc": "9:0-30"
             },
             {
               "moduleId": "bXVx",
@@ -1392,15 +1435,6 @@
               "loc": "9:15-33"
             },
             {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-              "type": "harmony import",
-              "userRequest": "warning",
-              "loc": "5:0-30"
-            },
-            {
               "moduleId": "k5k7",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
               "module": "./node_modules/history/es/createHashHistory.js",
@@ -1408,6 +1442,15 @@
               "type": "harmony import",
               "userRequest": "warning",
               "loc": "3:0-30"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "warning",
+              "loc": "5:0-30"
             },
             {
               "moduleId": "o1/Q",
@@ -1506,15 +1549,6 @@
               "loc": "8:0-68"
             },
             {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-              "type": "harmony import",
-              "userRequest": "./LocationUtils",
-              "loc": "7:0-49"
-            },
-            {
               "moduleId": "k5k7",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
               "module": "./node_modules/history/es/createHashHistory.js",
@@ -1522,6 +1556,15 @@
               "type": "harmony import",
               "userRequest": "./LocationUtils",
               "loc": "5:0-68"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "./LocationUtils",
+              "loc": "7:0-49"
             },
             {
               "moduleId": "o1/Q",
@@ -1560,22 +1603,13 @@
             2
           ],
           "assets": [],
-          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "issuerId": "xuWB",
-          "issuerName": "./node_modules/history/es/createBrowserHistory.js",
+          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
+          "issuerId": "k5k7",
+          "issuerName": "./node_modules/history/es/createHashHistory.js",
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "reasons": [
-            {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-              "type": "harmony import",
-              "userRequest": "./createTransitionManager",
-              "loc": "9:0-64"
-            },
             {
               "moduleId": "k5k7",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
@@ -1584,6 +1618,15 @@
               "type": "harmony import",
               "userRequest": "./createTransitionManager",
               "loc": "7:0-64"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "./createTransitionManager",
+              "loc": "9:0-64"
             },
             {
               "moduleId": "o1/Q",
@@ -1620,22 +1663,13 @@
             2
           ],
           "assets": [],
-          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-          "issuerId": "kjbi",
-          "issuerName": "./node_modules/history/createHashHistory.js",
+          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
+          "issuerId": "ciQf",
+          "issuerName": "./node_modules/history/createBrowserHistory.js",
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "reasons": [
-            {
-              "moduleId": "kjbi",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-              "module": "./node_modules/history/createHashHistory.js",
-              "moduleName": "./node_modules/history/createHashHistory.js",
-              "type": "cjs require",
-              "userRequest": "./PathUtils",
-              "loc": "17:17-39"
-            },
             {
               "moduleId": "ciQf",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
@@ -1644,6 +1678,15 @@
               "type": "cjs require",
               "userRequest": "./PathUtils",
               "loc": "19:17-39"
+            },
+            {
+              "moduleId": "kjbi",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+              "module": "./node_modules/history/createHashHistory.js",
+              "moduleName": "./node_modules/history/createHashHistory.js",
+              "type": "cjs require",
+              "userRequest": "./PathUtils",
+              "loc": "17:17-39"
             },
             {
               "moduleId": "xIPz",
@@ -1749,19 +1792,19 @@
               "loc": "12:16-37"
             },
             {
-              "moduleId": "8QhD",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-              "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
-              "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+              "moduleId": "nT98",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
+              "module": "./node_modules/react-router-dom/es/HashRouter.js",
+              "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
               "type": "harmony import",
               "userRequest": "prop-types",
               "loc": "9:0-35"
             },
             {
-              "moduleId": "nT98",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
-              "module": "./node_modules/react-router-dom/es/HashRouter.js",
-              "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
+              "moduleId": "8QhD",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
+              "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
+              "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
               "type": "harmony import",
               "userRequest": "prop-types",
               "loc": "9:0-35"
@@ -1794,22 +1837,13 @@
               "loc": "8:0-35"
             },
             {
-              "moduleId": "s4hp",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-              "module": "./node_modules/react-router/es/Route.js",
-              "moduleName": "./node_modules/react-router/es/Route.js",
+              "moduleId": "1S3F",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
+              "module": "./node_modules/react-router/es/Redirect.js",
+              "moduleName": "./node_modules/react-router/es/Redirect.js",
               "type": "harmony import",
               "userRequest": "prop-types",
-              "loc": "12:0-35"
-            },
-            {
-              "moduleId": "twkG",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-              "module": "./node_modules/react-router/es/Router.js",
-              "moduleName": "./node_modules/react-router/es/Router.js",
-              "type": "harmony import",
-              "userRequest": "prop-types",
-              "loc": "12:0-35"
+              "loc": "8:0-35"
             },
             {
               "moduleId": "onEH",
@@ -1821,13 +1855,13 @@
               "loc": "9:0-35"
             },
             {
-              "moduleId": "1S3F",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
-              "module": "./node_modules/react-router/es/Redirect.js",
-              "moduleName": "./node_modules/react-router/es/Redirect.js",
+              "moduleId": "s4hp",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+              "module": "./node_modules/react-router/es/Route.js",
+              "moduleName": "./node_modules/react-router/es/Route.js",
               "type": "harmony import",
               "userRequest": "prop-types",
-              "loc": "8:0-35"
+              "loc": "12:0-35"
             },
             {
               "moduleId": "t1d2",
@@ -1837,6 +1871,15 @@
               "type": "harmony import",
               "userRequest": "prop-types",
               "loc": "14:0-35"
+            },
+            {
+              "moduleId": "twkG",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+              "module": "./node_modules/react-router/es/Router.js",
+              "moduleName": "./node_modules/react-router/es/Router.js",
+              "type": "harmony import",
+              "userRequest": "prop-types",
+              "loc": "12:0-35"
             },
             {
               "moduleId": "bXVx",
@@ -1959,8 +2002,8 @@
           "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/main.tsx",
           "name": "./src/client/app/main.tsx",
           "index": 0,
-          "index2": 79,
-          "size": 420,
+          "index2": 80,
+          "size": 502,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -1980,7 +2023,7 @@
           "providedExports": [],
           "optimizationBailout": [],
           "depth": 0,
-          "source": "import * as React from 'react';\nimport * as ReactDOM from 'react-dom';\nimport Root from 'routers//Root';\nimport { importPromisePolyfill } from 'config//polyfills';\n/** Conditionally add polyfills */\nimportPromisePolyfill();\n/** Base style that contains normalize-scss */\nimport './styles.critical';\nReactDOM.render(React.createElement(\"main\", null,\n    React.createElement(Root, null)), document.getElementById('app'));\n"
+          "source": "import * as React from 'react';\nimport * as ReactDOM from 'react-dom';\nimport Root from 'routers//Root';\nimport { importPromisePolyfill } from 'config//polyfills';\nimport { swRegister } from 'config//swRegister';\n/** Conditionally add polyfills */\nimportPromisePolyfill();\n/** Base style that contains normalize-scss */\nimport './styles.critical';\nReactDOM.render(React.createElement(\"main\", null,\n    React.createElement(Root, null)), document.getElementById('app'));\n/** Register SW */\nswRegister();\n"
         },
         {
           "id": "PGPo",
@@ -2396,15 +2439,6 @@
               "loc": "13:0-34"
             },
             {
-              "moduleId": "kjbi",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-              "module": "./node_modules/history/createHashHistory.js",
-              "moduleName": "./node_modules/history/createHashHistory.js",
-              "type": "cjs require",
-              "userRequest": "invariant",
-              "loc": "11:17-37"
-            },
-            {
               "moduleId": "ciQf",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
               "module": "./node_modules/history/createBrowserHistory.js",
@@ -2412,6 +2446,15 @@
               "type": "cjs require",
               "userRequest": "invariant",
               "loc": "13:17-37"
+            },
+            {
+              "moduleId": "kjbi",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+              "module": "./node_modules/history/createHashHistory.js",
+              "moduleName": "./node_modules/history/createHashHistory.js",
+              "type": "cjs require",
+              "userRequest": "invariant",
+              "loc": "11:17-37"
             },
             {
               "moduleId": "p5BY",
@@ -2423,28 +2466,19 @@
               "loc": "9:0-34"
             },
             {
-              "moduleId": "s4hp",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-              "module": "./node_modules/react-router/es/Route.js",
-              "moduleName": "./node_modules/react-router/es/Route.js",
-              "type": "harmony import",
-              "userRequest": "invariant",
-              "loc": "10:0-34"
-            },
-            {
-              "moduleId": "twkG",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-              "module": "./node_modules/react-router/es/Router.js",
-              "moduleName": "./node_modules/react-router/es/Router.js",
-              "type": "harmony import",
-              "userRequest": "invariant",
-              "loc": "10:0-34"
-            },
-            {
               "moduleId": "1S3F",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
               "module": "./node_modules/react-router/es/Redirect.js",
               "moduleName": "./node_modules/react-router/es/Redirect.js",
+              "type": "harmony import",
+              "userRequest": "invariant",
+              "loc": "10:0-34"
+            },
+            {
+              "moduleId": "s4hp",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+              "module": "./node_modules/react-router/es/Route.js",
+              "moduleName": "./node_modules/react-router/es/Route.js",
               "type": "harmony import",
               "userRequest": "invariant",
               "loc": "10:0-34"
@@ -2459,6 +2493,15 @@
               "loc": "12:0-34"
             },
             {
+              "moduleId": "twkG",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+              "module": "./node_modules/react-router/es/Router.js",
+              "moduleName": "./node_modules/react-router/es/Router.js",
+              "type": "harmony import",
+              "userRequest": "invariant",
+              "loc": "10:0-34"
+            },
+            {
               "moduleId": "bXVx",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
               "module": "./node_modules/react-router/es/Switch.js",
@@ -2468,15 +2511,6 @@
               "loc": "10:0-34"
             },
             {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-              "type": "harmony import",
-              "userRequest": "invariant",
-              "loc": "6:0-34"
-            },
-            {
               "moduleId": "k5k7",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
               "module": "./node_modules/history/es/createHashHistory.js",
@@ -2484,6 +2518,15 @@
               "type": "harmony import",
               "userRequest": "invariant",
               "loc": "4:0-34"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "invariant",
+              "loc": "6:0-34"
             }
           ],
           "usedExports": true,
@@ -2600,19 +2643,19 @@
               "loc": "17:0-31"
             },
             {
-              "moduleId": "8QhD",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-              "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
-              "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+              "moduleId": "nT98",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
+              "module": "./node_modules/react-router-dom/es/HashRouter.js",
+              "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
               "type": "harmony import",
               "userRequest": "./Router",
               "loc": "11:0-30"
             },
             {
-              "moduleId": "nT98",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
-              "module": "./node_modules/react-router-dom/es/HashRouter.js",
-              "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
+              "moduleId": "8QhD",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
+              "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
+              "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
               "type": "harmony import",
               "userRequest": "./Router",
               "loc": "11:0-30"
@@ -2824,22 +2867,13 @@
             2
           ],
           "assets": [],
-          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "issuerId": "xuWB",
-          "issuerName": "./node_modules/history/es/createBrowserHistory.js",
+          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
+          "issuerId": "k5k7",
+          "issuerName": "./node_modules/history/es/createHashHistory.js",
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "reasons": [
-            {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-              "type": "harmony import",
-              "userRequest": "./DOMUtils",
-              "loc": "10:0-169"
-            },
             {
               "moduleId": "k5k7",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
@@ -2848,6 +2882,15 @@
               "type": "harmony import",
               "userRequest": "./DOMUtils",
               "loc": "8:0-129"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "./DOMUtils",
+              "loc": "10:0-169"
             }
           ],
           "usedExports": [
@@ -3104,15 +3147,6 @@
               "loc": "9:0-52"
             },
             {
-              "moduleId": "xuWB",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-              "module": "./node_modules/history/es/createBrowserHistory.js",
-              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-              "type": "harmony import",
-              "userRequest": "./PathUtils",
-              "loc": "8:0-106"
-            },
-            {
               "moduleId": "k5k7",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
               "module": "./node_modules/history/es/createHashHistory.js",
@@ -3120,6 +3154,15 @@
               "type": "harmony import",
               "userRequest": "./PathUtils",
               "loc": "6:0-125"
+            },
+            {
+              "moduleId": "xuWB",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+              "module": "./node_modules/history/es/createBrowserHistory.js",
+              "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+              "type": "harmony import",
+              "userRequest": "./PathUtils",
+              "loc": "8:0-106"
             },
             {
               "moduleId": "o1/Q",
@@ -3512,22 +3555,13 @@
             2
           ],
           "assets": [],
-          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-          "issuerId": "kjbi",
-          "issuerName": "./node_modules/history/createHashHistory.js",
+          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
+          "issuerId": "ciQf",
+          "issuerName": "./node_modules/history/createBrowserHistory.js",
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "reasons": [
-            {
-              "moduleId": "kjbi",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-              "module": "./node_modules/history/createHashHistory.js",
-              "moduleName": "./node_modules/history/createHashHistory.js",
-              "type": "cjs require",
-              "userRequest": "./createTransitionManager",
-              "loc": "19:31-67"
-            },
             {
               "moduleId": "ciQf",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
@@ -3536,6 +3570,15 @@
               "type": "cjs require",
               "userRequest": "./createTransitionManager",
               "loc": "21:31-67"
+            },
+            {
+              "moduleId": "kjbi",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+              "module": "./node_modules/history/createHashHistory.js",
+              "moduleName": "./node_modules/history/createHashHistory.js",
+              "type": "cjs require",
+              "userRequest": "./createTransitionManager",
+              "loc": "19:31-67"
             },
             {
               "moduleId": "HSnN",
@@ -3835,22 +3878,13 @@
             2
           ],
           "assets": [],
-          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-          "issuerId": "kjbi",
-          "issuerName": "./node_modules/history/createHashHistory.js",
+          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
+          "issuerId": "ciQf",
+          "issuerName": "./node_modules/history/createBrowserHistory.js",
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "reasons": [
-            {
-              "moduleId": "kjbi",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-              "module": "./node_modules/history/createHashHistory.js",
-              "moduleName": "./node_modules/history/createHashHistory.js",
-              "type": "cjs require",
-              "userRequest": "./LocationUtils",
-              "loc": "15:21-47"
-            },
             {
               "moduleId": "ciQf",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
@@ -3859,6 +3893,15 @@
               "type": "cjs require",
               "userRequest": "./LocationUtils",
               "loc": "17:21-47"
+            },
+            {
+              "moduleId": "kjbi",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+              "module": "./node_modules/history/createHashHistory.js",
+              "moduleName": "./node_modules/history/createHashHistory.js",
+              "type": "cjs require",
+              "userRequest": "./LocationUtils",
+              "loc": "15:21-47"
             },
             {
               "moduleId": "HSnN",
@@ -4022,22 +4065,13 @@
             2
           ],
           "assets": [],
-          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-          "issuerId": "kjbi",
-          "issuerName": "./node_modules/history/createHashHistory.js",
+          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
+          "issuerId": "ciQf",
+          "issuerName": "./node_modules/history/createBrowserHistory.js",
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "reasons": [
-            {
-              "moduleId": "kjbi",
-              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-              "module": "./node_modules/history/createHashHistory.js",
-              "moduleName": "./node_modules/history/createHashHistory.js",
-              "type": "cjs require",
-              "userRequest": "./DOMUtils",
-              "loc": "23:16-37"
-            },
             {
               "moduleId": "ciQf",
               "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
@@ -4046,6 +4080,15 @@
               "type": "cjs require",
               "userRequest": "./DOMUtils",
               "loc": "25:16-37"
+            },
+            {
+              "moduleId": "kjbi",
+              "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+              "module": "./node_modules/history/createHashHistory.js",
+              "moduleName": "./node_modules/history/createHashHistory.js",
+              "type": "cjs require",
+              "userRequest": "./DOMUtils",
+              "loc": "23:16-37"
             }
           ],
           "usedExports": true,
@@ -4079,7 +4122,7 @@
         "vendor"
       ],
       "files": [
-        "vendor.bundle-35e06455.js"
+        "vendor.bundle-2b60dc77.js"
       ],
       "hash": "accc2a18727c46cb7f8a",
       "parents": [],
@@ -4415,8 +4458,8 @@
       "id": "7A8H",
       "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/extract-text-webpack-plugin/dist/loader.js??ref--0-0!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/style-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/css-loader/index.js??ref--0-2!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/postcss-loader/lib/index.js??ref--0-3!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/resolve-url-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/sass-loader/lib/loader.js??ref--0-5!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/styles.critical.scss",
       "name": "./src/client/app/styles.critical.scss",
-      "index": 75,
-      "index2": 78,
+      "index": 76,
+      "index2": 79,
       "size": 41,
       "cacheable": true,
       "built": true,
@@ -4440,7 +4483,7 @@
           "moduleName": "./src/client/app/main.tsx",
           "type": "harmony import",
           "userRequest": "./styles.critical",
-          "loc": "8:0-27"
+          "loc": "9:0-27"
         }
       ],
       "usedExports": false,
@@ -4657,6 +4700,49 @@
       "source": "var isarray = require('isarray')\n\n/**\n * Expose `pathToRegexp`.\n */\nmodule.exports = pathToRegexp\nmodule.exports.parse = parse\nmodule.exports.compile = compile\nmodule.exports.tokensToFunction = tokensToFunction\nmodule.exports.tokensToRegExp = tokensToRegExp\n\n/**\n * The main path matching regexp utility.\n *\n * @type {RegExp}\n */\nvar PATH_REGEXP = new RegExp([\n  // Match escaped characters that would otherwise appear in future matches.\n  // This allows the user to escape special characters that won't transform.\n  '(\\\\\\\\.)',\n  // Match Express-style parameters and un-named parameters with a prefix\n  // and optional suffixes. Matches appear as:\n  //\n  // \"/:test(\\\\d+)?\" => [\"/\", \"test\", \"\\d+\", undefined, \"?\", undefined]\n  // \"/route(\\\\d+)\"  => [undefined, undefined, undefined, \"\\d+\", undefined, undefined]\n  // \"/*\"            => [\"/\", undefined, undefined, undefined, undefined, \"*\"]\n  '([\\\\/.])?(?:(?:\\\\:(\\\\w+)(?:\\\\(((?:\\\\\\\\.|[^\\\\\\\\()])+)\\\\))?|\\\\(((?:\\\\\\\\.|[^\\\\\\\\()])+)\\\\))([+*?])?|(\\\\*))'\n].join('|'), 'g')\n\n/**\n * Parse a string for the raw tokens.\n *\n * @param  {string}  str\n * @param  {Object=} options\n * @return {!Array}\n */\nfunction parse (str, options) {\n  var tokens = []\n  var key = 0\n  var index = 0\n  var path = ''\n  var defaultDelimiter = options && options.delimiter || '/'\n  var res\n\n  while ((res = PATH_REGEXP.exec(str)) != null) {\n    var m = res[0]\n    var escaped = res[1]\n    var offset = res.index\n    path += str.slice(index, offset)\n    index = offset + m.length\n\n    // Ignore already escaped sequences.\n    if (escaped) {\n      path += escaped[1]\n      continue\n    }\n\n    var next = str[index]\n    var prefix = res[2]\n    var name = res[3]\n    var capture = res[4]\n    var group = res[5]\n    var modifier = res[6]\n    var asterisk = res[7]\n\n    // Push the current path onto the tokens.\n    if (path) {\n      tokens.push(path)\n      path = ''\n    }\n\n    var partial = prefix != null && next != null && next !== prefix\n    var repeat = modifier === '+' || modifier === '*'\n    var optional = modifier === '?' || modifier === '*'\n    var delimiter = res[2] || defaultDelimiter\n    var pattern = capture || group\n\n    tokens.push({\n      name: name || key++,\n      prefix: prefix || '',\n      delimiter: delimiter,\n      optional: optional,\n      repeat: repeat,\n      partial: partial,\n      asterisk: !!asterisk,\n      pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')\n    })\n  }\n\n  // Match any characters still remaining.\n  if (index < str.length) {\n    path += str.substr(index)\n  }\n\n  // If the path exists, push it onto the end.\n  if (path) {\n    tokens.push(path)\n  }\n\n  return tokens\n}\n\n/**\n * Compile a string to a template function for the path.\n *\n * @param  {string}             str\n * @param  {Object=}            options\n * @return {!function(Object=, Object=)}\n */\nfunction compile (str, options) {\n  return tokensToFunction(parse(str, options))\n}\n\n/**\n * Prettier encoding of URI path segments.\n *\n * @param  {string}\n * @return {string}\n */\nfunction encodeURIComponentPretty (str) {\n  return encodeURI(str).replace(/[\\/?#]/g, function (c) {\n    return '%' + c.charCodeAt(0).toString(16).toUpperCase()\n  })\n}\n\n/**\n * Encode the asterisk parameter. Similar to `pretty`, but allows slashes.\n *\n * @param  {string}\n * @return {string}\n */\nfunction encodeAsterisk (str) {\n  return encodeURI(str).replace(/[?#]/g, function (c) {\n    return '%' + c.charCodeAt(0).toString(16).toUpperCase()\n  })\n}\n\n/**\n * Expose a method for transforming tokens into the path function.\n */\nfunction tokensToFunction (tokens) {\n  // Compile all the tokens into regexps.\n  var matches = new Array(tokens.length)\n\n  // Compile all the patterns before compilation.\n  for (var i = 0; i < tokens.length; i++) {\n    if (typeof tokens[i] === 'object') {\n      matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$')\n    }\n  }\n\n  return function (obj, opts) {\n    var path = ''\n    var data = obj || {}\n    var options = opts || {}\n    var encode = options.pretty ? encodeURIComponentPretty : encodeURIComponent\n\n    for (var i = 0; i < tokens.length; i++) {\n      var token = tokens[i]\n\n      if (typeof token === 'string') {\n        path += token\n\n        continue\n      }\n\n      var value = data[token.name]\n      var segment\n\n      if (value == null) {\n        if (token.optional) {\n          // Prepend partial segment prefixes.\n          if (token.partial) {\n            path += token.prefix\n          }\n\n          continue\n        } else {\n          throw new TypeError('Expected \"' + token.name + '\" to be defined')\n        }\n      }\n\n      if (isarray(value)) {\n        if (!token.repeat) {\n          throw new TypeError('Expected \"' + token.name + '\" to not repeat, but received `' + JSON.stringify(value) + '`')\n        }\n\n        if (value.length === 0) {\n          if (token.optional) {\n            continue\n          } else {\n            throw new TypeError('Expected \"' + token.name + '\" to not be empty')\n          }\n        }\n\n        for (var j = 0; j < value.length; j++) {\n          segment = encode(value[j])\n\n          if (!matches[i].test(segment)) {\n            throw new TypeError('Expected all \"' + token.name + '\" to match \"' + token.pattern + '\", but received `' + JSON.stringify(segment) + '`')\n          }\n\n          path += (j === 0 ? token.prefix : token.delimiter) + segment\n        }\n\n        continue\n      }\n\n      segment = token.asterisk ? encodeAsterisk(value) : encode(value)\n\n      if (!matches[i].test(segment)) {\n        throw new TypeError('Expected \"' + token.name + '\" to match \"' + token.pattern + '\", but received \"' + segment + '\"')\n      }\n\n      path += token.prefix + segment\n    }\n\n    return path\n  }\n}\n\n/**\n * Escape a regular expression string.\n *\n * @param  {string} str\n * @return {string}\n */\nfunction escapeString (str) {\n  return str.replace(/([.+*?=^!:${}()[\\]|\\/\\\\])/g, '\\\\$1')\n}\n\n/**\n * Escape the capturing group by escaping special characters and meaning.\n *\n * @param  {string} group\n * @return {string}\n */\nfunction escapeGroup (group) {\n  return group.replace(/([=!:$\\/()])/g, '\\\\$1')\n}\n\n/**\n * Attach the keys as a property of the regexp.\n *\n * @param  {!RegExp} re\n * @param  {Array}   keys\n * @return {!RegExp}\n */\nfunction attachKeys (re, keys) {\n  re.keys = keys\n  return re\n}\n\n/**\n * Get the flags for a regexp from the options.\n *\n * @param  {Object} options\n * @return {string}\n */\nfunction flags (options) {\n  return options.sensitive ? '' : 'i'\n}\n\n/**\n * Pull out keys from a regexp.\n *\n * @param  {!RegExp} path\n * @param  {!Array}  keys\n * @return {!RegExp}\n */\nfunction regexpToRegexp (path, keys) {\n  // Use a negative lookahead to match only capturing groups.\n  var groups = path.source.match(/\\((?!\\?)/g)\n\n  if (groups) {\n    for (var i = 0; i < groups.length; i++) {\n      keys.push({\n        name: i,\n        prefix: null,\n        delimiter: null,\n        optional: false,\n        repeat: false,\n        partial: false,\n        asterisk: false,\n        pattern: null\n      })\n    }\n  }\n\n  return attachKeys(path, keys)\n}\n\n/**\n * Transform an array into a regexp.\n *\n * @param  {!Array}  path\n * @param  {Array}   keys\n * @param  {!Object} options\n * @return {!RegExp}\n */\nfunction arrayToRegexp (path, keys, options) {\n  var parts = []\n\n  for (var i = 0; i < path.length; i++) {\n    parts.push(pathToRegexp(path[i], keys, options).source)\n  }\n\n  var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options))\n\n  return attachKeys(regexp, keys)\n}\n\n/**\n * Create a path regexp from string input.\n *\n * @param  {string}  path\n * @param  {!Array}  keys\n * @param  {!Object} options\n * @return {!RegExp}\n */\nfunction stringToRegexp (path, keys, options) {\n  return tokensToRegExp(parse(path, options), keys, options)\n}\n\n/**\n * Expose a function for taking tokens and returning a RegExp.\n *\n * @param  {!Array}          tokens\n * @param  {(Array|Object)=} keys\n * @param  {Object=}         options\n * @return {!RegExp}\n */\nfunction tokensToRegExp (tokens, keys, options) {\n  if (!isarray(keys)) {\n    options = /** @type {!Object} */ (keys || options)\n    keys = []\n  }\n\n  options = options || {}\n\n  var strict = options.strict\n  var end = options.end !== false\n  var route = ''\n\n  // Iterate over the tokens and create our regexp string.\n  for (var i = 0; i < tokens.length; i++) {\n    var token = tokens[i]\n\n    if (typeof token === 'string') {\n      route += escapeString(token)\n    } else {\n      var prefix = escapeString(token.prefix)\n      var capture = '(?:' + token.pattern + ')'\n\n      keys.push(token)\n\n      if (token.repeat) {\n        capture += '(?:' + prefix + capture + ')*'\n      }\n\n      if (token.optional) {\n        if (!token.partial) {\n          capture = '(?:' + prefix + '(' + capture + '))?'\n        } else {\n          capture = prefix + '(' + capture + ')?'\n        }\n      } else {\n        capture = prefix + '(' + capture + ')'\n      }\n\n      route += capture\n    }\n  }\n\n  var delimiter = escapeString(options.delimiter || '/')\n  var endsWithDelimiter = route.slice(-delimiter.length) === delimiter\n\n  // In non-strict mode we allow a slash at the end of match. If the path to\n  // match already ends with a slash, we remove it for consistency. The slash\n  // is valid at the end of a path match, not in the middle. This is important\n  // in non-ending mode, where \"/test/\" shouldn't match \"/test//route\".\n  if (!strict) {\n    route = (endsWithDelimiter ? route.slice(0, -delimiter.length) : route) + '(?:' + delimiter + '(?=$))?'\n  }\n\n  if (end) {\n    route += '$'\n  } else {\n    // In non-ending mode, we need the capturing groups to match as much as\n    // possible by using a positive lookahead to the end or next path segment.\n    route += strict && endsWithDelimiter ? '' : '(?=' + delimiter + '|$)'\n  }\n\n  return attachKeys(new RegExp('^' + route, flags(options)), keys)\n}\n\n/**\n * Normalize the given path string, returning a regular expression.\n *\n * An empty array can be passed in for the keys, which will hold the\n * placeholder key descriptions. For example, using `/user/:id`, `keys` will\n * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.\n *\n * @param  {(string|RegExp|Array)} path\n * @param  {(Array|Object)=}       keys\n * @param  {Object=}               options\n * @return {!RegExp}\n */\nfunction pathToRegexp (path, keys, options) {\n  if (!isarray(keys)) {\n    options = /** @type {!Object} */ (keys || options)\n    keys = []\n  }\n\n  options = options || {}\n\n  if (path instanceof RegExp) {\n    return regexpToRegexp(path, /** @type {!Array} */ (keys))\n  }\n\n  if (isarray(path)) {\n    return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)\n  }\n\n  return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)\n}\n"
     },
     {
+      "id": "DUUi",
+      "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/config/swRegister.ts",
+      "name": "./src/client/app/config/swRegister.ts",
+      "index": 75,
+      "index2": 74,
+      "size": 722,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        2
+      ],
+      "assets": [],
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/main.tsx",
+      "issuerId": "PAzG",
+      "issuerName": "./src/client/app/main.tsx",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": "PAzG",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/main.tsx",
+          "module": "./src/client/app/main.tsx",
+          "moduleName": "./src/client/app/main.tsx",
+          "type": "harmony import",
+          "userRequest": "config//swRegister",
+          "loc": "5:0-48"
+        }
+      ],
+      "usedExports": [
+        "swRegister"
+      ],
+      "providedExports": [
+        "swRegister",
+        "unregister"
+      ],
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "/** Register Service Worker */\nfunction swRegister() {\n    if ('serviceWorker' in navigator) {\n        window.addEventListener('load', function () {\n            navigator.serviceWorker.register('/sw.js').then(function (registration) {\n                console.log('SW registered: ', registration);\n            }).catch(function (registrationError) {\n                console.log('SW registration failed: ', registrationError);\n            });\n        });\n    }\n}\n/** Unregisted Service Worker */\nfunction unregister() {\n    if ('serviceWorker' in navigator) {\n        navigator.serviceWorker.ready.then(function (registration) {\n            registration.unregister();\n        });\n    }\n}\nexport { swRegister, unregister, };\n"
+    },
+    {
       "id": "DuR2",
       "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/webpack/buildin/global.js",
       "name": "(webpack)/buildin/global.js",
@@ -4865,8 +4951,8 @@
       "id": "FZ+f",
       "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/css-loader/lib/css-base.js",
       "name": "./node_modules/css-loader/lib/css-base.js",
-      "index": 77,
-      "index2": 74,
+      "index": 78,
+      "index2": 75,
       "size": 2260,
       "cacheable": true,
       "built": true,
@@ -4938,19 +5024,19 @@
           "loc": "1:0-31"
         },
         {
-          "moduleId": "6oJa",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/components/Loading.tsx",
-          "module": "./src/client/app/components/Loading.tsx",
-          "moduleName": "./src/client/app/components/Loading.tsx",
+          "moduleId": "pwty",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/components/Home.tsx",
+          "module": "./src/client/app/components/Home.tsx",
+          "moduleName": "./src/client/app/components/Home.tsx",
           "type": "harmony import",
           "userRequest": "react",
           "loc": "1:0-31"
         },
         {
-          "moduleId": "pwty",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/components/Home.tsx",
-          "module": "./src/client/app/components/Home.tsx",
-          "moduleName": "./src/client/app/components/Home.tsx",
+          "moduleId": "6oJa",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/components/Loading.tsx",
+          "module": "./src/client/app/components/Loading.tsx",
+          "moduleName": "./src/client/app/components/Loading.tsx",
           "type": "harmony import",
           "userRequest": "react",
           "loc": "1:0-31"
@@ -4983,19 +5069,19 @@
           "loc": "13:20-36"
         },
         {
-          "moduleId": "8QhD",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-          "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
-          "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+          "moduleId": "nT98",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
+          "module": "./node_modules/react-router-dom/es/HashRouter.js",
+          "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
           "type": "harmony import",
           "userRequest": "react",
           "loc": "8:0-26"
         },
         {
-          "moduleId": "nT98",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
-          "module": "./node_modules/react-router-dom/es/HashRouter.js",
-          "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
+          "moduleId": "8QhD",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
+          "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
+          "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
           "type": "harmony import",
           "userRequest": "react",
           "loc": "8:0-26"
@@ -5028,22 +5114,13 @@
           "loc": "7:0-26"
         },
         {
-          "moduleId": "s4hp",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-          "module": "./node_modules/react-router/es/Route.js",
-          "moduleName": "./node_modules/react-router/es/Route.js",
+          "moduleId": "1S3F",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
+          "module": "./node_modules/react-router/es/Redirect.js",
+          "moduleName": "./node_modules/react-router/es/Redirect.js",
           "type": "harmony import",
           "userRequest": "react",
-          "loc": "11:0-26"
-        },
-        {
-          "moduleId": "twkG",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-          "module": "./node_modules/react-router/es/Router.js",
-          "moduleName": "./node_modules/react-router/es/Router.js",
-          "type": "harmony import",
-          "userRequest": "react",
-          "loc": "11:0-26"
+          "loc": "7:0-26"
         },
         {
           "moduleId": "onEH",
@@ -5055,13 +5132,13 @@
           "loc": "8:0-26"
         },
         {
-          "moduleId": "1S3F",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
-          "module": "./node_modules/react-router/es/Redirect.js",
-          "moduleName": "./node_modules/react-router/es/Redirect.js",
+          "moduleId": "s4hp",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+          "module": "./node_modules/react-router/es/Route.js",
+          "moduleName": "./node_modules/react-router/es/Route.js",
           "type": "harmony import",
           "userRequest": "react",
-          "loc": "7:0-26"
+          "loc": "11:0-26"
         },
         {
           "moduleId": "t1d2",
@@ -5071,6 +5148,15 @@
           "type": "harmony import",
           "userRequest": "react",
           "loc": "13:0-26"
+        },
+        {
+          "moduleId": "twkG",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+          "module": "./node_modules/react-router/es/Router.js",
+          "moduleName": "./node_modules/react-router/es/Router.js",
+          "type": "harmony import",
+          "userRequest": "react",
+          "loc": "11:0-26"
         },
         {
           "moduleId": "bXVx",
@@ -5112,22 +5198,13 @@
         2
       ],
       "assets": [],
-      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-      "issuerId": "8QhD",
-      "issuerName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
+      "issuerId": "nT98",
+      "issuerName": "./node_modules/react-router-dom/es/HashRouter.js",
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "reasons": [
-        {
-          "moduleId": "8QhD",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-          "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
-          "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
-          "type": "harmony import",
-          "userRequest": "warning",
-          "loc": "7:0-30"
-        },
         {
           "moduleId": "nT98",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
@@ -5138,13 +5215,13 @@
           "loc": "7:0-30"
         },
         {
-          "moduleId": "kjbi",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-          "module": "./node_modules/history/createHashHistory.js",
-          "moduleName": "./node_modules/history/createHashHistory.js",
-          "type": "cjs require",
+          "moduleId": "8QhD",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
+          "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
+          "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+          "type": "harmony import",
           "userRequest": "warning",
-          "loc": "7:15-33"
+          "loc": "7:0-30"
         },
         {
           "moduleId": "ciQf",
@@ -5156,6 +5233,15 @@
           "loc": "9:15-33"
         },
         {
+          "moduleId": "kjbi",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+          "module": "./node_modules/history/createHashHistory.js",
+          "moduleName": "./node_modules/history/createHashHistory.js",
+          "type": "cjs require",
+          "userRequest": "warning",
+          "loc": "7:15-33"
+        },
+        {
           "moduleId": "tqq1",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createTransitionManager.js",
           "module": "./node_modules/history/createTransitionManager.js",
@@ -5165,19 +5251,10 @@
           "loc": "5:15-33"
         },
         {
-          "moduleId": "s4hp",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-          "module": "./node_modules/react-router/es/Route.js",
-          "moduleName": "./node_modules/react-router/es/Route.js",
-          "type": "harmony import",
-          "userRequest": "warning",
-          "loc": "9:0-30"
-        },
-        {
-          "moduleId": "twkG",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-          "module": "./node_modules/react-router/es/Router.js",
-          "moduleName": "./node_modules/react-router/es/Router.js",
+          "moduleId": "1S3F",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
+          "module": "./node_modules/react-router/es/Redirect.js",
+          "moduleName": "./node_modules/react-router/es/Redirect.js",
           "type": "harmony import",
           "userRequest": "warning",
           "loc": "9:0-30"
@@ -5192,10 +5269,10 @@
           "loc": "7:0-30"
         },
         {
-          "moduleId": "1S3F",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
-          "module": "./node_modules/react-router/es/Redirect.js",
-          "moduleName": "./node_modules/react-router/es/Redirect.js",
+          "moduleId": "s4hp",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+          "module": "./node_modules/react-router/es/Route.js",
+          "moduleName": "./node_modules/react-router/es/Route.js",
           "type": "harmony import",
           "userRequest": "warning",
           "loc": "9:0-30"
@@ -5208,6 +5285,15 @@
           "type": "harmony import",
           "userRequest": "warning",
           "loc": "11:0-30"
+        },
+        {
+          "moduleId": "twkG",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+          "module": "./node_modules/react-router/es/Router.js",
+          "moduleName": "./node_modules/react-router/es/Router.js",
+          "type": "harmony import",
+          "userRequest": "warning",
+          "loc": "9:0-30"
         },
         {
           "moduleId": "bXVx",
@@ -5228,15 +5314,6 @@
           "loc": "9:15-33"
         },
         {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-          "type": "harmony import",
-          "userRequest": "warning",
-          "loc": "5:0-30"
-        },
-        {
           "moduleId": "k5k7",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
           "module": "./node_modules/history/es/createHashHistory.js",
@@ -5244,6 +5321,15 @@
           "type": "harmony import",
           "userRequest": "warning",
           "loc": "3:0-30"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "warning",
+          "loc": "5:0-30"
         },
         {
           "moduleId": "o1/Q",
@@ -5342,15 +5428,6 @@
           "loc": "8:0-68"
         },
         {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-          "type": "harmony import",
-          "userRequest": "./LocationUtils",
-          "loc": "7:0-49"
-        },
-        {
           "moduleId": "k5k7",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
           "module": "./node_modules/history/es/createHashHistory.js",
@@ -5358,6 +5435,15 @@
           "type": "harmony import",
           "userRequest": "./LocationUtils",
           "loc": "5:0-68"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "./LocationUtils",
+          "loc": "7:0-49"
         },
         {
           "moduleId": "o1/Q",
@@ -5396,22 +5482,13 @@
         2
       ],
       "assets": [],
-      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-      "issuerId": "xuWB",
-      "issuerName": "./node_modules/history/es/createBrowserHistory.js",
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
+      "issuerId": "k5k7",
+      "issuerName": "./node_modules/history/es/createHashHistory.js",
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "reasons": [
-        {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-          "type": "harmony import",
-          "userRequest": "./createTransitionManager",
-          "loc": "9:0-64"
-        },
         {
           "moduleId": "k5k7",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
@@ -5420,6 +5497,15 @@
           "type": "harmony import",
           "userRequest": "./createTransitionManager",
           "loc": "7:0-64"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "./createTransitionManager",
+          "loc": "9:0-64"
         },
         {
           "moduleId": "o1/Q",
@@ -5456,22 +5542,13 @@
         2
       ],
       "assets": [],
-      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-      "issuerId": "kjbi",
-      "issuerName": "./node_modules/history/createHashHistory.js",
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
+      "issuerId": "ciQf",
+      "issuerName": "./node_modules/history/createBrowserHistory.js",
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "reasons": [
-        {
-          "moduleId": "kjbi",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-          "module": "./node_modules/history/createHashHistory.js",
-          "moduleName": "./node_modules/history/createHashHistory.js",
-          "type": "cjs require",
-          "userRequest": "./PathUtils",
-          "loc": "17:17-39"
-        },
         {
           "moduleId": "ciQf",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
@@ -5480,6 +5557,15 @@
           "type": "cjs require",
           "userRequest": "./PathUtils",
           "loc": "19:17-39"
+        },
+        {
+          "moduleId": "kjbi",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+          "module": "./node_modules/history/createHashHistory.js",
+          "moduleName": "./node_modules/history/createHashHistory.js",
+          "type": "cjs require",
+          "userRequest": "./PathUtils",
+          "loc": "17:17-39"
         },
         {
           "moduleId": "xIPz",
@@ -5585,19 +5671,19 @@
           "loc": "12:16-37"
         },
         {
-          "moduleId": "8QhD",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-          "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
-          "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+          "moduleId": "nT98",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
+          "module": "./node_modules/react-router-dom/es/HashRouter.js",
+          "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
           "type": "harmony import",
           "userRequest": "prop-types",
           "loc": "9:0-35"
         },
         {
-          "moduleId": "nT98",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
-          "module": "./node_modules/react-router-dom/es/HashRouter.js",
-          "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
+          "moduleId": "8QhD",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
+          "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
+          "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
           "type": "harmony import",
           "userRequest": "prop-types",
           "loc": "9:0-35"
@@ -5630,22 +5716,13 @@
           "loc": "8:0-35"
         },
         {
-          "moduleId": "s4hp",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-          "module": "./node_modules/react-router/es/Route.js",
-          "moduleName": "./node_modules/react-router/es/Route.js",
+          "moduleId": "1S3F",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
+          "module": "./node_modules/react-router/es/Redirect.js",
+          "moduleName": "./node_modules/react-router/es/Redirect.js",
           "type": "harmony import",
           "userRequest": "prop-types",
-          "loc": "12:0-35"
-        },
-        {
-          "moduleId": "twkG",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-          "module": "./node_modules/react-router/es/Router.js",
-          "moduleName": "./node_modules/react-router/es/Router.js",
-          "type": "harmony import",
-          "userRequest": "prop-types",
-          "loc": "12:0-35"
+          "loc": "8:0-35"
         },
         {
           "moduleId": "onEH",
@@ -5657,13 +5734,13 @@
           "loc": "9:0-35"
         },
         {
-          "moduleId": "1S3F",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
-          "module": "./node_modules/react-router/es/Redirect.js",
-          "moduleName": "./node_modules/react-router/es/Redirect.js",
+          "moduleId": "s4hp",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+          "module": "./node_modules/react-router/es/Route.js",
+          "moduleName": "./node_modules/react-router/es/Route.js",
           "type": "harmony import",
           "userRequest": "prop-types",
-          "loc": "8:0-35"
+          "loc": "12:0-35"
         },
         {
           "moduleId": "t1d2",
@@ -5673,6 +5750,15 @@
           "type": "harmony import",
           "userRequest": "prop-types",
           "loc": "14:0-35"
+        },
+        {
+          "moduleId": "twkG",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+          "module": "./node_modules/react-router/es/Router.js",
+          "moduleName": "./node_modules/react-router/es/Router.js",
+          "type": "harmony import",
+          "userRequest": "prop-types",
+          "loc": "12:0-35"
         },
         {
           "moduleId": "bXVx",
@@ -5703,8 +5789,8 @@
       "id": "MTIv",
       "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/style-loader/lib/addStyles.js",
       "name": "./node_modules/style-loader/lib/addStyles.js",
-      "index": 78,
-      "index2": 77,
+      "index": 79,
+      "index2": 78,
       "size": 9457,
       "cacheable": true,
       "built": true,
@@ -5820,8 +5906,8 @@
       "id": "O877",
       "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/css-loader/index.js?{\"sourceMap\":true,\"importLoaders\":3}!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true,\"config\":{\"path\":\"/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/webpackConfig/postcss.config.js\"}}!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/resolve-url-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/sass-loader/lib/loader.js?{\"sourceMap\":true}!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/styles.critical.scss",
       "name": "./node_modules/css-loader?{\"sourceMap\":true,\"importLoaders\":3}!./node_modules/postcss-loader/lib?{\"sourceMap\":true,\"config\":{\"path\":\"/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/webpackConfig/postcss.config.js\"}}!./node_modules/resolve-url-loader!./node_modules/sass-loader/lib/loader.js?{\"sourceMap\":true}!./src/client/app/styles.critical.scss",
-      "index": 76,
-      "index2": 75,
+      "index": 77,
+      "index2": 76,
       "size": 38996,
       "cacheable": true,
       "built": true,
@@ -5847,8 +5933,8 @@
       "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/ts-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/src/client/app/main.tsx",
       "name": "./src/client/app/main.tsx",
       "index": 0,
-      "index2": 79,
-      "size": 420,
+      "index2": 80,
+      "size": 502,
       "cacheable": true,
       "built": true,
       "optional": false,
@@ -5868,7 +5954,7 @@
       "providedExports": [],
       "optimizationBailout": [],
       "depth": 0,
-      "source": "import * as React from 'react';\nimport * as ReactDOM from 'react-dom';\nimport Root from 'routers//Root';\nimport { importPromisePolyfill } from 'config//polyfills';\n/** Conditionally add polyfills */\nimportPromisePolyfill();\n/** Base style that contains normalize-scss */\nimport './styles.critical';\nReactDOM.render(React.createElement(\"main\", null,\n    React.createElement(Root, null)), document.getElementById('app'));\n"
+      "source": "import * as React from 'react';\nimport * as ReactDOM from 'react-dom';\nimport Root from 'routers//Root';\nimport { importPromisePolyfill } from 'config//polyfills';\nimport { swRegister } from 'config//swRegister';\n/** Conditionally add polyfills */\nimportPromisePolyfill();\n/** Base style that contains normalize-scss */\nimport './styles.critical';\nReactDOM.render(React.createElement(\"main\", null,\n    React.createElement(Root, null)), document.getElementById('app'));\n/** Register SW */\nswRegister();\n"
     },
     {
       "id": "PGPo",
@@ -6322,15 +6408,6 @@
           "loc": "13:0-34"
         },
         {
-          "moduleId": "kjbi",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-          "module": "./node_modules/history/createHashHistory.js",
-          "moduleName": "./node_modules/history/createHashHistory.js",
-          "type": "cjs require",
-          "userRequest": "invariant",
-          "loc": "11:17-37"
-        },
-        {
           "moduleId": "ciQf",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
           "module": "./node_modules/history/createBrowserHistory.js",
@@ -6338,6 +6415,15 @@
           "type": "cjs require",
           "userRequest": "invariant",
           "loc": "13:17-37"
+        },
+        {
+          "moduleId": "kjbi",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+          "module": "./node_modules/history/createHashHistory.js",
+          "moduleName": "./node_modules/history/createHashHistory.js",
+          "type": "cjs require",
+          "userRequest": "invariant",
+          "loc": "11:17-37"
         },
         {
           "moduleId": "p5BY",
@@ -6349,28 +6435,19 @@
           "loc": "9:0-34"
         },
         {
-          "moduleId": "s4hp",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
-          "module": "./node_modules/react-router/es/Route.js",
-          "moduleName": "./node_modules/react-router/es/Route.js",
-          "type": "harmony import",
-          "userRequest": "invariant",
-          "loc": "10:0-34"
-        },
-        {
-          "moduleId": "twkG",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
-          "module": "./node_modules/react-router/es/Router.js",
-          "moduleName": "./node_modules/react-router/es/Router.js",
-          "type": "harmony import",
-          "userRequest": "invariant",
-          "loc": "10:0-34"
-        },
-        {
           "moduleId": "1S3F",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Redirect.js",
           "module": "./node_modules/react-router/es/Redirect.js",
           "moduleName": "./node_modules/react-router/es/Redirect.js",
+          "type": "harmony import",
+          "userRequest": "invariant",
+          "loc": "10:0-34"
+        },
+        {
+          "moduleId": "s4hp",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Route.js",
+          "module": "./node_modules/react-router/es/Route.js",
+          "moduleName": "./node_modules/react-router/es/Route.js",
           "type": "harmony import",
           "userRequest": "invariant",
           "loc": "10:0-34"
@@ -6385,6 +6462,15 @@
           "loc": "12:0-34"
         },
         {
+          "moduleId": "twkG",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Router.js",
+          "module": "./node_modules/react-router/es/Router.js",
+          "moduleName": "./node_modules/react-router/es/Router.js",
+          "type": "harmony import",
+          "userRequest": "invariant",
+          "loc": "10:0-34"
+        },
+        {
           "moduleId": "bXVx",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router/es/Switch.js",
           "module": "./node_modules/react-router/es/Switch.js",
@@ -6394,15 +6480,6 @@
           "loc": "10:0-34"
         },
         {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-          "type": "harmony import",
-          "userRequest": "invariant",
-          "loc": "6:0-34"
-        },
-        {
           "moduleId": "k5k7",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
           "module": "./node_modules/history/es/createHashHistory.js",
@@ -6410,6 +6487,15 @@
           "type": "harmony import",
           "userRequest": "invariant",
           "loc": "4:0-34"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "invariant",
+          "loc": "6:0-34"
         }
       ],
       "usedExports": true,
@@ -6526,19 +6612,19 @@
           "loc": "17:0-31"
         },
         {
-          "moduleId": "8QhD",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-          "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
-          "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+          "moduleId": "nT98",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
+          "module": "./node_modules/react-router-dom/es/HashRouter.js",
+          "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
           "type": "harmony import",
           "userRequest": "./Router",
           "loc": "11:0-30"
         },
         {
-          "moduleId": "nT98",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
-          "module": "./node_modules/react-router-dom/es/HashRouter.js",
-          "moduleName": "./node_modules/react-router-dom/es/HashRouter.js",
+          "moduleId": "8QhD",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
+          "module": "./node_modules/react-router-dom/es/BrowserRouter.js",
+          "moduleName": "./node_modules/react-router-dom/es/BrowserRouter.js",
           "type": "harmony import",
           "userRequest": "./Router",
           "loc": "11:0-30"
@@ -6788,22 +6874,13 @@
         2
       ],
       "assets": [],
-      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-      "issuerId": "xuWB",
-      "issuerName": "./node_modules/history/es/createBrowserHistory.js",
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
+      "issuerId": "k5k7",
+      "issuerName": "./node_modules/history/es/createHashHistory.js",
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "reasons": [
-        {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-          "type": "harmony import",
-          "userRequest": "./DOMUtils",
-          "loc": "10:0-169"
-        },
         {
           "moduleId": "k5k7",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
@@ -6812,6 +6889,15 @@
           "type": "harmony import",
           "userRequest": "./DOMUtils",
           "loc": "8:0-129"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "./DOMUtils",
+          "loc": "10:0-169"
         }
       ],
       "usedExports": [
@@ -6922,8 +7008,8 @@
       "id": "mJPh",
       "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/style-loader/lib/urls.js",
       "name": "./node_modules/style-loader/lib/urls.js",
-      "index": 79,
-      "index2": 76,
+      "index": 80,
+      "index2": 77,
       "size": 3008,
       "cacheable": true,
       "built": true,
@@ -7104,15 +7190,6 @@
           "loc": "9:0-52"
         },
         {
-          "moduleId": "xuWB",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
-          "module": "./node_modules/history/es/createBrowserHistory.js",
-          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
-          "type": "harmony import",
-          "userRequest": "./PathUtils",
-          "loc": "8:0-106"
-        },
-        {
           "moduleId": "k5k7",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createHashHistory.js",
           "module": "./node_modules/history/es/createHashHistory.js",
@@ -7120,6 +7197,15 @@
           "type": "harmony import",
           "userRequest": "./PathUtils",
           "loc": "6:0-125"
+        },
+        {
+          "moduleId": "xuWB",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/es/createBrowserHistory.js",
+          "module": "./node_modules/history/es/createBrowserHistory.js",
+          "moduleName": "./node_modules/history/es/createBrowserHistory.js",
+          "type": "harmony import",
+          "userRequest": "./PathUtils",
+          "loc": "8:0-106"
         },
         {
           "moduleId": "o1/Q",
@@ -7512,22 +7598,13 @@
         2
       ],
       "assets": [],
-      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-      "issuerId": "kjbi",
-      "issuerName": "./node_modules/history/createHashHistory.js",
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
+      "issuerId": "ciQf",
+      "issuerName": "./node_modules/history/createBrowserHistory.js",
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "reasons": [
-        {
-          "moduleId": "kjbi",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-          "module": "./node_modules/history/createHashHistory.js",
-          "moduleName": "./node_modules/history/createHashHistory.js",
-          "type": "cjs require",
-          "userRequest": "./createTransitionManager",
-          "loc": "19:31-67"
-        },
         {
           "moduleId": "ciQf",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
@@ -7536,6 +7613,15 @@
           "type": "cjs require",
           "userRequest": "./createTransitionManager",
           "loc": "21:31-67"
+        },
+        {
+          "moduleId": "kjbi",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+          "module": "./node_modules/history/createHashHistory.js",
+          "moduleName": "./node_modules/history/createHashHistory.js",
+          "type": "cjs require",
+          "userRequest": "./createTransitionManager",
+          "loc": "19:31-67"
         },
         {
           "moduleId": "HSnN",
@@ -7694,43 +7780,6 @@
       "source": "var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\nfunction _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }\n\nimport React from 'react';\nimport PropTypes from 'prop-types';\nimport hoistStatics from 'hoist-non-react-statics';\nimport Route from './Route';\n\n/**\n * A public higher-order component to access the imperative API\n */\nvar withRouter = function withRouter(Component) {\n  var C = function C(props) {\n    var wrappedComponentRef = props.wrappedComponentRef,\n        remainingProps = _objectWithoutProperties(props, ['wrappedComponentRef']);\n\n    return React.createElement(Route, { render: function render(routeComponentProps) {\n        return React.createElement(Component, _extends({}, remainingProps, routeComponentProps, { ref: wrappedComponentRef }));\n      } });\n  };\n\n  C.displayName = 'withRouter(' + (Component.displayName || Component.name) + ')';\n  C.WrappedComponent = Component;\n  C.propTypes = {\n    wrappedComponentRef: PropTypes.func\n  };\n\n  return hoistStatics(C, Component);\n};\n\nexport default withRouter;"
     },
     {
-      "id": 0,
-      "identifier": "ignored /Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/es6-promise/dist vertx",
-      "name": "vertx (ignored)",
-      "index": 74,
-      "index2": 71,
-      "size": 15,
-      "cacheable": true,
-      "built": false,
-      "optional": true,
-      "prefetched": false,
-      "chunks": [
-        0
-      ],
-      "assets": [],
-      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/es6-promise/dist/es6-promise.js",
-      "issuerId": "hKoQ",
-      "issuerName": "./node_modules/es6-promise/dist/es6-promise.js",
-      "failed": false,
-      "errors": 0,
-      "warnings": 0,
-      "reasons": [
-        {
-          "moduleId": "hKoQ",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/es6-promise/dist/es6-promise.js",
-          "module": "./node_modules/es6-promise/dist/es6-promise.js",
-          "moduleName": "./node_modules/es6-promise/dist/es6-promise.js",
-          "type": "cjs require",
-          "userRequest": "vertx",
-          "loc": "140:16-26"
-        }
-      ],
-      "usedExports": true,
-      "providedExports": null,
-      "optimizationBailout": [],
-      "depth": 3
-    },
-    {
       "id": "vttU",
       "identifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react/cjs/react.production.min.js",
       "name": "./node_modules/react/cjs/react.production.min.js",
@@ -7872,22 +7921,13 @@
         2
       ],
       "assets": [],
-      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-      "issuerId": "kjbi",
-      "issuerName": "./node_modules/history/createHashHistory.js",
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
+      "issuerId": "ciQf",
+      "issuerName": "./node_modules/history/createBrowserHistory.js",
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "reasons": [
-        {
-          "moduleId": "kjbi",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-          "module": "./node_modules/history/createHashHistory.js",
-          "moduleName": "./node_modules/history/createHashHistory.js",
-          "type": "cjs require",
-          "userRequest": "./LocationUtils",
-          "loc": "15:21-47"
-        },
         {
           "moduleId": "ciQf",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
@@ -7896,6 +7936,15 @@
           "type": "cjs require",
           "userRequest": "./LocationUtils",
           "loc": "17:21-47"
+        },
+        {
+          "moduleId": "kjbi",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+          "module": "./node_modules/history/createHashHistory.js",
+          "moduleName": "./node_modules/history/createHashHistory.js",
+          "type": "cjs require",
+          "userRequest": "./LocationUtils",
+          "loc": "15:21-47"
         },
         {
           "moduleId": "HSnN",
@@ -8059,22 +8108,13 @@
         2
       ],
       "assets": [],
-      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-      "issuerId": "kjbi",
-      "issuerName": "./node_modules/history/createHashHistory.js",
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
+      "issuerId": "ciQf",
+      "issuerName": "./node_modules/history/createBrowserHistory.js",
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "reasons": [
-        {
-          "moduleId": "kjbi",
-          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
-          "module": "./node_modules/history/createHashHistory.js",
-          "moduleName": "./node_modules/history/createHashHistory.js",
-          "type": "cjs require",
-          "userRequest": "./DOMUtils",
-          "loc": "23:16-37"
-        },
         {
           "moduleId": "ciQf",
           "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createBrowserHistory.js",
@@ -8083,6 +8123,15 @@
           "type": "cjs require",
           "userRequest": "./DOMUtils",
           "loc": "25:16-37"
+        },
+        {
+          "moduleId": "kjbi",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/history/createHashHistory.js",
+          "module": "./node_modules/history/createHashHistory.js",
+          "moduleName": "./node_modules/history/createHashHistory.js",
+          "type": "cjs require",
+          "userRequest": "./DOMUtils",
+          "loc": "23:16-37"
         }
       ],
       "usedExports": true,
@@ -8090,6 +8139,43 @@
       "optimizationBailout": [],
       "depth": 5,
       "source": "'use strict';\n\nexports.__esModule = true;\nvar canUseDOM = exports.canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);\n\nvar addEventListener = exports.addEventListener = function addEventListener(node, event, listener) {\n  return node.addEventListener ? node.addEventListener(event, listener, false) : node.attachEvent('on' + event, listener);\n};\n\nvar removeEventListener = exports.removeEventListener = function removeEventListener(node, event, listener) {\n  return node.removeEventListener ? node.removeEventListener(event, listener, false) : node.detachEvent('on' + event, listener);\n};\n\nvar getConfirmation = exports.getConfirmation = function getConfirmation(message, callback) {\n  return callback(window.confirm(message));\n}; // eslint-disable-line no-alert\n\n/**\n * Returns true if the HTML5 history API is supported. Taken from Modernizr.\n *\n * https://github.com/Modernizr/Modernizr/blob/master/LICENSE\n * https://github.com/Modernizr/Modernizr/blob/master/feature-detects/history.js\n * changed to avoid false negatives for Windows Phones: https://github.com/reactjs/react-router/issues/586\n */\nvar supportsHistory = exports.supportsHistory = function supportsHistory() {\n  var ua = window.navigator.userAgent;\n\n  if ((ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) && ua.indexOf('Mobile Safari') !== -1 && ua.indexOf('Chrome') === -1 && ua.indexOf('Windows Phone') === -1) return false;\n\n  return window.history && 'pushState' in window.history;\n};\n\n/**\n * Returns true if browser fires popstate on hash change.\n * IE10 and IE11 do not.\n */\nvar supportsPopStateOnHashChange = exports.supportsPopStateOnHashChange = function supportsPopStateOnHashChange() {\n  return window.navigator.userAgent.indexOf('Trident') === -1;\n};\n\n/**\n * Returns false if using go(n) with hash history causes a full page reload.\n */\nvar supportsGoWithoutReloadUsingHash = exports.supportsGoWithoutReloadUsingHash = function supportsGoWithoutReloadUsingHash() {\n  return window.navigator.userAgent.indexOf('Firefox') === -1;\n};\n\n/**\n * Returns true if a given popstate event is an extraneous WebKit event.\n * Accounts for the fact that Chrome on iOS fires real popstate events\n * containing undefined state when pressing the back button.\n */\nvar isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {\n  return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;\n};"
+    },
+    {
+      "id": 0,
+      "identifier": "ignored /Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/es6-promise/dist vertx",
+      "name": "vertx (ignored)",
+      "index": 74,
+      "index2": 71,
+      "size": 15,
+      "cacheable": true,
+      "built": false,
+      "optional": true,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/es6-promise/dist/es6-promise.js",
+      "issuerId": "hKoQ",
+      "issuerName": "./node_modules/es6-promise/dist/es6-promise.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": "hKoQ",
+          "moduleIdentifier": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/es6-promise/dist/es6-promise.js",
+          "module": "./node_modules/es6-promise/dist/es6-promise.js",
+          "moduleName": "./node_modules/es6-promise/dist/es6-promise.js",
+          "type": "cjs require",
+          "userRequest": "vertx",
+          "loc": "140:16-26"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 3
     }
   ],
   "filteredModules": 0,

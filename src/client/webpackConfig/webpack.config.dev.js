@@ -9,7 +9,7 @@ const {
 
 /** Paths */
 const {
-  ROOT_DIST_PATH,
+  DIST,
 } = require('./path');
 
 
@@ -19,7 +19,7 @@ module.exports = merge(baseConfig, {
     host: APP_HOST,
     port: APP_PORT,
     https: APP_PROTOCOL === 'https',
-    contentBase: ROOT_DIST_PATH,
+    contentBase: DIST,
     stats: 'normal',
     historyApiFallback: true,
   },
