@@ -11,7 +11,7 @@ const { cssConfig, criticalCssFilename, externalCssFilename } = require('./cssLo
 
 /** ENV */
 const {
-  APP_PROTOCOL, APP_HOST, APP_PORT, NODE_ENV,
+  APP_PROTOCOL, APP_HOST, APP_PORT, NODE_ENV, APP_PUBLIC_URL,
 } = require('./env');
 
 const IS_PROD = NODE_ENV === 'production';
@@ -34,6 +34,7 @@ const config = {
   output: {
     path: DIST,
     filename: '[name].bundle-[hash:8].js',
+    publicPath: APP_PUBLIC_URL,
     /** chuckFilename is for code splitting chunk that is lazy loading */
     chunkFilename: '[name].chunk-[hash:8].js',
   },
@@ -134,6 +135,7 @@ const config = {
       'process.env.APP_PROTOCOL': JSON.stringify(APP_PROTOCOL),
       'process.env.APP_HOST': JSON.stringify(APP_HOST),
       'process.env.APP_PORT': JSON.stringify(APP_PORT),
+      'process.env.APP_PUBLIC_URL': JSON.stringify(APP_PUBLIC_URL),
     }),
     new PreloadWebpackPlugin({
       rel: 'preload',
@@ -186,6 +188,9 @@ const config = {
       globPatterns: ['**/*.{html,js,css}'],
       swDest: path.join(DIST, 'sw.js'),
       swSrc: path.join(SRC, 'sw.js'),
+      globIgnores: [
+        '../sw.js',
+      ],
       /** Runtime cache:
        * 1. Replace api url in urlPattern
        * 2. Check https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/ for caching strategies.
