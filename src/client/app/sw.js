@@ -9,10 +9,7 @@ importScripts('https://unpkg.com/workbox-sw@2.1.2/build/importScripts/workbox-sw
  * 2. Setting clientsClaims to true tells our service worker
  *  to take control of other pages soon as it's activated.
  */
-const workboxSW = new WorkboxSW({
-  skipWaiting: true,
-  clientsClaim: true,
-});
+const workboxSW = new WorkboxSW();
 
 /** Below is the custom Service Worker */
 

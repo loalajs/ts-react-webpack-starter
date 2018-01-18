@@ -16,9 +16,6 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(CLIENT_ROOT_PATH, 'index.html'));
 });
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(CLIENT_ROOT_PATH, 'index.html'));
-});
 app.listen(APP_PORT, () => {
     console.log(`Server running at host: ${APP_HOST} on port: ${APP_PORT}; cwd: ${process.cwd()}`);
 });

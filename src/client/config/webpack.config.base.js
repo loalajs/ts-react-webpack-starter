@@ -7,7 +7,9 @@ const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 const { cssConfig, criticalCssFilename, externalCssFilename } = require('./cssLoader');
+const manifestSeed = require('./manifest');
 
 /** ENV */
 const {
@@ -65,24 +67,26 @@ const config = {
         use: 'ts-loader',
         exclude: /(node_modules|bower_components)/,
       },
-      /** Load Images */
+      /** Load Images from Url loader */
       {
-        test: /\.(jpg|jpeg|gif|png)$/,
+        test: /\.(jpg|jpeg|gif|png|svg)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/media/[name]-[hash:8].[ext]',
+          name: 'assets/images/[path][name]-[hash:8].[ext]',
+          fallback: 'file-loader',
         },
       },
-      /** Load fonts */
+      /** Load fonts by Url loader */
       {
-        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        test: /\.(woff|woff2|eot|ttf)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'url-loader',
         options: {
           limit: 1024,
-          name: 'static/fonts/[name].[ext]',
+          name: 'assets/fonts/[name].[ext]',
+          fallback: 'file-loader',
         },
       },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
@@ -180,6 +184,14 @@ const config = {
     new BundleAnalyzerPlugin({
       generateStatsFile: true,
     }),
+
+    /** Generate the manifest.json for Service Worker */
+    new ManifestPlugin({
+      filename: 'manifest.json',
+      basePath: '/',
+      seed: manifestSeed,
+    }),
+
     /** WorkboxPlugin inspects the contents of dist and generates service worker code
      * for caching the output. Since Workbox revisions each file based on its contents,
      * Workbox should always be the last plugin you call. */
@@ -188,9 +200,8 @@ const config = {
       globPatterns: ['**/*.{html,js,css}'],
       swDest: path.join(DIST, 'sw.js'),
       swSrc: path.join(SRC, 'sw.js'),
-      globIgnores: [
-        '../sw.js',
-      ],
+      skipWaiting: true,
+      clientsClaim: true,
       /** Runtime cache:
        * 1. Replace api url in urlPattern
        * 2. Check https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/ for caching strategies.

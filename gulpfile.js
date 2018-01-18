@@ -76,11 +76,11 @@ gulp.task('build-server:watch', ['build-server'], () => {
 /**
  * Sass compilation
  */
-gulp.task('build-sass', () => gulp.src('src/server/static/styles/main.scss')
+gulp.task('build-sass', () => gulp.src('src/server/assets/styles/main.scss')
   .pipe(sourcemaps.init())
   .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
   .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest('dist/server/static/styles')));
+  .pipe(gulp.dest('dist/server/assets/styles')));
 
 /**
  * Build styles source code
@@ -91,7 +91,7 @@ gulp.task('build-styles', ['build-sass']);
  * Build assets watch task
  */
 gulp.task('build-styles:watch', ['build-styles'], () => {
-  gulp.watch('src/server/static/styles/**/*.scss', ['build-styles']);
+  gulp.watch('src/server/assets/styles/**/*.scss', ['build-styles']);
 });
 
 /**

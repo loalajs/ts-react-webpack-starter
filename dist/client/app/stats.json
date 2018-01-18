@@ -2,31 +2,42 @@
   "errors": [],
   "warnings": [],
   "version": "3.10.0",
-  "hash": "66fcdf38e40c78df2334",
-  "time": 16212,
+  "hash": "c655f037262d8f44002f",
+  "time": 23274,
   "publicPath": "/",
   "assetsByChunkName": {
     "polyfill-es6-promise": [
-      "polyfill-es6-promise.chunk-66fcdf38.js",
-      "polyfill-es6-promise.chunk-66fcdf38.js.map"
+      "polyfill-es6-promise.chunk-c655f037.js",
+      "polyfill-es6-promise.chunk-c655f037.js.map"
     ],
     "route-about": [
-      "route-about.chunk-66fcdf38.js",
-      "route-about.chunk-66fcdf38.js.map"
+      "route-about.chunk-c655f037.js",
+      "route-about.chunk-c655f037.js.map"
     ],
     "main": [
-      "main.bundle-66fcdf38.js",
-      "main.bundle-66fcdf38.js.map",
+      "main.bundle-c655f037.js",
+      "main.bundle-c655f037.js.map",
       "critical.css.map"
     ],
     "vendor": [
-      "vendor.bundle-66fcdf38.js",
-      "vendor.bundle-66fcdf38.js.map"
+      "vendor.bundle-c655f037.js",
+      "vendor.bundle-c655f037.js.map"
     ]
   },
   "assets": [
     {
-      "name": "polyfill-es6-promise.chunk-66fcdf38.js",
+      "name": "route-about.chunk-c655f037.js.map",
+      "size": 377,
+      "chunks": [
+        1
+      ],
+      "chunkNames": [
+        "route-about"
+      ],
+      "emitted": true
+    },
+    {
+      "name": "polyfill-es6-promise.chunk-c655f037.js",
       "size": 35915,
       "chunks": [
         0
@@ -37,18 +48,7 @@
       "emitted": true
     },
     {
-      "name": "route-about.chunk-66fcdf38.js",
-      "size": 644,
-      "chunks": [
-        1
-      ],
-      "chunkNames": [
-        "route-about"
-      ],
-      "emitted": true
-    },
-    {
-      "name": "main.bundle-66fcdf38.js",
+      "name": "main.bundle-c655f037.js",
       "size": 822093,
       "chunks": [
         2
@@ -60,7 +60,7 @@
       "isOverSizeLimit": true
     },
     {
-      "name": "vendor.bundle-66fcdf38.js",
+      "name": "vendor.bundle-c655f037.js",
       "size": 5922,
       "chunks": [
         3
@@ -71,7 +71,7 @@
       "emitted": true
     },
     {
-      "name": "polyfill-es6-promise.chunk-66fcdf38.js.map",
+      "name": "polyfill-es6-promise.chunk-c655f037.js.map",
       "size": 58947,
       "chunks": [
         0
@@ -82,8 +82,8 @@
       "emitted": true
     },
     {
-      "name": "route-about.chunk-66fcdf38.js.map",
-      "size": 377,
+      "name": "route-about.chunk-c655f037.js",
+      "size": 644,
       "chunks": [
         1
       ],
@@ -93,7 +93,7 @@
       "emitted": true
     },
     {
-      "name": "main.bundle-66fcdf38.js.map",
+      "name": "main.bundle-c655f037.js.map",
       "size": 938895,
       "chunks": [
         2
@@ -115,7 +115,7 @@
       "emitted": true
     },
     {
-      "name": "vendor.bundle-66fcdf38.js.map",
+      "name": "vendor.bundle-c655f037.js.map",
       "size": 6032,
       "chunks": [
         3
@@ -127,7 +127,14 @@
     },
     {
       "name": "index.html",
-      "size": 9360,
+      "size": 9412,
+      "chunks": [],
+      "chunkNames": [],
+      "emitted": true
+    },
+    {
+      "name": "manifest.json",
+      "size": 1657,
       "chunks": [],
       "chunkNames": [],
       "emitted": true
@@ -141,10 +148,10 @@
         2
       ],
       "assets": [
-        "vendor.bundle-66fcdf38.js",
-        "vendor.bundle-66fcdf38.js.map",
-        "main.bundle-66fcdf38.js",
-        "main.bundle-66fcdf38.js.map",
+        "vendor.bundle-c655f037.js",
+        "vendor.bundle-c655f037.js.map",
+        "main.bundle-c655f037.js",
+        "main.bundle-c655f037.js.map",
         "critical.css.map"
       ],
       "isOverSizeLimit": true
@@ -162,8 +169,8 @@
         "polyfill-es6-promise"
       ],
       "files": [
-        "polyfill-es6-promise.chunk-66fcdf38.js",
-        "polyfill-es6-promise.chunk-66fcdf38.js.map"
+        "polyfill-es6-promise.chunk-c655f037.js",
+        "polyfill-es6-promise.chunk-c655f037.js.map"
       ],
       "hash": "35a1c87ac375d9f669c5",
       "parents": [
@@ -346,8 +353,8 @@
         "route-about"
       ],
       "files": [
-        "route-about.chunk-66fcdf38.js",
-        "route-about.chunk-66fcdf38.js.map"
+        "route-about.chunk-c655f037.js",
+        "route-about.chunk-c655f037.js.map"
       ],
       "hash": "104040d6cacce86cc41a",
       "parents": [
@@ -419,8 +426,8 @@
         "main"
       ],
       "files": [
-        "main.bundle-66fcdf38.js",
-        "main.bundle-66fcdf38.js.map",
+        "main.bundle-c655f037.js",
+        "main.bundle-c655f037.js.map",
         "critical.css.map"
       ],
       "hash": "4b2b82047e2d3e9f9af0",
@@ -643,9 +650,9 @@
             2
           ],
           "assets": [],
-          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-          "issuerId": 47,
-          "issuerName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+          "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
+          "issuerId": 49,
+          "issuerName": "./node_modules/react-router-dom/es/HashRouter.js",
           "failed": false,
           "errors": 0,
           "warnings": 0,
@@ -4509,8 +4516,8 @@
         "vendor"
       ],
       "files": [
-        "vendor.bundle-66fcdf38.js",
-        "vendor.bundle-66fcdf38.js.map"
+        "vendor.bundle-c655f037.js",
+        "vendor.bundle-c655f037.js.map"
       ],
       "hash": "56a9269fbe9f445be792",
       "parents": [],
@@ -4735,9 +4742,9 @@
         2
       ],
       "assets": [],
-      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/BrowserRouter.js",
-      "issuerId": 47,
-      "issuerName": "./node_modules/react-router-dom/es/BrowserRouter.js",
+      "issuer": "/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/source-map-loader/index.js!/Users/jameslo/Dropbox/myproject/react-ts-starter/node_modules/react-router-dom/es/HashRouter.js",
+      "issuerId": 49,
+      "issuerName": "./node_modules/react-router-dom/es/HashRouter.js",
       "failed": false,
       "errors": 0,
       "warnings": 0,
@@ -8902,7 +8909,7 @@
       "assets": [
         {
           "name": "index.html",
-          "size": 544339,
+          "size": 544392,
           "chunks": [
             0
           ],
@@ -8927,12 +8934,12 @@
           "initial": true,
           "entry": true,
           "extraAsync": false,
-          "size": 541349,
+          "size": 541402,
           "names": [],
           "files": [
             "index.html"
           ],
-          "hash": "b14a7df9e441fc54f858",
+          "hash": "a838011599c5c917ac60",
           "parents": [],
           "modules": [
             {
@@ -8941,7 +8948,7 @@
               "name": "./node_modules/html-webpack-plugin/lib/loader.js!./src/client/app/index.html",
               "index": 0,
               "index2": 3,
-              "size": 735,
+              "size": 788,
               "cacheable": true,
               "built": true,
               "optional": false,
@@ -8961,7 +8968,7 @@
               "providedExports": null,
               "optimizationBailout": [],
               "depth": 0,
-              "source": "var _ = require(\"../../../node_modules/lodash/lodash.js\");module.exports = function (templateParams) {var compilation = templateParams.compilation;var webpack = templateParams.webpack;var webpackConfig = templateParams.webpackConfig;var htmlWebpackPlugin = templateParams.htmlWebpackPlugin;return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n<html>\\n    <head>\\n        <!-- Required meta tags -->\\n        <meta charset=\"utf-8\">\\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\\n        <meta charset=\"UTF-8\" />\\n        <title>Hello React!</title>\\n    </head>\\n    <body>\\n        <div id=\"app\"></div>\\n        <!-- Main -->\\n    </body>\\n</html>\\n';\nreturn __p\n})();}"
+              "source": "var _ = require(\"../../../node_modules/lodash/lodash.js\");module.exports = function (templateParams) {var compilation = templateParams.compilation;var webpack = templateParams.webpack;var webpackConfig = templateParams.webpackConfig;var htmlWebpackPlugin = templateParams.htmlWebpackPlugin;return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n<html>\\n    <head>\\n        <!-- Required meta tags -->\\n        <meta charset=\"utf-8\">\\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\\n        <meta charset=\"UTF-8\" />\\n        <title>Hello React!</title>\\n        <link rel=\"manifest\" href=\"/manifest.json\">\\n    </head>\\n    <body>\\n        <div id=\"app\"></div>\\n        <!-- Main -->\\n    </body>\\n</html>\\n';\nreturn __p\n})();}"
             },
             {
               "id": 1,
@@ -9098,7 +9105,7 @@
           "name": "./node_modules/html-webpack-plugin/lib/loader.js!./src/client/app/index.html",
           "index": 0,
           "index2": 3,
-          "size": 735,
+          "size": 788,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -9118,7 +9125,7 @@
           "providedExports": null,
           "optimizationBailout": [],
           "depth": 0,
-          "source": "var _ = require(\"../../../node_modules/lodash/lodash.js\");module.exports = function (templateParams) {var compilation = templateParams.compilation;var webpack = templateParams.webpack;var webpackConfig = templateParams.webpackConfig;var htmlWebpackPlugin = templateParams.htmlWebpackPlugin;return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n<html>\\n    <head>\\n        <!-- Required meta tags -->\\n        <meta charset=\"utf-8\">\\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\\n        <meta charset=\"UTF-8\" />\\n        <title>Hello React!</title>\\n    </head>\\n    <body>\\n        <div id=\"app\"></div>\\n        <!-- Main -->\\n    </body>\\n</html>\\n';\nreturn __p\n})();}"
+          "source": "var _ = require(\"../../../node_modules/lodash/lodash.js\");module.exports = function (templateParams) {var compilation = templateParams.compilation;var webpack = templateParams.webpack;var webpackConfig = templateParams.webpackConfig;var htmlWebpackPlugin = templateParams.htmlWebpackPlugin;return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n<html>\\n    <head>\\n        <!-- Required meta tags -->\\n        <meta charset=\"utf-8\">\\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\\n        <meta charset=\"UTF-8\" />\\n        <title>Hello React!</title>\\n        <link rel=\"manifest\" href=\"/manifest.json\">\\n    </head>\\n    <body>\\n        <div id=\"app\"></div>\\n        <!-- Main -->\\n    </body>\\n</html>\\n';\nreturn __p\n})();}"
         },
         {
           "id": 1,
