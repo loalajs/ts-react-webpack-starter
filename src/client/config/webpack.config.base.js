@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { cssConfig, criticalCssFilename, externalCssFilename } = require('./cssLoader');
 const manifestSeed = require('./manifest');
 
@@ -43,7 +44,9 @@ const config = {
   resolve: {
     /** Must include .js, .jsx for react to resolve after ts-loader */
     extensions: ['.ts', '.tsx', '.jsx', '.js', '.json', '.css', '.scss'],
-    alias: {},
+    alias: {
+      assets: path.resolve(SRC, 'assets'),
+    },
     modules: [
       SRC,
       'node_modules',
@@ -135,23 +138,34 @@ const config = {
       minSize: 1024,
       filename: '[name].bundle-[hash:8].js',
     }),
+    /** Only copy the images used for manifest.json for now
+     * For other images, simply load them with import (Loaded by file-loader)
+    */
+    new CopyWebpackPlugin([
+      {
+        context: 'src/client/config',
+        from: 'manifest-icons',
+        to: 'assets/images/manifest-icons',
+      },
+    ]),
+    /** Define env variables on frontend */
     new webpack.DefinePlugin({
       'process.env.APP_PROTOCOL': JSON.stringify(APP_PROTOCOL),
       'process.env.APP_HOST': JSON.stringify(APP_HOST),
       'process.env.APP_PORT': JSON.stringify(APP_PORT),
       'process.env.APP_PUBLIC_URL': JSON.stringify(APP_PUBLIC_URL),
     }),
+    /** Preload the array of the named chunks
+     * Chunks that are critical for first paint
+     * should be preloaded. Examples can be:
+     * 1. Fonts
+     * 2. Hero img
+     * 3. Other resources that are critically needed
+     * Notice: if everything is high priority then nothing is
+     * Notice: This plugin requires further customisation
+     */
     new PreloadWebpackPlugin({
       rel: 'preload',
-      /** Preload the array of the named chunks
-       * Chunks that are critical for first paint
-       * should be preloaded. Examples can be:
-       * 1. Fonts
-       * 2. Hero img
-       * 3. Other resources that are critically needed
-       * Notice: if everything is high priority then nothing is
-       * Notice: This plugin requires further customisation
-       */
       include: ['main'],
       as(entry) {
         if (/\.css$/.test(entry)) return 'style';
