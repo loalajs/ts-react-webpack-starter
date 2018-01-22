@@ -210,22 +210,11 @@ const config = {
      * for caching the output. Since Workbox revisions each file based on its contents,
      * Workbox should always be the last plugin you call. */
     new WorkboxPlugin({
-      globDirectory: DIST,
-      globPatterns: ['**/*.{html,js,css}'],
+      globPatterns: ['**/*.{js,css,html,png}'],
       swDest: path.join(DIST, 'sw.js'),
       swSrc: path.join(SRC, 'sw.js'),
       skipWaiting: true,
       clientsClaim: true,
-      /** Runtime cache:
-       * 1. Replace api url in urlPattern
-       * 2. Check https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/ for caching strategies.
-      runtimeCaching: [
-        {
-          urlPattern: new RegExp('https://www.pais.com/api'),
-          handler: 'staleWhileRevalidate',
-        },
-      ],
-      */
     }),
   ],
 };

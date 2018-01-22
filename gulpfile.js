@@ -4,13 +4,15 @@ const webpack = require('webpack');
 const gutil = require('gulp-util');
 const sass = require('gulp-sass');
 const gulp = require('gulp');
+const clean = require('gulp-clean');
 
-/**
- * Build client source code task
- */
+
 const prodWebpack = webpack(require('./src/client/config/webpack.config.prod'));
 const devWebpack = webpack(require('./src/client/config/webpack.config.dev'));
 
+/**
+ * Define client webpack config in different environment
+ */
 const { NODE_ENV } = process.env;
 let clientWebpack = {};
 
@@ -20,7 +22,16 @@ if (NODE_ENV === 'production') {
   clientWebpack = devWebpack;
 }
 
-gulp.task('build-client-src', (done) => {
+/**
+ * Clean Client
+ */
+gulp.task('clean-client', () => gulp.src('./dist/client/app/', { read: false })
+  .pipe(clean()));
+
+/**
+ * Build client source code task
+ */
+gulp.task('build-client-src', ['clean-client'], (done) => {
   clientWebpack.run((err, stats) => {
     if (err) {
       throw new gutil.PluginError('build-client-src', err);
@@ -38,7 +49,7 @@ gulp.task('build-client-src', (done) => {
 /**
  * Build client
  */
-gulp.task('build-client', ['build-client-src']);
+gulp.task('build-client', ['clean-client', 'build-client-src']);
 
 /**
  * Build client and watch for changes

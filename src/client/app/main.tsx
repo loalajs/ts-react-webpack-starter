@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Root from 'routers//Root';
 import { importPromisePolyfill } from 'config//polyfills';
-import swRegister from 'config//swRegister';
+import swRegister from 'config/swRegister';
 
 /** Conditionally add polyfills */
 importPromisePolyfill();

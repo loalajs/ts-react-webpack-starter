@@ -14,6 +14,7 @@ const {
 
 
 module.exports = merge(baseConfig, {
+  watch: true,
   devtool: 'source-map',
   devServer: {
     host: APP_HOST,

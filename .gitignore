@@ -30,4 +30,4 @@ typings/
 .env.example
 
 # Dist
-dist
+dist/
