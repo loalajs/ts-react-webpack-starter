@@ -33,13 +33,20 @@ const {
 
 /** Webpack config start here */
 const config = {
-  entry: path.resolve(SRC, 'main.tsx'),
+  // entry: path.resolve(SRC, 'main.tsx'),
+  entry: {
+    main: path.resolve(SRC, 'main.tsx'),
+    vendor: [
+      'react',
+      'react-router-dom',
+    ],
+  },
   output: {
     path: DIST,
-    filename: '[name].bundle-[hash:8].js',
+    filename: '[name].bundle-[chunkhash:8].js',
     publicPath: APP_PUBLIC_URL,
     /** chuckFilename is for code splitting chunk that is lazy loading */
-    chunkFilename: '[name].chunk-[hash:8].js',
+    chunkFilename: '[name].chunk-[chunkhash:8].js',
   },
   resolve: {
     /** Must include .js, .jsx for react to resolve after ts-loader */
@@ -77,7 +84,7 @@ const config = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'assets/images/[path][name]-[hash:8].[ext]',
+          name: 'assets/images/[path][name]-[chunkhash:8].[ext]',
           fallback: 'file-loader',
         },
       },
@@ -102,6 +109,7 @@ const config = {
    */
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'React Starter',
       template: path.join(SRC, 'index.html'),
       minify: {
         collapseWhitespace: IS_PROD,
@@ -127,16 +135,22 @@ const config = {
       file: criticalCssFilename,
       minify: IS_PROD,
     }),
+    /** To extract common library such as react */
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: 2,
-      filename: '[name].bundle-[hash:8].js',
+      filename: '[name].bundle-[chunkhash:8].js',
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
-      minChunks: 2,
+      minChunks: 3,
       minSize: 1024,
-      filename: '[name].bundle-[hash:8].js',
+      filename: '[name].bundle-[chunkhash:8].js',
+    }),
+    /** To extract the webpack bootstrap logic into a separate file */
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      filename: '[name].bundle-[chunkhash:8].js',
     }),
     /** Only copy the images used for manifest.json for now
      * For other images, simply load them with import (Loaded by file-loader)

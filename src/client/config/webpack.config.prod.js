@@ -32,6 +32,9 @@ module.exports = merge(baseConfig, {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
+    /** In produciton, to prevent new vendor module are created
+     * unnecessary due to chaning module id
+     */
     new webpack.HashedModuleIdsPlugin(),
     /** CompressionPlugin requires server config
      * Config with Apache or Ngnix Server
