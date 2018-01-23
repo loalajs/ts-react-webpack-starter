@@ -53,7 +53,10 @@ const config = {
     /** Must include .js, .jsx for react to resolve after ts-loader */
     extensions: ['.ts', '.tsx', '.jsx', '.js', '.json', '.css', '.scss'],
     alias: {
+      utils: path.resolve(SRC, 'utils'),
       assets: path.resolve(SRC, 'assets'),
+      components: path.resolve(SRC, 'components'),
+      routers: path.resolve(SRC, 'routers'),
     },
     modules: [
       SRC,
@@ -209,7 +212,7 @@ const config = {
      * https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
      * You can remove this if you do not use moment
      */
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/, /material-ui-icons$/),
     new BundleAnalyzerPlugin({
       generateStatsFile: true,
     }),
