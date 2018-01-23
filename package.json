@@ -68,6 +68,7 @@
     "tslint-config-airbnb": "^5.4.2",
     "tslint-react": "^3.3.3",
     "typescript": "^2.6.2",
+    "uglifyjs-webpack-plugin": "^1.1.6",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^2.9.2",

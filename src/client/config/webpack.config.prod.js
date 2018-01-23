@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 /** CompressionPlugin require server config */
 // const CompressionPlugin = require('compression-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.config.base');
 
@@ -12,21 +13,19 @@ const baseConfig = require('./webpack.config.base');
 module.exports = merge(baseConfig, {
   devtool: 'cheap-module-source-map',
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
+    /** Tree Shaking
+     * https://webpack.js.org/guides/tree-shaking/
+     * Minify the js file
+     * Remove the dead codes
+    */
+    new UglifyJSPlugin({
+      cache: true,
+      parallel: true,
+      uglifyOptions: {
+        ie8: false,
+        ecma: 8,
+        compress: true,
         warnings: false,
-        screw_ie8: true,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-      },
-      output: {
-        comments: false,
       },
     }),
     new webpack.DefinePlugin({
