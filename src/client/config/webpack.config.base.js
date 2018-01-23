@@ -38,6 +38,7 @@ const config = {
     main: path.resolve(SRC, 'main.tsx'),
     vendor: [
       'react',
+      'react-dom',
       'react-router-dom',
     ],
   },
