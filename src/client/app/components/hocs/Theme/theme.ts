@@ -8,6 +8,7 @@ const theme = createMuiTheme({
   palette: {
     primary: indigo, // Purple and green play nicely together.
     secondary: pink, // This is just green.A700 as hex.
+
   },
 });
 
