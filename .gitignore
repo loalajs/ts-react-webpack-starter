@@ -31,3 +31,6 @@ typings/
 
 # Dist
 dist
+
+# Git History
+.git
