@@ -33,7 +33,7 @@ const {
 
 /** Webpack config start here */
 const config = {
-  // entry: path.resolve(SRC, 'main.tsx'),
+  context: path.resolve(__dirname, SRC),
   entry: {
     main: path.resolve(SRC, 'main.tsx'),
     vendor: [
@@ -54,6 +54,9 @@ const config = {
     extensions: ['.ts', '.tsx', '.jsx', '.js', '.json', '.css', '.scss'],
     alias: {
       assets: path.resolve(SRC, 'assets'),
+      utils: path.resolve(SRC, 'utils'),
+      components: path.resolve(SRC, 'components'),
+      routers: path.resolve(SRC, 'routers'),
     },
     modules: [
       SRC,
@@ -158,7 +161,7 @@ const config = {
     */
     new CopyWebpackPlugin([
       {
-        context: 'src/client/config',
+        context: '../config',
         from: 'manifest-icons',
         to: 'assets/images/manifest-icons',
       },

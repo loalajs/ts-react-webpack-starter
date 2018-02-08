@@ -5,10 +5,13 @@
   "main": "dist/server/start.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf dist/**/*",
-    "webpack-dev-server": "node_modules/.bin/webpack-dev-server --color --progress --open --config ./src/client/config/webpack.config.dev.js",
-    "build": "npm run clean && NODE_ENV=production gulp default",
-    "build:watch": "npm run clean && NODE_ENV=development gulp watch",
+    "server-clean": "rm -rf dist/server/**/*",
+    "client-clean": "rm -rf dist/client/**/*",
+    "client-dev": "node_modules/.bin/webpack-dev-server --color --progress --open --config ./src/client/config/webpack.config.dev.js",
+    "server-build": "npm run server-clean && NODE_ENV=production gulp default",
+    "server-build:watch": "npm run server-clean && NODE_ENV=development gulp watch",
+    "client-build:watch": "npm run client-clean && node_modules/.bin/webpack --progress --config src/client/config/webpack.config.dev.js",
+    "client-build": "npm run client-clean && NODE_ENV=production node_modules/.bin/webpack --progress --config src/client/config/webpack.config.prod.js",
     "nodemon": "NODE_ENV=development node_modules/.bin/nodemon --watch dist/",
     "start": "NODE_ENV=production node dist/server/start.js"
   },

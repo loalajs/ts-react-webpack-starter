@@ -1,62 +1,7 @@
 const sourcemaps = require('gulp-sourcemaps');
 const ts = require('gulp-typescript');
-const webpack = require('webpack');
-const gutil = require('gulp-util');
 const sass = require('gulp-sass');
 const gulp = require('gulp');
-const clean = require('gulp-clean');
-
-
-const prodWebpack = webpack(require('./src/client/config/webpack.config.prod'));
-const devWebpack = webpack(require('./src/client/config/webpack.config.dev'));
-
-/**
- * Define client webpack config in different environment
- */
-const { NODE_ENV } = process.env;
-let clientWebpack = {};
-
-if (NODE_ENV === 'production') {
-  clientWebpack = prodWebpack;
-} else {
-  clientWebpack = devWebpack;
-}
-
-/**
- * Clean Client
- */
-gulp.task('clean-client', () => gulp.src('./dist/client/app/', { read: false })
-  .pipe(clean()));
-
-/**
- * Build client source code task
- */
-gulp.task('build-client-src', ['clean-client'], (done) => {
-  clientWebpack.run((err, stats) => {
-    if (err) {
-      throw new gutil.PluginError('build-client-src', err);
-    }
-
-    gutil.log('[build-client-src]', stats.toString({
-      chunks: false,
-      colors: true,
-    }));
-
-    done();
-  });
-});
-
-/**
- * Build client
- */
-gulp.task('build-client', ['clean-client', 'build-client-src']);
-
-/**
- * Build client and watch for changes
- */
-gulp.task('build-client:watch', ['build-client'], () => {
-  gulp.watch('src/client/app/**/*', ['build-client']);
-});
 
 /**
  * Build server source code
@@ -108,9 +53,9 @@ gulp.task('build-styles:watch', ['build-styles'], () => {
 /**
  * Default task
  */
-gulp.task('default', ['build-styles', 'build-server', 'build-client']);
+gulp.task('default', ['build-styles', 'build-server']);
 
 /**
  * Watch task
  */
-gulp.task('watch', ['build-styles:watch', 'build-server:watch', 'build-client:watch']);
+gulp.task('watch', ['build-styles:watch', 'build-server:watch']);
