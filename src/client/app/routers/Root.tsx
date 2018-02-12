@@ -3,6 +3,7 @@ import reactLoadable from 'react-loadable';
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import Home from 'components/Home';
 import Loading from 'components/Loading';
+import withTheme from 'components/hocs/Theme/withTheme';
 
 /** Define the below-the-fold modules */
 const AsyncAbout = reactLoadable({
@@ -31,4 +32,4 @@ const Root = () => (
   </Router>
 );
 
-export default Root;
+export default withTheme(Root);
