@@ -83,14 +83,26 @@ const config = {
       },
       /** Load Images from Url loader */
       {
-        test: /\.(jpg|jpeg|gif|png|svg)$/,
+        test: /\.(jpe?g|gif|png|svg)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
-          name: 'assets/images/[path][name]-[chunkhash:8].[ext]',
+          limit: 8192,
           fallback: 'file-loader',
         },
+      },
+      /** File loader for images */
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name]-[hash:8].[ext]',
+              outputPath: 'assets/images/',
+            },
+          },
+        ],
       },
       /** Load fonts by Url loader */
       {
@@ -99,9 +111,21 @@ const config = {
         loader: 'url-loader',
         options: {
           limit: 1024,
-          name: 'assets/fonts/[name].[ext]',
           fallback: 'file-loader',
         },
+      },
+      /** File loader for fonts */
+      {
+        test: /\.(woff|woff2|eot|ttf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name]-[hash:8].[ext]',
+              outputPath: 'assets/fonts/',
+            },
+          },
+        ],
       },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
     ],
