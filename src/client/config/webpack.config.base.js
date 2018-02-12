@@ -83,12 +83,13 @@ const config = {
       },
       /** Load Images from Url loader */
       {
-        test: /\.(jpg|jpeg|gif|png|svg)$/,
+        test: /\.(jpe?g|gif|png|svg)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
-          name: 'assets/images/[path][name]-[chunkhash:8].[ext]',
+          limit: 8192,
+          name: '[name]-[hash:8].[ext]',
+          outputPath: 'assets/images/',
           fallback: 'file-loader',
         },
       },
@@ -99,7 +100,8 @@ const config = {
         loader: 'url-loader',
         options: {
           limit: 1024,
-          name: 'assets/fonts/[name].[ext]',
+          name: '[name]-[hash:8].[ext]',
+          outputPath: 'assets/fonts/',
           fallback: 'file-loader',
         },
       },
