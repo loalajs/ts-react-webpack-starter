@@ -8,7 +8,13 @@ import swRegister from 'config/swRegister';
 importPromisePolyfill();
 
 /** Base style that contains normalize-scss */
-import './styles.critical';
+import './styles/styles.critical';
+
+/** jquery */
+import 'jquery';
+
+/** Bootstrap */
+import 'bootstrap';
 
 ReactDOM.render(
     <main>
