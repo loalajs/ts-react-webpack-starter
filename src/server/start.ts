@@ -1,7 +1,10 @@
 import * as path from 'path';
 import * as express from 'express';
 import * as morgan from 'morgan';
-import { env } from './config/env';
+import * as passport from 'passport';
+import * as bodyParser from 'body-parser';
+import env from './config/env';
+import { testDbConnection } from './database';
 
 const {
   APP_HOST,
@@ -15,8 +18,18 @@ const app = express();
 /** Serve static contents  */
 app.use(express.static(CLIENT_ROOT_PATH));
 
+/** BodyParser for post data */
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+/** Passport for JWT Authentication */
+app.use(passport.initialize());
+
+/** Test Database Connection */
+testDbConnection();
+
 /** Logging */
-app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+app.use(morgan('dev'));
 
 /** Root Route */
 app.get('/', (req, res) => {
