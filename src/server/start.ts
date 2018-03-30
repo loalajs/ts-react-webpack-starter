@@ -5,6 +5,7 @@ import * as passport from 'passport';
 import * as bodyParser from 'body-parser';
 import env from './config/env';
 import { testDbConnection } from './database';
+import { insertUsers } from './database/seeds';
 
 const {
   APP_HOST,
@@ -25,8 +26,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /** Passport for JWT Authentication */
 app.use(passport.initialize());
 
-/** Test Database Connection */
+/** Test Database Connection & Insert */
 testDbConnection();
+insertUsers();
+
 
 /** Logging */
 app.use(morgan('dev'));

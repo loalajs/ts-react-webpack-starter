@@ -1,5 +1,8 @@
 import * as Sequelize from 'Sequelize';
 import { sequelize } from '../database';
+import * as bcrypt from 'bcrypt';
+import * as bcryptPromise from 'bcrypt-promise';
+import * as jwt from 'jsonwebtoken';
 
 const User = sequelize.define('users', {
   id: {
