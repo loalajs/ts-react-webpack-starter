@@ -1,10 +1,10 @@
 import * as Sequelize from 'Sequelize';
-import { sequelize } from '../database';
-import * as bcrypt from 'bcrypt';
-import * as bcryptPromise from 'bcrypt-promise';
-import * as jwt from 'jsonwebtoken';
+import { Database } from '../database';
+// import * as bcrypt from 'bcrypt';
+// import * as bcryptPromise from 'bcrypt-promise';
+// import * as jwt from 'jsonwebtoken';
 
-const User = sequelize.define('users', {
+const User = Database.connection().define('users', {
   id: {
     type: Sequelize.INTEGER,
     unique: true,

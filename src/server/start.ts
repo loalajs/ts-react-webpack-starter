@@ -4,8 +4,8 @@ import * as morgan from 'morgan';
 import * as passport from 'passport';
 import * as bodyParser from 'body-parser';
 import env from './config/env';
-import { testDbConnection } from './database';
-import { insertUsers } from './database/seeds';
+import { Database } from './database';
+import { UserSeed } from './database/seeds';
 
 const {
   APP_HOST,
@@ -27,8 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 
 /** Test Database Connection & Insert */
-testDbConnection();
-insertUsers();
+Database.testDbConnection();
+UserSeed.bulkInsert();
 
 
 /** Logging */
