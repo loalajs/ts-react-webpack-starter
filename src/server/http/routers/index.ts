@@ -9,6 +9,7 @@ function appRouterInit(app: express.Application) {
     res.sendFile(path.resolve(appPaths.CLIENT_ROOT_PATH, 'index.html'));
   });
 
+  /** Authentication Routes */
   app.use('/api', authRouter);
 }
 
