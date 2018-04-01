@@ -4,7 +4,17 @@ import { Database } from '../database';
 // import * as bcryptPromise from 'bcrypt-promise';
 // import * as jwt from 'jsonwebtoken';
 
-const User = Database.connection().define('users', {
+export interface UserParams {
+  id?: number;
+  username: string;
+  email: string;
+  password?: string;
+  displayName?: string;
+  updatedAt?: string;
+  createdAt?: string;
+}
+
+export const User = Database.connection().define<UserParams, UserParams>('users', {
   id: {
     type: Sequelize.INTEGER,
     unique: true,
@@ -35,5 +45,3 @@ const User = Database.connection().define('users', {
   createdAt: Sequelize.DATE,
   updatedAt: Sequelize.DATE,
 });
-
-export default User;

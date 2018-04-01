@@ -1,23 +1,11 @@
-import * as express from 'express';
-const authRouter: express.Router = express.Router();
+import { Router } from 'express';
+import { UserController } from '../controllers/UserController';
+const authRouter: Router = Router();
+const userController = new UserController();
 
 /** Signup Account */
-authRouter.post('/register', (req, res) => {
-  /** Test */
-  req.body = {
-    username: 'jameslo',
-    password: 'james',
-  };
-  return res.json(req.body);
-});
+authRouter.post('/register', userController.register);
 /** Login Account */
-authRouter.post('/login', (req, res) => {
-  /** Test */
-  req.body = {
-    username: 'jameslo',
-    password: 'james',
-  };
-  return res.json(req.body);
-});
+authRouter.post('/login', userController.login);
 
 export default authRouter;
