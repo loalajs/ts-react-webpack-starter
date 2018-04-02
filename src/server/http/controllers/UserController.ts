@@ -1,4 +1,3 @@
-
 import { Response, Request, NextFunction } from 'express';
 import { UserService } from '../../services/UserService';
 
@@ -22,14 +21,7 @@ export class UserController {
       email,
       displayName,
     };
-    try {
-      const createdUser = await userService.createUser(user);
-      console.log(`TEST Created User: ${createdUser}`);
-      res.json(createdUser);
-    } catch (e) {
-      console.log(`TEST Found Error: ${e.message}`);
-      console.log(`TEST Found Error: ${JSON.stringify(e)}`);
-      res.status(401).send(e);
-    }
+    const createdUser = await userService.createUser(user, next);
+    res.json(createdUser);
   }
 }

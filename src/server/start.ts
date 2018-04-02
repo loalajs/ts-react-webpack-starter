@@ -5,8 +5,9 @@ import * as morgan from 'morgan';
 import { default as appRouterInit } from './http/routers';
 import env from './config/env';
 import { Database } from './database';
-// import { UserSeed } from './database/seeds';
 import { default as appPaths } from './config/path';
+import { NextFunction, Request, Response } from 'express-serve-static-core';
+// import { UserSeed } from './database/seeds';
 
 /** Get env variables */
 const { APP_HOST, APP_PORT } = env;
@@ -31,6 +32,16 @@ app.use(morgan('dev'));
 
 /** Router Initiate */
 appRouterInit(app);
+
+/** Handle Error */
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  res.status(err.status || 500);
+  res.json({
+    error: {
+      message: err.message,
+    },
+  });
+});
 
 /** Test Database Connection & Insert */
 Database.testDbConnection();

@@ -1,8 +1,9 @@
 import { User, UserParams } from '../models/User';
+import { NextFunction } from 'express';
 import { Op } from 'sequelize';
 
 export class UserService {
-  public async createUser(data: UserParams) {
+  public async createUser(data: UserParams, next: NextFunction) {
 
     /** Basic Validation
      * Find if username & email has existed in the database
@@ -20,19 +21,15 @@ export class UserService {
     });
 
     if (user) {
-
-      console.log(`TEST Found User: ${user}`);
-      console.log(`TEST Found User: ${JSON.stringify(user)}`);
-
       if (user.email === data.email) {
-        throw new Error('The email has been taken.');
+        // setTimeout(() => new Error('async error'), 1000); ERROR NOT CATCHED
+        next(new Error('The email has been taken.'));
       }
-
       if (user.username === data.username) {
-        throw new Error('The username has been taken.');
+        next(new Error('The username has been taken.'));
       }
+    } else {
+      return await User.create(data);
     }
-
-    return await User.create(data);
   }
 }
