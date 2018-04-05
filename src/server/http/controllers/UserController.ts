@@ -21,7 +21,13 @@ export class UserController {
       email,
       displayName,
     };
-    const createdUser = await userService.createUser(user, next);
-    res.json(createdUser);
+    let createdUser;
+
+    try {
+      createdUser = await userService.createUser(user);
+      res.json(createdUser);
+    } catch (e) {
+      next(e);
+    }
   }
 }
