@@ -1,13 +1,10 @@
 import * as Sequelize from 'Sequelize';
 import { Database } from '../database';
-// import * as bcrypt from 'bcrypt';
-// import * as bcryptPromise from 'bcrypt-promise';
-// import * as jwt from 'jsonwebtoken';
 
 export interface UserParams {
   id?: number;
-  username: string;
-  email: string;
+  username?: string;
+  email?: string;
   password?: string;
   displayName?: string;
   updatedAt?: string;

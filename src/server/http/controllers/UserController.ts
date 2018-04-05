@@ -1,17 +1,11 @@
 import { Response, Request, NextFunction } from 'express';
 import { UserService } from '../../services/UserService';
+// import { AuthenticateService } from '../../services/AuthenticateService';
 
 const userService = new UserService();
+// const authService = new AuthenticateService();
 
 export class UserController {
-  public async login(req: Request, res: Response, next: NextFunction) {
-    /** Test */
-    req.body = {
-      username: 'jameslo',
-      password: 'james',
-    };
-    res.json(req.body);
-  }
 
   public async register(req: Request, res: Response, next: NextFunction) {
     const { username, password, email, displayName } = req.body;
@@ -25,7 +19,11 @@ export class UserController {
 
     try {
       createdUser = await userService.createUser(user);
-      res.json(createdUser);
+      res.json({
+        data: {
+          user: createdUser,
+        },
+      });
     } catch (e) {
       next(e);
     }
