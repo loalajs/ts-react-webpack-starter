@@ -2,6 +2,11 @@ import * as jwt from 'jsonwebtoken';
 import { User, UserParams } from '../models/User';
 import env from '../config/env';
 
+export interface PayloadInterface {
+  name?: string;
+  deviceType?: string;
+}
+
 export class AuthenticateService {
   public async authenticate(data: UserParams) {
     const foundUser = await User.findOne({
@@ -19,6 +24,16 @@ export class AuthenticateService {
       name: foundUser.username,
       deviceType: 'web',
     };
-    return jwt.sign(payload, env.JWT_SECRET as string);
+    const token = await this.createToken(payload);
+    return token;
+  }
+
+  public createToken(payload: PayloadInterface): Promise<string> {
+    return new Promise((resolve) => {
+      jwt.sign(payload, env.JWT_SECRET as string, (err, encoded) => {
+        if (err) throw new Error(`The token cannot be created: ${err.message}`);
+        resolve(encoded);
+      });
+    });
   }
 }
