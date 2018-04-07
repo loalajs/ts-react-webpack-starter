@@ -18,7 +18,7 @@ export class AuthenticateService {
     if (!foundUser) {
       throw new Error('The username or password is invalid');
     }
-    if (foundUser.password !== data.password) {
+    if (!await bcrypt.compare(data.password, foundUser.password as string)) {
       throw new Error('The username or password is invalid');
     }
     const payload = {
@@ -38,22 +38,8 @@ export class AuthenticateService {
     });
   }
 
-  private genSalt(): Promise<string> {
-    return new Promise((resolve) => {
-      bcrypt.genSalt(10, (err, salt) => {
-        if (err) throw new Error(`Cannot generating salt : ${err}`);
-        resolve(salt);
-      });
-    });
-  }
-
-  public hash(password: string): Promise<string> {
-    return new Promise(async (resolve) => {
-      const salt = await this.genSalt();
-      bcrypt.hash(password, salt, (err, hash) => {
-        if (err) throw new Error(`Cannot hash passwords: ${err}`);
-        resolve(hash);
-      });
-    });
+  public async hash(password: string): Promise<string> {
+    const salt = await bcrypt.genSalt(10);
+    return bcrypt.hash(password, salt);
   }
 }

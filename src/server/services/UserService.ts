@@ -10,6 +10,7 @@ export class UserService {
       username: data.username,
       email: data.email,
       password: data.password,
+      displayName: data.displayName,
     };
 
     const existedUser = await User.findOne({
