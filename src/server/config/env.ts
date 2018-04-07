@@ -17,6 +17,7 @@ export default env = {
   APP_PROTOCOL:   process.env.APP_PROTOCOL        || 'http',
   APP_PORT:       process.env.APP_PORT            || 3001,
   APP_KEY:        process.env.APP_KEY,
+  APP_DOMAIN:     process.env.APP_DOMAIN,
 
   /** SQL databse */
   DB_DIALECT:     process.env.DB_DIALECT          || 'mysql',

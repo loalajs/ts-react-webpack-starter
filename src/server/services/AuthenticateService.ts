@@ -9,27 +9,16 @@ export class AuthenticateService {
         username: data.username,
       },
     });
-
     if (!foundUser) {
       throw new Error('The username or password is invalid');
     }
-
     if (foundUser.password !== data.password) {
       throw new Error('The username or password is invalid');
     }
-
     const payload = {
       name: foundUser.username,
       deviceType: 'web',
     };
-
-    const token = jwt.sign(payload, env.JWT_SECRET as string , {
-      expiresIn: env.JWT_EXPIRATION,
-      issuer: env.APP_KEY,
-      algorithm: env.JWT_SIGN_ALGO,
-    });
-
-    return token;
-
+    return jwt.sign(payload, env.JWT_SECRET as string);
   }
 }

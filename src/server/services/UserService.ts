@@ -23,4 +23,24 @@ export class UserService {
       return await User.create(data);
     }
   }
+
+  public async getAll() {
+    return await User.findAll();
+  }
+
+  public async getOne(id: number) {
+    let user;
+
+    user = await User.find({
+      where: {
+        id,
+      },
+    });
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    return user;
+  }
 }
