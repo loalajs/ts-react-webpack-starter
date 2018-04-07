@@ -1,8 +1,17 @@
 import { User, UserParams } from '../models/User';
 import { Op } from 'sequelize';
+import { AuthenticateService } from './AuthenticateService';
+
+const authenticateService = new AuthenticateService();
 
 export class UserService {
   public async createUser(data: UserParams) {
+    const user = {
+      username: data.username,
+      email: data.email,
+      password: data.password,
+    };
+
     const existedUser = await User.findOne({
       where: {
         [Op.or]: [
@@ -13,14 +22,17 @@ export class UserService {
     });
 
     if (existedUser) {
-      if (existedUser.email === data.email) {
+      if (existedUser.email === user.email) {
         throw new Error('The email has been taken.');
       }
-      if (existedUser.username === data.username) {
+      if (existedUser.username === user.username) {
         throw new Error('The username has been taken.');
       }
     } else {
-      return await User.create(data);
+      /** Hash passwords Before Saving */
+      const hashPassword = await authenticateService.hash(user.password as string);
+      user.password = hashPassword;
+      return await User.create(user);
     }
   }
 

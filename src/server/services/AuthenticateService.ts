@@ -1,4 +1,5 @@
 import * as jwt from 'jsonwebtoken';
+import * as bcrypt from 'bcrypt';
 import { User, UserParams } from '../models/User';
 import env from '../config/env';
 
@@ -33,6 +34,25 @@ export class AuthenticateService {
       jwt.sign(payload, env.JWT_SECRET as string, (err, encoded) => {
         if (err) throw new Error(`The token cannot be created: ${err.message}`);
         resolve(encoded);
+      });
+    });
+  }
+
+  private genSalt(): Promise<string> {
+    return new Promise((resolve) => {
+      bcrypt.genSalt(10, (err, salt) => {
+        if (err) throw new Error(`Cannot generating salt : ${err}`);
+        resolve(salt);
+      });
+    });
+  }
+
+  public hash(password: string): Promise<string> {
+    return new Promise(async (resolve) => {
+      const salt = await this.genSalt();
+      bcrypt.hash(password, salt, (err, hash) => {
+        if (err) throw new Error(`Cannot hash passwords: ${err}`);
+        resolve(hash);
       });
     });
   }
