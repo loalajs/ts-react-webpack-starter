@@ -4,6 +4,7 @@ import authRouter from './authRouter';
 import userRouter from './userRouter';
 import { AuthenticateMiddleware } from '../middlewares/AuthenticateMiddleware';
 import { default as appPaths } from '../../config/path';
+import { HttpNotFound } from '../../utils/errors/customError';
 
 const authenticateMiddleware = new AuthenticateMiddleware();
 
@@ -19,6 +20,15 @@ export default function appRouterInit(app: Application) {
   /** User Routes */
   app.use('/api/users', authenticateMiddleware.authenticate, userRouter);
 
-  /** TODO - Bad Api Request */
-  /** TODO - 404 Page */
+  /** Bad Api Request, This must be put at last before all other /api route
+   * to handle non-defined api
+   */
+  app.use('/api/*', (req, res) => {
+    throw new HttpNotFound('No api end point.');
+  });
+
+  /** 404 Page, This must be put at the end to handle the non-defined routes */
+  app.use('/*', (req, res) => {
+    throw new HttpNotFound('Page not found.');
+  });
 }
