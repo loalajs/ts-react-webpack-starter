@@ -1,6 +1,7 @@
 import { User, UserParams } from '../models/User';
 import { Op } from 'sequelize';
 import { AuthenticateService } from './AuthenticateService';
+import { HttpNotFound, FormValidationError } from '../utils/errors/customError';
 
 const authenticateService = new AuthenticateService();
 
@@ -24,10 +25,24 @@ export class UserService {
 
     if (existedUser) {
       if (existedUser.email === user.email) {
-        throw new Error('The email has been taken.');
+        throw new FormValidationError({
+          email: [
+            {
+              rule: 'Existed',
+              message: 'The email has been taken.',
+            },
+          ],
+        });
       }
       if (existedUser.username === user.username) {
-        throw new Error('The username has been taken.');
+        throw new FormValidationError({
+          email: [
+            {
+              rule: 'Existed',
+              message: 'The username has been taken.',
+            },
+          ],
+        });
       }
     } else {
       /** Hash passwords Before Saving */
@@ -51,7 +66,7 @@ export class UserService {
     });
 
     if (!user) {
-      throw new Error('User not found');
+      throw new HttpNotFound('User not found');
     }
 
     return user;

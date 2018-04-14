@@ -1,5 +1,4 @@
 import * as express from 'express';
-import * as passport from 'passport';
 import * as bodyParser from 'body-parser';
 import * as morgan from 'morgan';
 import { default as appRouterInit } from './http/routers';
@@ -7,6 +6,8 @@ import env from './config/env';
 import { Database } from './database';
 import { default as appPaths } from './config/path';
 import { NextFunction, Request, Response } from 'express-serve-static-core';
+import { FormValidationError } from './utils/errors/customError';
+import { AppErrorInterface } from './utils/errors/index';
 // import { UserSeed } from './database/seeds';
 
 /** Get env variables */
@@ -27,7 +28,6 @@ app.use(express.static(appPaths.CLIENT_ROOT_PATH));
 app.use(express.static(appPaths.SERVER_STATIC_PATH));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(passport.initialize());
 app.use(morgan('dev'));
 
 /** Router Initiate */
@@ -35,11 +35,21 @@ appRouterInit(app);
 
 /** Handle Error */
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  res.status(err.status || 500);
+  console.error(err);
+  const error: AppErrorInterface = {
+    name: err.name,
+    status: err.status,
+  };
+
+  if (err instanceof FormValidationError) {
+    error.fields = err.fields;
+  } else {
+    error.message = err.message;
+  }
+
+  res.status(error.status);
   res.json({
-    error: {
-      message: err.message,
-    },
+    error,
   });
 });
 

@@ -2,6 +2,7 @@ import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcrypt';
 import { User, UserParams } from '../models/User';
 import env from '../config/env';
+import { FormValidationError, ServiceError } from '../utils/errors/customError';
 
 export interface PayloadInterface {
   name?: string;
@@ -16,10 +17,36 @@ export class AuthenticateService {
       },
     });
     if (!foundUser) {
-      throw new Error('The username or password is invalid');
+      throw new FormValidationError({
+        username: [
+          {
+            rule: 'Authentication',
+            message: 'The username or password is invalid',
+          },
+        ],
+        password: [
+          {
+            rule: 'Authentication',
+            message: 'The username or password is invalid',
+          },
+        ],
+      });
     }
     if (!await bcrypt.compare(data.password, foundUser.password as string)) {
-      throw new Error('The username or password is invalid');
+      throw new FormValidationError({
+        username: [
+          {
+            rule: 'Authentication',
+            message: 'The username or password is invalid',
+          },
+        ],
+        password: [
+          {
+            rule: 'Authentication',
+            message: 'The username or password is invalid',
+          },
+        ],
+      });
     }
     const payload = {
       name: foundUser.username,
@@ -32,7 +59,7 @@ export class AuthenticateService {
   public createToken(payload: PayloadInterface): Promise<string> {
     return new Promise((resolve) => {
       jwt.sign(payload, env.JWT_SECRET as string, (err, encoded) => {
-        if (err) throw new Error(`The token cannot be created: ${err.message}`);
+        if (err) throw new ServiceError(`The token cannot be created: ${err.message}`);
         resolve(encoded);
       });
     });
