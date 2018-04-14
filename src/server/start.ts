@@ -5,9 +5,7 @@ import { default as appRouterInit } from './http/routers';
 import env from './config/env';
 import { Database } from './database';
 import { default as appPaths } from './config/path';
-import { NextFunction, Request, Response } from 'express-serve-static-core';
-import { FormValidationError } from './utils/errors/customError';
-import { AppErrorInterface } from './utils/errors/index';
+import { default as ErrorHandleMiddleware } from './http/middlewares/ErrorHandleMiddleware';
 // import { UserSeed } from './database/seeds';
 
 /** Get env variables */
@@ -15,6 +13,9 @@ const { APP_HOST, APP_PORT } = env;
 
 /** Use ExpressJS frameworks */
 const app = express();
+
+/** Error Hanlder */
+const errorHandleMiddleware = new ErrorHandleMiddleware();
 
 /** Application Middlewares
  * 1. bodyParser for processing data from form submission
@@ -33,25 +34,11 @@ app.use(morgan('dev'));
 /** Router Initiate */
 appRouterInit(app);
 
+/** Log Error */
+app.use(errorHandleMiddleware.logError);
+
 /** Handle Error */
-app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  console.error(err);
-  const error: AppErrorInterface = {
-    name: err.name,
-    status: err.status,
-  };
-
-  if (err instanceof FormValidationError) {
-    error.fields = err.fields;
-  } else {
-    error.message = err.message;
-  }
-
-  res.status(error.status);
-  res.json({
-    error,
-  });
-});
+app.use(errorHandleMiddleware.errorHandler);
 
 /** Test Database Connection & Insert */
 Database.testDbConnection();

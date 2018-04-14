@@ -18,4 +18,7 @@ export default function appRouterInit(app: Application) {
 
   /** User Routes */
   app.use('/api/users', authenticateMiddleware.authenticate, userRouter);
+
+  /** TODO - Bad Api Request */
+  /** TODO - 404 Page */
 }

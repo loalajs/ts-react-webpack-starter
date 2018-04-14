@@ -5,7 +5,7 @@ import env from '../../config/env';
 
 export class AuthenticateMiddleware {
   public authenticate(req: Request, res: Response, next: NextFunction) {
-    const token = req.query.token || req.headers['Authorization'];
+    const token = req.header('Authorization') || req.query.token;
     if (!token) {
       throw new HttpAuthError('No authentication token is provided.');
     } else {
