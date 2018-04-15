@@ -1,5 +1,6 @@
 import * as Sequelize from 'Sequelize';
 import { Database } from '../database';
+import { Device } from './Device';
 
 export interface UserParams {
   id?: number;
@@ -11,7 +12,7 @@ export interface UserParams {
   createdAt?: string;
 }
 
-export const User = Database.connection().define<UserParams, UserParams>('users', {
+const User = Database.connection().define<UserParams, UserParams>('users', {
   id: {
     type: Sequelize.INTEGER,
     unique: true,
@@ -42,3 +43,7 @@ export const User = Database.connection().define<UserParams, UserParams>('users'
   createdAt: Sequelize.DATE,
   updatedAt: Sequelize.DATE,
 });
+
+User.hasMany(Device, { foreignKey: 'userId', sourceKey: 'id' });
+
+export { User };
