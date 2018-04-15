@@ -31,14 +31,14 @@ export class UserController {
 
   public async login(req: Request, res: Response, next: NextFunction) {
     /** Test */
-    const { username, password } = req.body;
+    const { username, password, deviceType } = req.body;
     const user = {
       username,
       password,
     };
     let token: string;
     try {
-      token = await authService.authenticate(user);
+      token = await authService.authenticate(user, deviceType);
       res.json({
         data: {
           token,

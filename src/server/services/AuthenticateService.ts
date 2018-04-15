@@ -1,12 +1,13 @@
 import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcrypt';
 import { User, UserParams } from '../models/User';
+import { DeviceType } from '../models/Device';
 import env from '../config/env';
 import { FormValidationError, ServiceError } from '../utils/errors/customError';
 
 export interface PayloadInterface {
   name?: string;
-  deviceType?: string;
+  userDevice?: string;
 }
 
 export class AuthenticateService {
@@ -14,10 +15,10 @@ export class AuthenticateService {
    * Parameters: @UserParams which refers to user login credential
    * Return @token
    */
-  public async authenticate(data: UserParams) {
+  public async authenticate(userData: UserParams, userDevice?: string) {
     const foundUser = await User.findOne({
       where: {
-        username: data.username,
+        username: userData.username,
       },
     });
     if (!foundUser) {
@@ -36,25 +37,48 @@ export class AuthenticateService {
         ],
       });
     }
-    if (!await bcrypt.compare(data.password, foundUser.password as string)) {
+    if (!await bcrypt.compare(userData.password, foundUser.password as string)) {
       throw new FormValidationError({
         username: [
           {
-            rule: 'Authentication',
+            rule: 'Input Invalid',
             message: 'The username or password is invalid',
           },
         ],
         password: [
           {
-            rule: 'Authentication',
+            rule: 'Input Invalid',
             message: 'The username or password is invalid',
           },
         ],
       });
     }
+
+    if (!userDevice) throw new FormValidationError({
+      userDevice: [
+        {
+          rule: 'Required',
+          message: 'The user device type is missing.',
+        },
+      ],
+    });
+
+    if (userDevice !== DeviceType.ANDROID
+      && userDevice !== DeviceType.WEB
+      && userDevice !== DeviceType.IOS) {
+      throw new FormValidationError({
+        userDevice: [
+          {
+            rule: 'Compatibility',
+            message: 'The user device is not supported.',
+          },
+        ],
+      });
+    }
+
     const payload = {
+      userDevice,
       username: foundUser.username,
-      deviceType: 'android',
     };
     const token = await this.createToken(payload);
     return token;
