@@ -16,7 +16,12 @@ export default class ErrorHandleMiddleware {
       error.message = err.message;
     }
 
-    res.status(error.status);
+    if (error.status >= 100 && error.status < 600) {
+      res.status(error.status);
+    } else {
+      res.status(500);
+    }
+
     res.json({
       error,
     });

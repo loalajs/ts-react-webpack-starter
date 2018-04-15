@@ -10,6 +10,10 @@ export interface PayloadInterface {
 }
 
 export class AuthenticateService {
+  /** Called when login
+   * Parameters: @UserParams which refers to user login credential
+   * Return @token
+   */
   public async authenticate(data: UserParams) {
     const foundUser = await User.findOne({
       where: {
@@ -49,19 +53,31 @@ export class AuthenticateService {
       });
     }
     const payload = {
-      name: foundUser.username,
-      deviceType: 'web',
+      username: foundUser.username,
+      deviceType: 'android',
     };
     const token = await this.createToken(payload);
     return token;
   }
 
+  /** createToken
+   * Parameters: @payload based on @PayloadInterface
+   * Return: @Promise<string> which is encoded jwt
+   */
   public createToken(payload: PayloadInterface): Promise<string> {
     return new Promise((resolve) => {
-      jwt.sign(payload, env.JWT_SECRET as string, (err, encoded) => {
-        if (err) throw new ServiceError(`The token cannot be created: ${err.message}`);
-        resolve(encoded);
-      });
+      jwt.sign(
+        payload,
+        env.JWT_SECRET as string,
+        {
+          expiresIn: Number(env.JWT_EXPIRATION),
+          algorithm: env.JWT_SIGN_ALGO,
+          issuer: env.APP_HOST,
+        },
+        (err, encoded) => {
+          if (err) throw new ServiceError(`The token cannot be created: ${err.message}`);
+          resolve(encoded);
+        });
     });
   }
 
