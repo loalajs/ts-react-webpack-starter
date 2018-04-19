@@ -1,48 +1,45 @@
 import { Request, Response, NextFunction } from 'express';
-import { HttpAuthError } from '../../utils/errors/customError';
+import { HttpAuthError, ServiceError } from '../../utils/errors/customError';
+import { AuthenticateService, PayloadInterface } from '../../services/AuthenticateService';
+import { DeviceService } from '../../services/DeviceService';
 import { DeviceType } from '../../models/Device';
-import * as jwt from 'jsonwebtoken';
-import env from '../../config/env';
+
+const authenticateService = new AuthenticateService();
+const deviceService = new DeviceService();
 
 export class AuthenticateMiddleware {
   constructor() {
+    /** So "this" does not lose the context */
     this.authenticate = this.authenticate.bind(this);
   }
 
-  public authenticate(req: Request, res: Response, next: NextFunction) {
-
+  public async authenticate(req: Request, res: Response, next: NextFunction) {
+    let decoded: PayloadInterface;
     /** Check if format is srart from Bearer <DeviceType> <token> */
     const header = req.header('Authorization') || req.query.token;
     if (!header) throw new HttpAuthError('No authorised header is provided.');
 
     /** Extract "Bearer" from token */
-    const token = this.extractTokenFromAuthorization(header);
+    const token = authenticateService.extractTokenFromAuthorization(header);
 
-    jwt.verify(token, env.JWT_SECRET as string, (err: any, decoded: any) => {
-      if (err) throw new HttpAuthError('Failed to authenticate token.');
-      // req.decoded = decoded;
-      console.info(decoded);
-      next();
-    });
-  }
-
-  public extractTokenFromAuthorization(authHeader: string): string {
-    const authHeaderItemsArr = authHeader.split(' ');
-    let device;
-    let token;
-
-    /** Check Bearer */
-    if (authHeaderItemsArr.length !== 3 || authHeaderItemsArr[0] !== 'Bearer') {
-      throw new HttpAuthError('Authorised header format invalid.');
-    }
-    /** Check Device Type */
-    device = authHeaderItemsArr[1];
-    if (device !== DeviceType.WEB && device !== DeviceType.ANDROID && device !== DeviceType.IOS) {
-      throw new HttpAuthError('Device is not support in this api.');
+    /** Verify the token and get the decoded token */
+    try {
+      decoded = await authenticateService.verifyToken(token);
+    } catch (err) {
+      throw new ServiceError(`The token cannot be verified: ${err.message}`);
     }
 
-    /** Return the token */
-    token = authHeaderItemsArr[2];
-    return token;
+    if (!decoded) throw new HttpAuthError(`Failed to verify the token`);
+    /** Check if there is existing device
+     * If yes, let pass the authentication
+     * If not, throw HttpAuthError
+     */
+    if (!(await deviceService.getOne(decoded.userId, decoded.userDevice as DeviceType))) {
+      throw new HttpAuthError('No user login with this device is found');
+    }
+
+    /** Just let it flow :) */
+    console.info(decoded);
+    next();
   }
 }

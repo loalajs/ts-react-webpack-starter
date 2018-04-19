@@ -1,13 +1,13 @@
 import * as Sequelize from 'Sequelize';
-import { Database } from '../database';
-import { User, UserParams } from './User';
+import { default as Database } from '../database/index';
+import { User, UserAttributes } from './User';
 
-export interface DeviceParams {
+export interface DeviceAttributes {
   id?: number;
   type: DeviceType;
   token?: string;
   userId: number;
-  user?: UserParams;
+  user?: UserAttributes;
   updatedAt?: string;
   createdAt?: string;
 }
@@ -19,7 +19,7 @@ export enum DeviceType {
 }
 
 /** Many to One Relationship with User */
-const Device = Database.connection().define<DeviceParams, DeviceParams>('devices', {
+export const Device = Database.sequelize.define<DeviceAttributes, DeviceAttributes>('devices', {
   id: {
     type: Sequelize.INTEGER,
     unique: true,
@@ -49,5 +49,3 @@ const Device = Database.connection().define<DeviceParams, DeviceParams>('devices
   createdAt: Sequelize.DATE,
   updatedAt: Sequelize.DATE,
 });
-
-export { Device };

@@ -1,13 +1,16 @@
 import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcrypt';
-import { User, UserParams } from '../models/User';
-import { DeviceType } from '../models/Device';
+import { User } from '../models/User';
 import env from '../config/env';
-import { FormValidationError, ServiceError } from '../utils/errors/customError';
+import { FormValidationError, ServiceError, HttpAuthError } from '../utils/errors/customError';
+import { DeviceService } from './DeviceService';
+import { DeviceType } from '../models/Device';
+
+const deviceService = new DeviceService();
 
 export interface PayloadInterface {
-  name?: string;
-  userDevice?: string;
+  userId: number;
+  userDevice: string;
 }
 
 export class AuthenticateService {
@@ -15,10 +18,11 @@ export class AuthenticateService {
    * Parameters: @UserParams which refers to user login credential
    * Return @token
    */
-  public async authenticate(userData: UserParams, userDevice?: string) {
+  public async authenticate(username: string, password: string, userDevice?: string) {
+    let token: string;
     const foundUser = await User.findOne({
       where: {
-        username: userData.username,
+        username,
       },
     });
     if (!foundUser) {
@@ -37,7 +41,7 @@ export class AuthenticateService {
         ],
       });
     }
-    if (!await bcrypt.compare(userData.password, foundUser.password as string)) {
+    if (!await bcrypt.compare(password, foundUser.password as string)) {
       throw new FormValidationError({
         username: [
           {
@@ -63,9 +67,7 @@ export class AuthenticateService {
       ],
     });
 
-    if (userDevice !== DeviceType.ANDROID
-      && userDevice !== DeviceType.WEB
-      && userDevice !== DeviceType.IOS) {
+    if (!deviceService.isDeviceSupport(userDevice)) {
       throw new FormValidationError({
         userDevice: [
           {
@@ -76,20 +78,31 @@ export class AuthenticateService {
       });
     }
 
-    const payload = {
+    /** Add user device if it does not exist */
+    if (await !deviceService.getOne(foundUser.id as number, userDevice as DeviceType)) {
+      await deviceService.createDevice(foundUser.id as number, userDevice as DeviceType);
+    }
+
+    const payload: PayloadInterface = {
       userDevice,
-      username: foundUser.username,
+      userId: foundUser.id as number,
     };
-    const token = await this.createToken(payload);
+
+    /** Create Token and return it */
+    try {
+      token = await this.createToken(payload);
+    } catch (err) {
+      throw new ServiceError(`The token cannot be created: ${err.message}`);
+    }
+
     return token;
   }
-
   /** createToken
    * Parameters: @payload based on @PayloadInterface
    * Return: @Promise<string> which is encoded jwt
    */
   public createToken(payload: PayloadInterface): Promise<string> {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       jwt.sign(
         payload,
         env.JWT_SECRET as string,
@@ -99,14 +112,43 @@ export class AuthenticateService {
           issuer: env.APP_HOST,
         },
         (err, encoded) => {
-          if (err) throw new ServiceError(`The token cannot be created: ${err.message}`);
+          if (err) reject(err);
           resolve(encoded);
         });
     });
   }
 
-  public async hash(password: string): Promise<string> {
+  public async hashPassword(password: string): Promise<string> {
     const salt = await bcrypt.genSalt(10);
     return bcrypt.hash(password, salt);
+  }
+
+  public extractTokenFromAuthorization(authHeader: string): string {
+    const authHeaderItemsArr = authHeader.split(' ');
+    let device;
+    let token;
+
+    /** Check Bearer */
+    if (authHeaderItemsArr.length !== 3 || authHeaderItemsArr[0] !== 'Bearer') {
+      throw new HttpAuthError('Authorised header format invalid.');
+    }
+    /** Check Device Type */
+    device = authHeaderItemsArr[1];
+    if (!deviceService.isDeviceSupport(device)) {
+      throw new HttpAuthError('Device is not support in this api.');
+    }
+
+    /** Return the token */
+    token = authHeaderItemsArr[2];
+    return token;
+  }
+
+  public verifyToken(token: string): Promise<PayloadInterface> {
+    return new Promise((resolve, reject) => {
+      jwt.verify(token, env.JWT_SECRET as string, (err: any, decoded: any) => {
+        if (err) reject(err);
+        resolve(decoded);
+      });
+    });
   }
 }

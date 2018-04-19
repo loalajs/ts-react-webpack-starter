@@ -1,4 +1,5 @@
 import { User } from '../models/User';
+import { DatabaseError } from '../utils/errors/customError';
 
 export class UserSeed {
   public static bulkInsert() {
@@ -27,6 +28,8 @@ export class UserSeed {
           console.log(`Seeds Insert: ${JSON.stringify(value.dataValues)}`);
         });
       });
+    }).catch((err: any) => {
+      throw new DatabaseError(`UserSeed cannot be created: ${err.message}`);
     });
   }
   public static selectAll() {

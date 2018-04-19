@@ -43,3 +43,10 @@ export class ServiceError extends AppError {
   }
 }
 
+export class DatabaseError extends AppError {
+  constructor(message: string, status?: number) {
+    super(message);
+    this.status = status || 503;
+  }
+}
+

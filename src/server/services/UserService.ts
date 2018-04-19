@@ -1,4 +1,4 @@
-import { User, UserParams } from '../models/User';
+import { User, UserAttributes } from '../models/User';
 import { Op } from 'sequelize';
 import { AuthenticateService } from './AuthenticateService';
 import { HttpNotFound, FormValidationError } from '../utils/errors/customError';
@@ -6,7 +6,7 @@ import { HttpNotFound, FormValidationError } from '../utils/errors/customError';
 const authenticateService = new AuthenticateService();
 
 export class UserService {
-  public async createUser(data: UserParams) {
+  public async createUser(data: UserAttributes) {
     const user = {
       username: data.username,
       email: data.email,
@@ -46,7 +46,7 @@ export class UserService {
       }
     } else {
       /** Hash passwords Before Saving */
-      const hashPassword = await authenticateService.hash(user.password as string);
+      const hashPassword = await authenticateService.hashPassword(user.password as string);
       user.password = hashPassword;
       return await User.create(user);
     }

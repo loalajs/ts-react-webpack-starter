@@ -3,10 +3,13 @@ import * as bodyParser from 'body-parser';
 import * as morgan from 'morgan';
 import { default as appRouterInit } from './http/routers';
 import env from './config/env';
-import { Database } from './database';
+import { default as Database } from './database';
 import { default as appPaths } from './config/path';
 import { default as ErrorHandleMiddleware } from './http/middlewares/ErrorHandleMiddleware';
-// import { UserSeed } from './database/seeds';
+// import { UserSeed } from './database/UserSeed';
+
+/** Init Database */
+const database = new Database();
 
 /** Get env variables */
 const { APP_HOST, APP_PORT } = env;
@@ -41,7 +44,7 @@ app.use(errorHandleMiddleware.logError);
 app.use(errorHandleMiddleware.errorHandler);
 
 /** Test Database Connection & Insert */
-Database.testDbConnection();
+database.testDbConnection();
 // UserSeed.bulkInsert();
 
 app.listen(APP_PORT, () => {
