@@ -1,30 +1,24 @@
 import { User, UserAttributes } from '../models/User';
-import { Op } from 'sequelize';
+import { getRepository, getConnection } from 'typeorm';
 import { AuthenticateService } from './AuthenticateService';
 import { HttpNotFound, FormValidationError } from '../utils/errors/customError';
 
 const authenticateService = new AuthenticateService();
 
 export class UserService {
-  public async createUser(data: UserAttributes) {
-    const user = {
-      username: data.username,
-      email: data.email,
-      password: data.password,
-      displayName: data.displayName,
-    };
-
-    const existedUser = await User.findOne({
-      where: {
-        [Op.or]: [
-          { username: data.username },
-          { email: data.email },
-        ],
-      },
-    });
+  public async createUser(data: UserAttributes): Promise<User | undefined> {
+    const { username, email, password, displayName } = data;
+    const user = new User();
+    const existedUser = await getConnection()
+      .createQueryBuilder()
+      .select()
+      .from(User, 'user')
+      .where('user.username = :username', { username })
+      .orWhere('user.email = :email', { email })
+      .getOne();
 
     if (existedUser) {
-      if (existedUser.email === user.email) {
+      if (existedUser.email === email) {
         throw new FormValidationError({
           email: [
             {
@@ -34,7 +28,7 @@ export class UserService {
           ],
         });
       }
-      if (existedUser.username === user.username) {
+      if (existedUser.username === username) {
         throw new FormValidationError({
           email: [
             {
@@ -46,24 +40,21 @@ export class UserService {
       }
     } else {
       /** Hash passwords Before Saving */
-      const hashPassword = await authenticateService.hashPassword(user.password as string);
+      const hashPassword = await authenticateService.hashPassword(password as string);
       user.password = hashPassword;
-      return await User.create(user);
+      user.username = username;
+      user.email = email;
+      user.displayName = displayName;
+      return await getRepository(User).save(user);
     }
   }
 
-  public async getAll() {
-    return await User.findAll();
+  public async getAll(): Promise<User[] | undefined> {
+    return await getRepository(User).find();
   }
 
-  public async getOne(id: number) {
-    let user;
-
-    user = await User.find({
-      where: {
-        id,
-      },
-    });
+  public async getOne(id: number): Promise<User | undefined> {
+    const user = await getRepository(User).findOne(id);
 
     if (!user) {
       throw new HttpNotFound('User not found');

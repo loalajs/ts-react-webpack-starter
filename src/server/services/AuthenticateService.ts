@@ -5,6 +5,7 @@ import env from '../config/env';
 import { FormValidationError, ServiceError, HttpAuthError } from '../utils/errors/customError';
 import { DeviceService } from './DeviceService';
 import { DeviceType } from '../models/Device';
+import { getRepository } from 'typeorm';
 
 const deviceService = new DeviceService();
 
@@ -18,13 +19,14 @@ export class AuthenticateService {
    * Parameters: @UserParams which refers to user login credential
    * Return @token
    */
-  public async authenticate(username: string, password: string, userDevice?: string) {
+  public async authenticate(username: string, password: string, userDevice?: DeviceType) {
     let token: string;
-    const foundUser = await User.findOne({
+    const foundUser = await getRepository(User).findOne({
       where: {
         username,
       },
     });
+
     if (!foundUser) {
       throw new FormValidationError({
         username: [
@@ -79,13 +81,13 @@ export class AuthenticateService {
     }
 
     /** Add user device if it does not exist */
-    if (await !deviceService.getOne(foundUser.id as number, userDevice as DeviceType)) {
-      await deviceService.createDevice(foundUser.id as number, userDevice as DeviceType);
+    if (await !deviceService.getOne(foundUser.id, userDevice)) {
+      await deviceService.createDevice(foundUser, userDevice);
     }
 
     const payload: PayloadInterface = {
       userDevice,
-      userId: foundUser.id as number,
+      userId: foundUser.id,
     };
 
     /** Create Token and return it */

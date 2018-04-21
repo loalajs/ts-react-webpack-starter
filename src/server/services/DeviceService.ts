@@ -1,4 +1,7 @@
-import { DeviceType, DeviceAttributes, Device } from '../models/Device';
+import { DeviceType, Device } from '../models/Device';
+import { getRepository } from 'typeorm';
+import { HttpNotFound } from '../utils/errors/customError';
+import { User } from '../models/User';
 
 export class DeviceService {
   public isDeviceSupport(userDevice: string): boolean {
@@ -11,20 +14,23 @@ export class DeviceService {
   }
 
   public async getOne(userId: number, deviceType: DeviceType):
-  Promise<DeviceAttributes | null> {
-    return await Device.findOne({
+  Promise<Device | undefined> {
+    const device = await getRepository(Device).findOne({
       where: {
         userId,
         type: deviceType,
       },
     });
+    if (!device) throw new HttpNotFound('Device not found');
+    return device;
   }
 
-  public async createDevice(userId: number, deviceType: DeviceType):
-  Promise<DeviceAttributes> {
-    return await Device.create({
-      userId,
-      type: deviceType,
-    });
+  public async createDevice(user: User, deviceType: DeviceType):
+  Promise<Device | undefined> {
+    const device = new Device();
+    device.type = deviceType;
+    device.user = user;
+    device.userId = user.id;
+    return await getRepository(Device).save(device);
   }
 }
