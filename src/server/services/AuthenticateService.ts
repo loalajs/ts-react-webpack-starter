@@ -1,45 +1,154 @@
 import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcrypt';
-import { User, UserParams } from '../models/User';
+import { User } from '../models/User';
 import env from '../config/env';
+import { FormValidationError, ServiceError, HttpAuthError } from '../utils/errors/customError';
+import { DeviceService } from './DeviceService';
+import { DeviceType } from '../models/Device';
+import { getRepository } from 'typeorm';
+
+const deviceService = new DeviceService();
 
 export interface PayloadInterface {
-  name?: string;
-  deviceType?: string;
+  userId: number;
+  userDevice: string;
 }
 
 export class AuthenticateService {
-  public async authenticate(data: UserParams) {
-    const foundUser = await User.findOne({
+  /** Called when login
+   * Parameters: @UserParams which refers to user login credential
+   * Return @token
+   */
+  public async authenticate(username: string, password: string, userDevice?: DeviceType) {
+    let token: string;
+    const foundUser = await getRepository(User).findOne({
       where: {
-        username: data.username,
+        username,
       },
     });
+
     if (!foundUser) {
-      throw new Error('The username or password is invalid');
+      throw new FormValidationError({
+        username: [
+          {
+            rule: 'Authentication',
+            message: 'The username or password is invalid',
+          },
+        ],
+        password: [
+          {
+            rule: 'Authentication',
+            message: 'The username or password is invalid',
+          },
+        ],
+      });
     }
-    if (!await bcrypt.compare(data.password, foundUser.password as string)) {
-      throw new Error('The username or password is invalid');
+    if (!await bcrypt.compare(password, foundUser.password as string)) {
+      throw new FormValidationError({
+        username: [
+          {
+            rule: 'Input Invalid',
+            message: 'The username or password is invalid',
+          },
+        ],
+        password: [
+          {
+            rule: 'Input Invalid',
+            message: 'The username or password is invalid',
+          },
+        ],
+      });
     }
-    const payload = {
-      name: foundUser.username,
-      deviceType: 'web',
+
+    if (!userDevice) throw new FormValidationError({
+      userDevice: [
+        {
+          rule: 'Required',
+          message: 'The user device type is missing.',
+        },
+      ],
+    });
+
+    if (!deviceService.isDeviceSupport(userDevice)) {
+      throw new FormValidationError({
+        userDevice: [
+          {
+            rule: 'Compatibility',
+            message: 'The user device is not supported.',
+          },
+        ],
+      });
+    }
+
+    /** Add user device if it does not exist */
+    if (!(await deviceService.getOne(foundUser.id, userDevice))) {
+      await deviceService.createDevice(foundUser, userDevice);
+    }
+
+    const payload: PayloadInterface = {
+      userDevice,
+      userId: foundUser.id,
     };
-    const token = await this.createToken(payload);
+
+    /** Create Token and return it */
+    try {
+      token = await this.createToken(payload);
+    } catch (err) {
+      throw new ServiceError(`The token cannot be created: ${err.message}`);
+    }
+
     return token;
   }
-
+  /** createToken
+   * Parameters: @payload based on @PayloadInterface
+   * Return: @Promise<string> which is encoded jwt
+   */
   public createToken(payload: PayloadInterface): Promise<string> {
-    return new Promise((resolve) => {
-      jwt.sign(payload, env.JWT_SECRET as string, (err, encoded) => {
-        if (err) throw new Error(`The token cannot be created: ${err.message}`);
-        resolve(encoded);
-      });
+    return new Promise((resolve, reject) => {
+      jwt.sign(
+        payload,
+        env.JWT_SECRET as string,
+        {
+          expiresIn: Number(env.JWT_EXPIRATION),
+          algorithm: env.JWT_SIGN_ALGO,
+          issuer: env.APP_HOST,
+        },
+        (err, encoded) => {
+          if (err) reject(err);
+          resolve(encoded);
+        });
     });
   }
 
-  public async hash(password: string): Promise<string> {
+  public async hashPassword(password: string): Promise<string> {
     const salt = await bcrypt.genSalt(10);
     return bcrypt.hash(password, salt);
+  }
+
+  public extractDataFromAuthorization(authHeader: string): string[] {
+    const data = authHeader.split(' ');
+    let device;
+
+    /** Check Bearer */
+    if (data.length !== 3 || data[0] !== 'Bearer') {
+      throw new HttpAuthError('Authorised header format invalid.');
+    }
+    /** Check Device Type */
+    device = data[1];
+    if (!deviceService.isDeviceSupport(device)) {
+      throw new HttpAuthError('Device is not support in this api.');
+    }
+
+    /** Return the token */
+    return data;
+  }
+
+  public verifyToken(token: string): Promise<PayloadInterface> {
+    return new Promise((resolve, reject) => {
+      jwt.verify(token, env.JWT_SECRET as string, (err: any, decoded: any) => {
+        if (err) reject(err);
+        resolve(decoded);
+      });
+    });
   }
 }
