@@ -1,32 +1,30 @@
-import * as Sequelize from 'sequelize';
+import 'reflect-metadata';
+import { createConnection } from 'typeorm';
 import env from '../config/env';
+import { User } from '../models/User';
+import { Device } from '../models/Device';
 
-export class Database {
-  /** Init The Connection */
-  public static connection() {
-    return new Sequelize({
-      dialect: env.DB_DIALECT,
+export default class Database {
+  public static init() {
+    createConnection({
+      name: env.DB_CONN_NAME,
+      type: env.DB_DIALECT as any,
       host: env.DB_HOST,
-      port: Number(env.DB_PORT),
-      database: env.DB_NAME,
+      port: env.DB_PORT as number,
       username: env.DB_USER,
       password: env.DB_PASSWORD,
-      pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000,
-      },
+      database: env.DB_NAME,
+      entities: [
+        `../models/**/*.js`, // This line does not work
+        User,
+        Device,
+      ],
+      synchronize: true,
+      logging: true,
+    }).then(() => {
+      console.info(`Database Connection Successfully`);
+    }).catch((e) => {
+      console.error(`Database Connection Failed: ${e.message}`);
     });
-  }
-  /** Testing the connection */
-  public static testDbConnection() {
-    this.connection().authenticate()
-      .then(() => {
-        console.log('Connection has been established successfully.');
-      })
-      .catch((err: any) => {
-        console.error('Unable to connect to the database:', err);
-      });
   }
 }
