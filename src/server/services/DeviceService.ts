@@ -1,6 +1,5 @@
 import { DeviceType, Device } from '../models/Device';
 import { getRepository } from 'typeorm';
-import { HttpNotFound } from '../utils/errors/customError';
 import { User } from '../models/User';
 
 export class DeviceService {
@@ -21,7 +20,6 @@ export class DeviceService {
         type: deviceType,
       },
     });
-    if (!device) throw new HttpNotFound('Device not found');
     return device;
   }
 

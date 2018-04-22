@@ -26,7 +26,7 @@ export default env = {
   DB_NAME:        process.env.DB_NAME             || 'test_db',
   DB_USER:        process.env.DB_USER             || 'root',
   DB_PASSWORD:    process.env.DB_PASSWORD,
-  DB_CONN_NAME:   process.env.DB_CONN_NAME        || 'first-connection',
+  DB_CONN_NAME:   process.env.DB_CONN_NAME        || 'default',
 
   /** JWT */
   JWT_SECRET: process.env.JWT_SECRET,

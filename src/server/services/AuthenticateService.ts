@@ -81,7 +81,7 @@ export class AuthenticateService {
     }
 
     /** Add user device if it does not exist */
-    if (await !deviceService.getOne(foundUser.id, userDevice)) {
+    if (!(await deviceService.getOne(foundUser.id, userDevice))) {
       await deviceService.createDevice(foundUser, userDevice);
     }
 
@@ -125,24 +125,22 @@ export class AuthenticateService {
     return bcrypt.hash(password, salt);
   }
 
-  public extractTokenFromAuthorization(authHeader: string): string {
-    const authHeaderItemsArr = authHeader.split(' ');
+  public extractDataFromAuthorization(authHeader: string): string[] {
+    const data = authHeader.split(' ');
     let device;
-    let token;
 
     /** Check Bearer */
-    if (authHeaderItemsArr.length !== 3 || authHeaderItemsArr[0] !== 'Bearer') {
+    if (data.length !== 3 || data[0] !== 'Bearer') {
       throw new HttpAuthError('Authorised header format invalid.');
     }
     /** Check Device Type */
-    device = authHeaderItemsArr[1];
+    device = data[1];
     if (!deviceService.isDeviceSupport(device)) {
       throw new HttpAuthError('Device is not support in this api.');
     }
 
     /** Return the token */
-    token = authHeaderItemsArr[2];
-    return token;
+    return data;
   }
 
   public verifyToken(token: string): Promise<PayloadInterface> {

@@ -26,7 +26,9 @@ export class Device {
   @Column()
   type: DeviceType;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   token: string;
 
   @Column()

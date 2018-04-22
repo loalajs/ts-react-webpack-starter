@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { HttpAuthError, ServiceError } from '../../utils/errors/customError';
+import { HttpAuthError } from '../../utils/errors/customError';
 import { AuthenticateService, PayloadInterface } from '../../services/AuthenticateService';
 import { DeviceService } from '../../services/DeviceService';
 import { DeviceType } from '../../models/Device';
@@ -16,26 +16,28 @@ export class AuthenticateMiddleware {
   public async authenticate(req: Request, res: Response, next: NextFunction) {
     let decoded: PayloadInterface;
     /** Check if format is srart from Bearer <DeviceType> <token> */
-    const header = req.header('Authorization') || req.query.token;
+    const header = req.header('Authorization');
     if (!header) throw new HttpAuthError('No authorised header is provided.');
 
     /** Extract "Bearer" from token */
-    const token = authenticateService.extractTokenFromAuthorization(header);
+    const data = authenticateService.extractDataFromAuthorization(header);
+    const token = data[2];
+    const userDevice = data[1];
 
     /** Verify the token and get the decoded token */
     try {
       decoded = await authenticateService.verifyToken(token);
     } catch (err) {
-      throw new ServiceError(`The token cannot be verified: ${err.message}`);
+      return next(new HttpAuthError(`The token cannot be verified: ${err.message}`));
     }
 
-    if (!decoded) throw new HttpAuthError(`Failed to verify the token`);
+    if (!decoded) return next(new HttpAuthError(`Failed to verify the token`));
     /** Check if there is existing device
      * If yes, let pass the authentication
      * If not, throw HttpAuthError
      */
-    if (!(await deviceService.getOne(decoded.userId, decoded.userDevice as DeviceType))) {
-      throw new HttpAuthError('No user login with this device is found');
+    if (!(await deviceService.getOne(decoded.userId, userDevice as DeviceType))) {
+      return next(new HttpAuthError('No user login with this device is found'));
     }
 
     /** Just let it flow :) */

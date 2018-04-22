@@ -1,16 +1,17 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as morgan from 'morgan';
-import 'reflect-metadata';
 import { default as appRouterInit } from './http/routers';
 import env from './config/env';
 import { default as appPaths } from './config/path';
 import { default as ErrorHandleMiddleware } from './http/middlewares/ErrorHandleMiddleware';
-
-
+import { default as Database } from './database/index';
 
 /** Get env variables */
 const { APP_HOST, APP_PORT } = env;
+
+/** Init DB */
+Database.init();
 
 /** Use ExpressJS frameworks */
 const app = express();
