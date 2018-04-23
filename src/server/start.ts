@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as morgan from 'morgan';
+import * as socketIo from 'socket.io';
 import { default as appRouterInit } from './http/routers';
 import env from './config/env';
 import { default as appPaths } from './config/path';
@@ -42,6 +43,21 @@ app.use(errorHandleMiddleware.logError);
 /** Handle Error */
 app.use(errorHandleMiddleware.errorHandler);
 
-app.listen(APP_PORT, () => {
+const server = app.listen(APP_PORT, () => {
   console.log(`Server running at host: ${APP_HOST} on port: ${APP_PORT}; cwd: ${process.cwd()}`);
+});
+
+/** Socket IO */
+const io = socketIo(server);
+
+io.on('connect', (socket: socketIo.Socket) => {
+  console.log(`Client connect at the port: ${APP_PORT} at ${APP_HOST}`);
+  socket.on('message', (msg: string) => {
+    console.log(`[ Server ]: Received message: ${msg} `);
+    io.emit('message', msg);
+  });
+
+  socket.on('disconnect', () => {
+    console.log(`Client Disconnect`);
+  });
 });
