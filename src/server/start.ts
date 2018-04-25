@@ -52,9 +52,19 @@ const io = socketIo(server);
 
 io.on('connect', (socket: socketIo.Socket) => {
   console.log(`Client connect at the port: ${APP_PORT} at ${APP_HOST}`);
-  socket.on('message', (msg: string) => {
-    console.log(`[ Server ]: Received message: ${msg} `);
-    io.emit('message', msg);
+  socket.on('message', (chat: string) => {
+    console.log(`[ Server ]: Received message: ${chat} `);
+    io.emit('message', chat);
+  });
+
+  socket.on('userTyping', () => {
+    console.log(`[ Server ]: User Input `);
+    io.emit('userTyping');
+  });
+
+  socket.on('userNotTyping', () => {
+    console.log(`[ Server ]: User Not Input`);
+    io.emit('userNotTyping');
   });
 
   socket.on('disconnect', () => {
