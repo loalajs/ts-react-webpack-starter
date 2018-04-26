@@ -17,6 +17,8 @@ export class UserService {
       .orWhere('user.email = :email', { email })
       .getOne();
 
+    console.log(existedUser);
+
     if (existedUser) {
       if (existedUser.email === email) {
         throw new FormValidationError({
