@@ -15,15 +15,15 @@ const { APP_HOST, APP_PORT } = env;
 
 export default class ApplicationBootstrap {
   /** Use ExpressJS frameworks */
-  app: express.Application = express();
+  private app: express.Application = express();
   /** Error Hanlder */
-  errorHandleMiddleware = new ErrorHandleMiddleware();
+  private errorHandleMiddleware = new ErrorHandleMiddleware();
 
   /** Server */
-  server: Server;
+  private server: Server;
 
   /** Socket IO */
-  io: socketIo.Server;
+  private io: socketIo.Server;
 
   constructor() {
 
@@ -61,7 +61,7 @@ export default class ApplicationBootstrap {
 
   }
 
-  setupServer() {
+  private setupServer() {
     this.server = this.app.listen(APP_PORT, () => {
       console.log(`Server running at host:
       ${APP_HOST} on port:
@@ -70,7 +70,7 @@ export default class ApplicationBootstrap {
     });
   }
 
-  setupSocketIo() {
+  private setupSocketIo() {
     this.io = socketIo(this.server);
     new RootEventBroadCastor(this.io);
   }

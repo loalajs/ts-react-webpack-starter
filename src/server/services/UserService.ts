@@ -15,9 +15,7 @@ export class UserService {
       .from(User, 'user')
       .where('user.username = :username', { username })
       .orWhere('user.email = :email', { email })
-      .getOne();
-
-    console.log(existedUser);
+      .getRawOne();
 
     if (existedUser) {
       if (existedUser.email === email) {

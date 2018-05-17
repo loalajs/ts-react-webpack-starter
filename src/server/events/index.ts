@@ -11,7 +11,7 @@ export default class RootEventBroadCastor {
     this.listenConnection();
   }
 
-  listenConnection() {
+  private listenConnection() {
     this.io.on('connect', (socket: socketIo.Socket) => {
       console.log(`Client connect at the port: ${APP_PORT} at ${APP_HOST}`);
       this.socket = socket;
@@ -26,27 +26,27 @@ export default class RootEventBroadCastor {
     });
   }
 
-  listenNewMessage() {
+  private listenNewMessage() {
     this.socket.on('message', (chat: string) => {
       console.log(`[ Server ]: Received message: ${chat} `);
       this.io.emit('message', chat);
     });
   }
 
-  listenUserTyping() {
+  private listenUserTyping() {
     this.socket.on('userTyping', () => {
       console.log(`[ Server ]: User Input `);
       this.io.emit('userTyping');
     });
   }
 
-  listenDisconnection() {
+  private listenDisconnection() {
     this.socket.on('disconnect', () => {
       console.log(`Client Disconnect`);
     });
   }
 
-  listenUserNotTyping() {
+  private listenUserNotTyping() {
     this.socket.on('userNotTyping', () => {
       console.log(`[ Server ]: User Not Input`);
       this.io.emit('userNotTyping');
