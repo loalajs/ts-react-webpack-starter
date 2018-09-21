@@ -12,7 +12,7 @@
     ".eslintrc.json": true,
     "package-lock.json": true,
     "yarn.lock": true,
-    ".gitignore": true
+    ".gitignore": false
   },
   "editor.rulers": [150],
   "files.eol": "\n",
