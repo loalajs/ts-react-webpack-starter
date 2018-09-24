@@ -10,7 +10,7 @@
     "**/*.sublime-workspace": true,
     "tslint.json": true,
     ".eslintrc.json": true,
-    "package-lock.json": true,
+    "package-lock.json": false,
     "yarn.lock": true,
     ".gitignore": false
   },
