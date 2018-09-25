@@ -1,5 +1,5 @@
 import * as React from 'react';
-import reactLoadable from 'react-loadable';
+import * as reactLoadable from 'react-loadable';
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import Home from 'components/Home';
 import Loading from 'components/Loading';
