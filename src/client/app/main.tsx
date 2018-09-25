@@ -1,7 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Root from 'routers/Root';
+<<<<<<< HEAD
 import { importPromisePolyfill } from 'config//polyfills';
+=======
+import { importPromisePolyfill } from 'config/polyfills';
+>>>>>>> dev
 import swRegister from 'config/swRegister';
 
 /** Conditionally add polyfills */
