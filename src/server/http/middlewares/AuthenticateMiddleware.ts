@@ -14,34 +14,35 @@ export class AuthenticateMiddleware {
   }
 
   public async authenticate(req: Request, res: Response, next: NextFunction) {
-    let decoded: PayloadInterface;
-    /** Check if format is srart from Bearer <DeviceType> <token> */
-    const header = req.header('Authorization');
-    if (!header) throw new HttpAuthError('No authorised header is provided.');
-
-    /** Extract "Bearer" from token */
-    const data = authenticateService.extractDataFromAuthorization(header);
-    const token = data[2];
-    const userDevice = data[1];
-
-    /** Verify the token and get the decoded token */
     try {
-      decoded = await authenticateService.verifyToken(token);
-    } catch (err) {
-      return next(new HttpAuthError(`The token cannot be verified: ${err.message}`));
-    }
+      let decoded: PayloadInterface;
+      /** Check if format is srart from Bearer <DeviceType> <token> */
+      const header = req.header('Authorization');
+      if (!header) throw new HttpAuthError('No authorised header is provided.');
 
-    if (!decoded) return next(new HttpAuthError(`Failed to verify the token`));
-    /** Check if there is existing device
-     * If yes, let pass the authentication
-     * If not, throw HttpAuthError
-     */
-    if (!(await deviceService.getOne(decoded.userId, userDevice as DeviceType))) {
-      return next(new HttpAuthError('No user login with this device is found'));
-    }
+      /** Extract "Bearer" from token */
+      const data = authenticateService.extractDataFromAuthorization(header);
+      const token = data[2];
+      const userDevice = data[1];
 
-    /** Just let it flow :) */
-    console.info(decoded);
-    next();
+      /** Verify the token and get the decoded token */
+      try {
+        decoded = await authenticateService.verifyToken(token);
+      } catch (err) {
+        return next(new HttpAuthError(`The token cannot be verified: ${err.message}`));
+      }
+
+      if (!decoded) return next(new HttpAuthError(`Failed to verify the token`));
+      /** Check if there is existing device
+       * If yes, let pass the authentication
+       * If not, throw HttpAuthError
+       */
+      if (!(await deviceService.getOne(decoded.userId, userDevice as DeviceType))) {
+        return next(new HttpAuthError('No user login with this device is found'));
+      }
+      next();
+    } catch (e) {
+      next(e);
+    }
   }
 }
