@@ -20,19 +20,19 @@ gulp.task('build-server-src', () => {
 /**
  * Build server task
  */
-gulp.task('build-server', ['build-server-src']);
+gulp.task('build-server', gulp.series('build-server-src'));
 
 /**
  * Build server and watch for changes
  */
-gulp.task('build-server:watch', ['build-server'], () => {
-  gulp.watch('src/server/**/*.ts', ['build-server']);
-});
+gulp.task('build-server:watch', gulp.series('build-server', () => {
+  gulp.watch('src/server/**/*.ts', gulp.series('build-server'));
+}));
 
 /**
  * Sass compilation
  */
-gulp.task('build-sass', () => gulp.src('src/server/assets/styles/main.scss')
+gulp.task('build-sass', () => gulp.src('src/server/assets/styles/main.scss', { allowEmpty: true })
   .pipe(sourcemaps.init())
   .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
   .pipe(sourcemaps.write('.'))
@@ -41,21 +41,23 @@ gulp.task('build-sass', () => gulp.src('src/server/assets/styles/main.scss')
 /**
  * Build styles source code
  */
-gulp.task('build-styles', ['build-sass']);
+gulp.task('build-styles', gulp.series('build-sass'));
 
 /**
  * Build assets watch task
  */
-gulp.task('build-styles:watch', ['build-styles'], () => {
-  gulp.watch('src/server/assets/styles/**/*.scss', ['build-styles']);
-});
+gulp.task('build-styles:watch', gulp.series('build-styles', () => {
+  gulp.watch('src/server/assets/styles/**/*.scss', gulp.series('build-styles'));
+}));
 
 /**
  * Default task
  */
-gulp.task('default', ['build-styles', 'build-server']);
+// gulp.task('default', ['build-styles', 'build-server']);
+gulp.task('default', gulp.parallel('build-styles', 'build-server'));
 
 /**
  * Watch task
  */
-gulp.task('watch', ['build-styles:watch', 'build-server:watch']);
+// gulp.task('watch', ['build-styles:watch', 'build-server:watch']);
+gulp.task('watch', gulp.parallel('build-styles:watch', 'build-server:watch'));
